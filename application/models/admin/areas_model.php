@@ -20,4 +20,30 @@ class Areas_model extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('products');
     }
+
+    public function getAreaAll(){
+        $query = $this->db->get('areas');
+        return $query->result_array();
+    }
+
+    public function getAreaById($id){
+        $this->db->where('id', $id);
+        $data = $this->db->get('areas');
+        return $data->result_array();
+    }
+
+    public function saveArea($area){
+        $this->db->insert('areas',$area);
+    }
+
+    public function updateArea($area, $area_id)
+    {
+        $this->db->where('id', $area_id);
+        $this->db->update('areas', $area);
+    }
+
+    public function deleteArea($id){
+        $this->db->where('id', $id);
+        $this->db->delete('areas');
+    }
 }

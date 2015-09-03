@@ -26,7 +26,7 @@
             </div>
             <div class="category">
                 <div class="add_category">
-                    <form action="<?php echo base_url('index.php/admin/areas/saveProduct'); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url('index.php/admin/categories/saveProduct'); ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Enter Product name</label>
                             <input type="text" name="area_name" class="form-control add_input" id="exampleInputEmail1"  placeholder="Name Product">
@@ -39,8 +39,7 @@
                         <form action="<?php echo base_url('index.php/admin/areas/saveProduct'); ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Enter Product name</label>
-                                <input type="hidden" name="hidden" value="<?php echo $data['0']['id'];?>">
-                                <input type="text" name="area_name" value="<?php echo $data['0']['country'];?>" class="form-control add_input" id="exampleInputEmail1"  placeholder="Name Product">
+                                <input type="text" name="area_name" class="form-control add_input" id="exampleInputEmail1"  placeholder="Name Product">
                             </div>
                             <input type="submit" name="area_save" class="btn btn-success" value="Save"/>
                         </form>
@@ -51,7 +50,7 @@
                 </div>
                 <div class="delete_category">
                     <?php foreach ($area as $value) : ?>
-                        <a href="<?php echo base_url('index.php/admin/areas/deleteArea/' . $value['id']); ?>"><button type="button" class="btn btn-danger category_button"><?php echo $value['country']; ?></button></a>
+                        <a href="<?php echo base_url('index.php/admin/areas/deleteArea/' . $value['id']); ?>"><button type="button" class="btn btn-danger add_category_button"><?php echo $value['country']; ?></button></a>
                     <?php endforeach; ?>
                 </div>
             </div>

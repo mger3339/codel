@@ -14,7 +14,7 @@ class Categories_model extends CI_Model {
         $data = $this->db->get();
         return $data->result_array();
     }
-    public function getCategory(){
+    public function getCategoryAll(){
         $query = $this->db->get('category');
         return $query->result_array();
     }
@@ -22,5 +22,24 @@ class Categories_model extends CI_Model {
     public function deleteProduct($id){
         $this->db->where('id', $id);
         $this->db->delete('products');
+    }
+
+    public function saveCategory($category){
+        $this->db->insert('category',$category);
+    }
+    public function deleteCategory($id){
+        $this->db->where('id', $id);
+        $this->db->delete('category');
+    }
+    public function updateCategory($category, $category_id)
+    {
+        $this->db->where('id', $category_id);
+        $this->db->update('category', $category);
+    }
+
+    public function getCategoryById($id){
+        $this->db->where('id', $id);
+        $data = $this->db->get('category');
+        return $data->result_array();
     }
 }

@@ -9,10 +9,10 @@ $(document).ready(function() {
             data:{id: id, count: count},
             success: function(responce){
                 if(responce == 1){
-                    aaa.css({"border":"1px solid green"});
+                    aaa.css({"border":"2px solid green"});
                 }
                 else {
-                    aaa.css({"border":"1px solid red"});
+                    aaa.css({"border":"2px solid red"});
                 }
             }
         });

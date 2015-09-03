@@ -8,13 +8,11 @@ $(document).ready(function() {
         var id = $(this).attr('data-id');
         ++add_count;
         $(".asd").text(add_count);
-        //var count = $(".asd").text();
-        //alert(count);
         $.ajax({
-            url: 'home/addToCart',
+            url: '/home/addToCart',
             type: "POST",
             data:{id: id},
-            success: function(a){
+            success: function(){
                 }
         });
         return false;

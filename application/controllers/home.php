@@ -5,17 +5,25 @@ class Home extends CI_Controller {
 
     public function index()
     {
+       // die($this->uri->segment(3));
+        $limit = 3;
+        if($this->uri->segment(3) !== null && is_numeric($this->uri->segment(3)))
+        {
+            $offset = ($this->uri->segment(3) * $limit) - $limit ;
+        }
+        else
+        {
+            $offset = 0;
+        }
         $this->load->view('frontend/header_view');
         $this->load->model('frontend/products_model');
         $data['product'] = $this->products_model->sliderImg();
         $this->load->view('frontend/slider_view',$data);
-        $per_page = 4;
-        $page = $this->uri->segment(4);
-        $config['base_url'] = base_url('index.php/frontend/home/index');
+        $config['base_url'] = base_url('/home/index');
         $config['total_rows'] = $this->db->count_all('products');
-        $config['per_page'] = $per_page;
+        $config['per_page'] = $limit;
         $config['use_page_numbers'] = TRUE;
-        $config['full_tag_open'] = "<ul class='pagination pag_product pagination-centered'>";
+        $config['full_tag_open'] = "<ul class='pagination  pagination-centered'>";
         $config['full_tag_close'] ="</ul>";
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
@@ -30,7 +38,8 @@ class Home extends CI_Controller {
         $config['last_tag_open'] = "<li>";
         $config['last_tagl_close'] = "</li>";
         $this->pagination->initialize($config);
-        $home['data'] = $this->products_model->getProduct($per_page, $this->uri->segment(4));
+        $this->load->model('frontend/products_model');
+        $home['data'] = $this->products_model->getProduct($limit, $offset);
         $this->load->view('frontend/content_view',$home);
         $this->load->view('frontend/footer_view');
     }
@@ -71,10 +80,7 @@ class Home extends CI_Controller {
     }
 
     public function addToCart(){
-        if(isset($_POST['id']))
-        {
-            $id = $_POST['id'];
-        }
+            $id = $this->input->post('id');
             $this->load->model('frontend/products_model');
             $arr = $this->products_model->getCartProduct();
             $myrow = array();
@@ -85,6 +91,9 @@ class Home extends CI_Controller {
         if(!in_array($id, $myrow))
         {
             $cart = array( 'product_id' => $id, 'count' => 1);
+//            echo "<pre>";
+//            print_r($cart);
+//            die;
             $this->load->model('frontend/products_model');
             $this->products_model->addCartProduct($cart);
         }

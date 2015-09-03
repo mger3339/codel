@@ -31,8 +31,10 @@
                     <div class="img_product"><img width="100%" src="<?php echo base_url('assets/img/' . $value['img']) ; ?>"></div>
                     <div class="desc_product"><?php echo $value['desc']."<br>";?></div>
                     <div class="price_product"><span>PRICE: <span><?php echo $value['price']." $"."<br>";?></div>
+                    <div class="country_product"><span>COUNTRY: <span><?php echo $value['country'];?></div>
+                    <div class="category_product"><span>CATEGORY: <span><?php echo $value['category_name'];?></div>
                     <div class="total_product"><span>TOTAL: <span><?php echo $value['total']."<br>";?></div>
-                    <a href="<?php echo base_url('index.php/admin/products/editProduct/' .$id);?>"><button class="btn btn-success btn-lg admin_edit_button"><span class="edit">EDIT</span></button></a>
+                    <a href="<?php echo base_url('index.php/admin/products/editProduct/' .$id);?>"><button class="btn btn-success btn-lg admin_edit_button">EDIT</button></a>
                     <button class="btn btn-danger btn-lg admin_delete_button" data-toggle="modal" data-target="#myModal<?=$id?>">DELETE</button>
                 </div>
                     <hr>

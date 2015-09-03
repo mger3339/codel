@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <div id="page-wrapper" >
+    <div id="page-wrapper">
         <div id="page-inner">
             <div class="form_div">
                 <form action="<?php echo base_url('index.php/admin/products/saveProduct'); ?>" method="post" enctype="multipart/form-data">
@@ -42,19 +42,17 @@
                     <div class="category_select">
                         <label>Enter product country</label>
                         <select class="selectpicker" name="country" data-style="btn-primary">
-                            <option value="1">China</option>
-                            <option value="2">Usa</option>
-                            <option value="3">Armenia</option>
-                            <option value="4">Russia</option>
+                            <?php foreach ($area as $value_country) : ?>
+                            <option value="<?php echo $value_country['id']; ?>"><?php echo $value_country['country']; ?></option>
+                            <?php endforeach; ?>
                         </select><br><br>
                     </div>
                     <div class="category_select select_css">
                         <label>Enter product category</label>
                         <select class="selectpicker" name="category" data-style="btn-primary">
-                            <option value="1">Phone</option>
-                            <option value="2">Computers</option>
-                            <option value="3">Cars</option>
-                            <option value="4">Watches</option>
+                            <?php foreach ($category as $value_category) : ?>
+                                <option value="<?php echo $value_category['id']; ?>"><?php echo $value_category['category_name']; ?></option>
+                            <?php endforeach; ?>
                         </select><br><br>
                     </div>
                     <div class="input-group div_file">

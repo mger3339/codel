@@ -15,10 +15,10 @@
                 <a href="<?php echo base_url('index.php/admin/products/index');?>"><i class="fa fa-dashboard fa-3x"></i> PRODUCTS</a>
             </li>
             <li>
-                <a  href="<?php echo base_url('index.php/admin/categories/getCategory');?>"><i class="fa fa-desktop fa-3x"></i> CATEGORIES</a>
+                <a  href="<?php echo base_url('index.php/admin/categories/getCategories');?>"><i class="fa fa-desktop fa-3x"></i> CATEGORIES</a>
             </li>
             <li>
-                <a  href="<?php echo base_url('index.php/admin/areas/getArea');?>"><i class="fa fa-square-o fa-3x"></i> AREAS</a>
+                <a  href="<?php echo base_url('index.php/admin/areas/getAreas');?>"><i class="fa fa-square-o fa-3x"></i> AREAS</a>
             </li>
         </ul>
     </div>

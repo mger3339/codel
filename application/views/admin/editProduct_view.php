@@ -24,7 +24,7 @@
             <div class="form_div">
                 <?php foreach ($edit_product as $item) : ?>
                 <?php endforeach; ?>
-                <form action="<?php echo base_url('admin/products/saveProduct'); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('index.php/admin/products/saveProduct'); ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Enter Product name</label>
                         <input type="text" name="name" class="form-control add_input" value="<?php echo $item['name']; ?>" id="exampleInputEmail1" placeholder="Name Product"><div class="name_error"><?php echo form_error('name'); ?></div><br>
@@ -44,20 +44,17 @@
                     <div class="category_select">
                         <label>Edit product country</label>
                         <select class="selectpicker" name="country" data-style="btn-danger">
-                            <option value="1">China</option>
-                            <option value="2">Usa</option>
-                            <option value="3">Armenia</option>
-                            <option value="4">Russia</option>
+                            <?php foreach ($data as $value_country) : ?>
+                            <option value="<?php echo $value_country['id']; ?>"><?php echo $value_country['country'] ?></option>
+                            <?php endforeach; ?>
                         </select><br><br>
                     </div>
                     <div class="category_select">
                         <label>Edit product category</label>
                     <select class="selectpicker" name="category" data-style="btn-danger">
-                            <option value="1">Phone</option>
-                            <option value="2">Computers</option>
-                            <option value="3">Cars</option>
-                            <option value="4">Watches</option>
-<!--                            <option selected value="t4">Крыса Лариса</option>-->
+                        <?php foreach ($myrow as $value) : ?>
+                            <option value="<?php echo $value['id']; ?>"><?php echo $value['category_name']; ?></option>
+                        <?php endforeach; ?>
                         </select><br><br>
                     </div>
                     <div class="input-group div_file">
@@ -73,7 +70,6 @@
                     </div>
                     <input type="hidden" name="hid_id" value="<?php echo $item['id']; ?>"/>
                     <input type="submit" id="edit_submit" name="submit" class="btn btn-success button_save" value="Save"/>
-                    <?php echo base_url('assets/img/' . $item['img']); ?>
                 </form>
             </div>
         </div>

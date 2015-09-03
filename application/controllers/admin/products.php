@@ -7,11 +7,6 @@ class Products extends CI_Controller {
     {
         if($this->session->userdata('chack') == TRUE)
         {
-//            $page = $this->uri->segment(4);
-//            if($page == '')
-//            {
-//                $page = 1;
-//            }
             $limit = 3;
             if($this->uri->segment(4) !== null && is_numeric($this->uri->segment(4)))
             {
@@ -60,9 +55,15 @@ class Products extends CI_Controller {
     {
         if($this->session->userdata('chack') == TRUE)
         {
+            $this->load->model('admin/categories_model');
+            $data_category = $this->categories_model->getCategoryAll();
+            $this->load->model('admin/areas_model');
+            $data_area = $this->areas_model->getArea();
+            $arr['category'] = $data_category;
+            $arr['area'] = $data_area;
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
-            $this->load->view('admin/addProduct_view');
+            $this->load->view('admin/addProduct_view', $arr);
             $this->load->view('admin/footer_view');
         }
         else
@@ -140,7 +141,7 @@ class Products extends CI_Controller {
                 {
                     $this->load->model('admin/products_model');
                     $this->products_model->saveEditProduct($product, $id);
-                    redirect('/admin/products', 'refresh');
+                    redirect('/admin/products/index', 'refresh');
                 }
             }
         }
@@ -164,7 +165,13 @@ class Products extends CI_Controller {
         {
             $this->load->model('admin/products_model');
             $edit_product = $this->products_model->getEditProduct($id);
+            $this->load->model('admin/categories_model');
+            $data_category = $this->categories_model->getCategoryAll();
+            $this->load->model('admin/areas_model');
+            $data_area = $this->areas_model->getArea();
             $arr['edit_product'] = $edit_product;
+            $arr['myrow'] = $data_category;
+            $arr['data'] = $data_area;
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/editProduct_view', $arr);

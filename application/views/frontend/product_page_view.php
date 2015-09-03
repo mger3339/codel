@@ -20,14 +20,14 @@
             ?>
         <?php endforeach; ?>
             <div class="product_page">
-                <div class="page_img"><img width="80%" src="<?php echo base_url('/assets/img/'. $img); ?>"></div>
+                <div class="page_img"><img width="100%" src="<?php echo base_url('/assets/img/'. $img); ?>"></div>
                 <div class="page_desc">
-                    <p class="product_name"><?php echo $name ?></p>
+                    <div class="product_name"><?php echo $name ?></div>
                     <?php echo $desc ?><br><br>
-                    <p class="product_price">PRICE: <?php echo $price ?></p>
-                    <p class="product_country">COUNTRY: <?php echo $country ?></p>
-                    <p class="product_category">CATEGORY: <?php echo $category_name ?></p>
-                    <p class="product_category">TOTAL: <?php echo $total ?></p>
+                    <div class="product_price">PRICE: <?php echo $price ?></div>
+                    <div class="product_country">COUNTRY: <?php echo $country ?></div>
+                    <div class="product_category">CATEGORY: <?php echo $category_name ?></div>
+                    <div class="product_category">TOTAL: <?php echo $total ?></div>
                 </div>
             </div>
 

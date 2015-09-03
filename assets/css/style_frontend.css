@@ -29,13 +29,8 @@ body, html {
     height: 30px;
 }
 .cart {
-    text-align: left!important;
-    padding-top: 3px;
-    float: left;
-    margin-left: 950px;
-    margin-top: 5px;
-    width: 100px;
-    height: 40px;
+    border-bottom: 2px solid #002a80;
+    padding-bottom: 10px;
 }
 .count {
     text-align: center;
@@ -43,8 +38,9 @@ body, html {
     border: 2px solid #ffffff;
     width: 30px;
     height: 30px;
-    float: right;
-    margin-right: 35px;
+    float: left;
+    margin-left: 92%;
+    margin-right: 5px;
     font-size: 20px;
     color: #0000FF;
 }
@@ -78,54 +74,86 @@ body, html {
     width: 100%;
     height: 100%;
 }
-.auto {
-    margin: 70px auto;
-    width: 90%;
-    border-radius: 15px;
-    background-color: #faebcc ;
-    border: 1px solid #003bb3;
-    height: 250px;
-    padding-left: 25px;
-}
-.auto_desc {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 70%;
-    height: 280px;
-    border: 1px solid #003399;
+.main_div {
+    min-height: 200px;
+    width: 100%;
     float: left;
-    margin-left: 40px;
-    margin-top: 15px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+    margin-top: 20px;
 }
+
 .button_view_frontend {
-    margin-top: 40px;
+    width: 100px;
+    margin-right: 20px;
+}
+.add_cart {
 }
 .auto_img_div {
-    float: left;
-    margin-top: 25px;
     width: 150px;
+    margin-left: 25px;
+    float: left;
+}
+.cart_page_div {
+    margin-left: 60px;
+    width: 40%;
+    float: left;
+}
+.div_button {
+    margin-top: 10px;
+    text-align: center;
+    width: 25%;
+    margin-left: 100px;
+    float: left;
 }
 .desc {
     font-size: 13px;
 }
 .title {
-    font-size: 22px;
+    width: 100%;
     text-align: center;
+    font-size: 22px;
+    margin: 0 auto;
     font-weight: bold;
+}
+.title a {
+    text-decoration: none!important;
+    color: #003399!important;
+}
+.title a:hover {
+    color: #2b542c!important;
 }
 .price {
-    color: #002166;
-    font-size: 18px;
     text-align: center;
+    width: 20%;
+    color: #2b542c;
+    font-size: 16px;
     font-weight: bold;
+    float: right;
+    margin-top: 100px;
 }
 .country {
+    width: 100%;
     font-size: 16px;
-    color: #003bb3;
-    text-align: center;
+    color: #D9534F;
     font-weight: bold;
+    float: left;
+    margin-bottom: 5px;
+}
+.category {
+    width: 100%;
+    font-size: 16px;
+    color: #4D4D4D;
+    font-weight: bold;
+    float: left;
+    margin-bottom: 5px;
+}
+.total {
+    width: 100%;
+    font-size: 16px;
+    color: #2b542c;
+    font-weight: bold;
+    float: left;
 }
 #footer {
     text-align: center;
@@ -157,18 +185,18 @@ body, html {
     color: #ffffff;
 }
 .product_page {
-    background-color: #0e90d2;
+    background-color: #6FBCE4;
     margin: 50px auto;
     width: 90%;
-    height: 100%;
-    border: 1px solid red;
+    min-height: 400px;
     border-radius: 10px;
 }
 .page_img {
+    overflow: hidden;
     text-align: center;
     margin-top: 20px;
     margin-left: 20px;
-    width: 30%;
+    width: 25%;
     height: 300px;
     float: left;
 }
@@ -178,8 +206,9 @@ body, html {
     margin-left: 35%;
     margin-bottom: 20px;
     width: 60%;
-    height: 100%
-    border: 1px solid red;
+    height: 100%;
+    background-color: #B9E7FF;
+
 }
 
 .product_name {
@@ -205,10 +234,6 @@ body, html {
 .pag_product {
     width: 50%;
     margin-left: 40%;
-}
-.button_add_cat {
-    margin-left: 60%!important;
-    margin-top: -57px!important;
 }
 .asd {
     border-radius: 15px;
@@ -241,8 +266,9 @@ body, html {
 }
 .cart_img {
     padding-top: 10px;
-    width: 30%;
+    width: 20%;
     height: 180px;
+    overflow: hidden;
     margin-left: 30px;
     margin-bottom: 10px;
     text-align: center;
@@ -328,4 +354,19 @@ body, html {
 .cart_button_buy {
     margin-left: 360px;
     margin-top: -123px;
+}
+
+.modal_content {
+    width: 55%;
+    margin: 20px auto;
+}
+.confirm {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #002166;
+}
+.pagin {
+    margin-left: 450px;
 }

@@ -493,6 +493,7 @@ line-height: 1.428571429;
     font-size: 13px;
     float: left;
     margin-top: 5px;
+    color: #002166;
 }
 .total_product{
     margin-top: -27px!important;
@@ -501,6 +502,27 @@ line-height: 1.428571429;
     margin-left: 760px;
     font-weight: bold;
     font-size: 15px;
+    color: #002166;
+}
+.country_product {
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #002166;
+}
+.category_product {
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #002166;
 }
 .button_product {
     margin-top: 15px;
@@ -510,8 +532,8 @@ line-height: 1.428571429;
     text-align: center;
 }
 .edit {
-    margin-bottom: 15px;
-    color: #ffffff;
+    border: 1px solid red;
+    width: 100px;
 }
 
 .category_title {
@@ -520,11 +542,6 @@ line-height: 1.428571429;
     font-size: 24px;
     text-align: center;
     color: #002166;
-}
-.category_button button {
-    width: 100px;
-    float: left;
-    margin-left: 20px;
 }
 .file {
     font-weight: bold;
@@ -634,9 +651,10 @@ select {
     width: 100px;
 }
 .admin_edit_button {
+    width: 90px;
     height: 40px;
     margin-top: 10px;
-    margin-left: 350px;
+    margin-left: 480px!important;
 }
 .admin_delete_button {
     height: 40px;
@@ -652,4 +670,43 @@ select {
     height: 100px;
     overflow: hidden;
 }
-
+.category {
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+}
+.button_category {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+.button_category button {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.add_category {
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #86B7E4;
+}
+.edit_category {
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #86B7E4;
+}
+.delete_category {
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #86B7E4;
+}
+.edit_category button {
+    margin: 5px;
+    width: 120px;
+}
+.delete_category button {
+    margin: 5px;
+    width: 120px;
+}

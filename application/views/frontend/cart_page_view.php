@@ -15,7 +15,7 @@
             <?php $id = $value['id'];?>
         <div class="cart_1<?=$id?>">
             <div class="cart_products">
-                <div class="cart_img"><img src="<?php echo base_url('/assets/img/' .$value['img']) ?>"></div>
+                <div class="cart_img"><img width="100%" src="<?php echo base_url('/assets/img/' .$value['img']) ?>"></div>
                 <div class="cart_product_div">
                     <div class="cart_product_name"><?php echo $value['name']; ?></div>
                     <div class="cart_product_country">COUNTRY: <?php echo $value['country']; ?></div>
@@ -25,25 +25,21 @@
                         <div class="form-group">
                             <span class="aaa">COUNT: </span><input data-id="<?php echo $value['id']; ?>" type="text" class="form-control count_control" value="<?php echo $value['count']; ?>">
                         </div>
-                        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-primary" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
-                        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button_buy btn-primary">BUY</button>
+                        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
+                        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button_buy btn-success">BUY</button>
                     </div>
                 </div>
             </div>
         </div>
             <div class="modal fade" id="myModal<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                        </div>
+                    <div class="modal-content modal_content">
                         <div class="modal-body">
-                            <p>Are you sure</p>
+                            <p class="confirm">Are you sure</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><a href="<?php echo base_url('index.php/frontend/home/cartPage');?>">NO</a></button>
-                            <button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-default delete" data-dismiss="modal"><a href="<?php echo base_url('index.php/frontend/home/deleteCartProduct/' .$id);?>">YES</a></button>
+                            <a href="<?php echo base_url('/home/cartPage');?>"><button type="button" class="btn btn-success" data-dismiss="modal">NO</button></a>
+                            <a href="<?php echo base_url('index.php/frontend/home/deleteCartProduct/' .$id);?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-danger delete" data-dismiss="modal">YES</button></a>
                         </div>
                     </div>
                 </div>
