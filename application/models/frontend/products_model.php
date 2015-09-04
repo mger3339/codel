@@ -88,4 +88,9 @@ class Products_model extends CI_Model {
         $this->db->where('product_id', $id);
         $this->db->delete('cart');
     }
+
+    public function getShipping(){
+        $data = $this->db->get('shipping');
+        return $data->result_array();
+    }
 }

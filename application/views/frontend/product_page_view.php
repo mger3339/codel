@@ -30,7 +30,6 @@
                     <div class="product_category">TOTAL: <?php echo $total ?></div>
                 </div>
             </div>
-
     </div>
 </body>
 </html>

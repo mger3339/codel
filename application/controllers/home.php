@@ -91,9 +91,6 @@ class Home extends CI_Controller {
         if(!in_array($id, $myrow))
         {
             $cart = array( 'product_id' => $id, 'count' => 1);
-//            echo "<pre>";
-//            print_r($cart);
-//            die;
             $this->load->model('frontend/products_model');
             $this->products_model->addCartProduct($cart);
         }
@@ -103,6 +100,7 @@ class Home extends CI_Controller {
             $data = $this->products_model->getCartProductById($id);
             $count = $data['0']['count'];
             $count = $count + 1;
+
             $this->load->model('frontend/products_model');
             $this->products_model->editCartProduct($id, $count);
         }
@@ -138,5 +136,15 @@ class Home extends CI_Controller {
         $total = $this->products_model->deleteProduct($id);
         $result = 1;
         echo $result;
+    }
+
+    public function buyProduct($id){
+        $this->load->model('frontend/products_model');
+        $product['data'] = $this->products_model->getProductPage($id);
+        $this->load->model('frontend/products_model');
+        $product['shipping'] = $this->products_model->getShipping();
+        $this->load->view('frontend/header_view');
+        $this->load->view('frontend/buy_product_view', $product);
+        $this->load->view('frontend/footer_view');
     }
 }
