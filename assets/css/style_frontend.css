@@ -309,21 +309,21 @@ body, html {
 .product_country {
     margin-left: 10px;
     float: left;
-    width: 250px;
+    width: 240px;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
 }
 .product_category {
     float: left;
-    width: 250px;
+    width: 240px;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
 }
 .product_total {
     float: left;
-    width: 250px;
+    width: 240px;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
@@ -445,7 +445,8 @@ body, html {
     float: right;
 }
 .aaa {
-    margin-left: 15px;
+    font-weight: bold;
+    margin-left: 870px;
 }
 .cart_button_buy {
     margin-left: 360px;
@@ -472,5 +473,14 @@ body, html {
 .buy_now {
     width: 120px;
     margin-left: 575px;
+}
+.count_error {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000;
+    width: 125px;
+    height: 25px;
+    margin-left: 945px;
+    margin-top: 8px;
 }
 

@@ -16,6 +16,22 @@ $(document).ready(function(){
         var id = $(this).attr('data-id');
         var price_shipping = parseInt(price.substring(0, price.length - 1));
         var total_shipping = price_product + price_shipping;
-        $(".product_price").text("PRICE: " + price_product + "$ + " + price_shipping + "$ = " + total_shipping + "$");
+        $(".product_price").text("PRICE: " + total_shipping + "$");
+    });
+});
+
+$(document).ready(function(){
+    $(".buy_now").on("click", function(){
+        var a = $(".product_price").text();
+        var total = parseInt(a.substring(7, a.length - 1));
+        var id = $("button").attr('data-id');
+        var count = $(".count_control").val();
+        $.ajax({
+            url: '../puyPage',
+            type: "POST",
+            data:{total: total, id: id, count: count},
+            success: function(data){
+            }
+        });
     });
 });

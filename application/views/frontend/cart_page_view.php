@@ -6,7 +6,6 @@
     <link href="<?php echo base_url('/assets/css/bootstrap.css'); ?>" rel="stylesheet" />
     <link href="<?php echo base_url('/assets/css/style_frontend.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/edit_cart_count.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/delete_cart_product.js'); ?>"></script>
 </head>
 <body>
@@ -22,9 +21,6 @@
                     <div class="cart_product_category">CATEGORY: <?php echo $value['category_name']; ?></div>
                     <div class="cart_product_price">PRICE: <?php echo $value['price']; ?> $</div>
                     <div class="cart_count">
-                        <div class="form-group">
-                            <span class="aaa">COUNT: </span><input data-id="<?php echo $value['id']; ?>" type="text" class="form-control count_control" value="<?php echo $value['count']; ?>">
-                        </div>
                         <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
                         <a href="<?php echo base_url('/home/buyProduct/' . $value['id']) ?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button_buy btn-success">BUY</button></a>
                     </div>
@@ -39,7 +35,7 @@
                         </div>
                         <div class="modal-footer">
                             <a href="<?php echo base_url('/home/cartPage');?>"><button type="button" class="btn btn-success" data-dismiss="modal">NO</button></a>
-                            <a href="<?php echo base_url('index.php/frontend/home/deleteCartProduct/' .$id);?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-danger delete" data-dismiss="modal">YES</button></a>
+                            <a href="<?php echo base_url('/home/deleteCartProduct/' .$id);?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-danger delete" data-dismiss="modal">YES</button></a>
                         </div>
                     </div>
                 </div>

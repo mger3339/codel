@@ -52,7 +52,7 @@ class Categories extends CI_Controller {
 
     public function deleteProduct(){
         $this->load->model('admin/categories_model');
-        $this->categories_model->deleteProduct($id);
+        $this->categories_model->deleteProduct();
         $result = 1;
     }
 

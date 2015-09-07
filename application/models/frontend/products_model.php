@@ -93,4 +93,14 @@ class Products_model extends CI_Model {
         $data = $this->db->get('shipping');
         return $data->result_array();
     }
+
+    public function addProductBuy($orders){
+        $this->db->insert('orders',$orders);
+    }
+
+    public function getOrders($id){
+        $this->db->where('product_id', $id);
+        $data = $this->db->get('orders');
+        return $data->result_array();
+    }
 }

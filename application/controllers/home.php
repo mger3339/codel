@@ -147,4 +147,35 @@ class Home extends CI_Controller {
         $this->load->view('frontend/buy_product_view', $product);
         $this->load->view('frontend/footer_view');
     }
+    public function puyPage(){
+        $total = $this->input->post('total');
+        $id = $this->input->post('id');
+        $count = $this->input->post('count');
+        $this->load->model('frontend/products_model');
+        $product = $this->products_model->getProductPage($id);
+        if($count > $product['0']['total'])
+        {
+            $count =  $product['0']['total'];
+        }
+        $orders = array(
+                    'product_id' => $id,
+                    'name' => $product['0']['name'],
+                    'desc' => $product['0']['desc'],
+                    'price' => $total,
+                    'img' =>  $product['0']['img'],
+                    'country' => $product['0']['country'],
+                    'category_name' => $product['0']['category_name'],
+                    'count' => $count
+        );
+        $this->load->model('frontend/products_model');
+        $this->products_model->addProductBuy($orders);
+    }
+
+    public function ordersBuy($id){
+        $this->load->model('frontend/products_model');
+        $product['data'] = $this->products_model->getOrders($id);
+        $this->load->view('frontend/header_view');
+        $this->load->view('frontend/buy_page_view',$product);
+        $this->load->view('frontend/footer_view');
+    }
 }
