@@ -172,6 +172,17 @@ class Home extends CI_Controller {
     }
 
     public function ordersBuy($id){
+        $this->load->library('googlemaps');
+        $config['center'] = '40.184378, 44.515669';
+        $config['zoom'] = '8';
+        $this->googlemaps->initialize($config);
+//        $polyline = array();
+//        $polyline['points'] = array('37.429, -122.1319', 'Crescent Park, Palo Alto', '37.4419, -122.1219');
+//        $this->googlemaps->add_polyline($polyline);
+        $marker = array();
+        $marker['position'] = '40.184378, 44.515669';
+        $this->googlemaps->add_marker($marker);
+        $product['map'] = $this->googlemaps->create_map();
         $this->load->model('frontend/products_model');
         $product['data'] = $this->products_model->getOrders($id);
         $this->load->view('frontend/header_view');

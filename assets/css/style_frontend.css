@@ -483,4 +483,74 @@ body, html {
     margin-left: 945px;
     margin-top: 8px;
 }
+.buy_div_page {
+    width: 100%;
+    min-height: 500px;
+    background-color: #59AD82;
+}
+.name_buy_product {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #843534;
+    background-color: #59AD82;
+}
+.img_buy_product {
+    width: 50%;
+    float: left;
+    margin-right: 10px;
+}
+.desc_buy_div {
+    text-align: justify;
+    font-size: 13px;
+    width: 100%;
+    background-color: #F1EBE0;
+    padding: 10px;
+}
+.price_buy_div {
+    font-weight: bold;
+    font-size: 16px;
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+.category_buy_div {
+    font-weight: bold;
+    font-size: 16px;
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+}
+.left_div {
+    border-right: 2px solid #255625;
+    width: 50%;
+    min-height: 500px;
+    float: left;
+    background-color: #59AD82;
+}
+.right_div {
+    width: 50%;
+    min-height: 500px;
+    float: right;
+    background-color: #59AD82;
+}
+.country_map {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #15252F;
+    background-color: #59AD82;
+}
+.map {
+    width: 100%;
+    background-color: #59AD82;
+}
+.fb-like {
+    border: 1px solid red;
+    margin-top: 10px;
+    float: right;
+}
 
