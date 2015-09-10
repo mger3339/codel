@@ -3,8 +3,9 @@ $(document).ready(function() {
         var id = $(this).attr('data-id');
         var count = $(this).val();
         var aaa = $(this);
-        var total = $(".product_total").text();
-        var total_count = parseInt(total.substring(7, total.length));
+        var total = $(".total_price").text();
+        var total_count = parseInt(total.substring(13, total.length));
+        alert(total_count);
         $.ajax({
             url: './editCartCount',
             type: "POST",

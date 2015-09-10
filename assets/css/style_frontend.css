@@ -364,7 +364,6 @@ body, html {
     width: 30px!important;
 }
 .cart_img {
-    border: 1px solid red;
     padding-top: 10px;
     width: 80px;
     height: 80px;
@@ -376,14 +375,12 @@ body, html {
 }
 .cart_product_name {
     margin-left: 65px;
-    border: 1px solid red;
     width: 300px;
     font-size: 14px;
     font-weight: bold;
     color: #002166;
 }
 .cart_product_country {
-    border: 1px solid red;
     width: 150px;
     font-size: 14px;
     font-weight: bold;
@@ -391,7 +388,6 @@ body, html {
     float: left;
 }
 .cart_product_category {
-    border: 1px solid red;
     width: 150px;
     font-size: 14px;
     font-weight: bold;
@@ -399,12 +395,17 @@ body, html {
     float: left;
 }
 .cart_product_price {
-    border: 1px solid red;
     margin-left: 30px;
     width: 200px;
     font-size: 14px;
     font-weight: bold;
     color: #002166;
+    float: left;
+}
+.total_price {
+    width: 200px;
+    height: 30px;
+    border: 1px solid red;
     float: left;
 }
 .span_count {
@@ -415,18 +416,16 @@ body, html {
 }
 .count_control {
     float: left;
-    border: 1px solid red;
     width: 150px;
     height: 25px;
 }
 .max_count {
-    border: 1px solid red;
     width: 245px;
     float: left;
 }
 .aaa {
+    color: #002166;
     float: left;
-    border: 1px solid red;
     font-weight: bold;
 }
 .cart_button_buy {

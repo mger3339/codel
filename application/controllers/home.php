@@ -181,8 +181,6 @@ class Home extends CI_Controller {
         $coordinates = $this->products_model->getCoordinates($area);
         $latitude = $coordinates['0']['latitude'];
         $longitude = $coordinates['0']['longitude'];
-//        echo "<pre>";
-//        print_r($coordinates); die;
         $this->load->library('googlemaps');
         $config['center'] = "$latitude,$longitude";
         $config['zoom'] = '7';
