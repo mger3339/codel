@@ -103,4 +103,42 @@ class Products_model extends CI_Model {
         $data = $this->db->get('orders');
         return $data->result_array();
     }
+
+    public function getCoordinates($area){
+        $this->db->where('country', $area);
+        $data = $this->db->get('coordinates');
+        return $data->result_array();
+    }
+
+    public function getOrdersById($id){
+        $this->db->where('id', $id);
+        $data = $this->db->get('orders');
+        return $data->result_array();
+    }
+
+    public function getAllProduct($product_id){
+        $this->db->select('
+            products.*,
+            category.category_name,
+            areas.country
+            ');
+        $this->db->from('products');
+        $this->db->join('category', 'products.category_id = category.id', 'left');
+        $this->db->join('areas', 'products.area_id = areas.id', 'left');
+        $this->db->where('products.id', $product_id);
+        $this->db->order_by('products.id', 'desc ');
+        $data = $this->db->get();
+        return $data->result_array();
+    }
+    public function getProductById($product_id){
+        $this->db->where('id', $product_id);
+        $data = $this->db->get('products');
+        return $data->result_array();
+    }
+    public function updateTotalProduct($product_id, $new_total){
+        $this->db->set('total', $new_total);
+        $this->db->where('id', $product_id);
+        $this->db->update('products');
+    }
+
 }

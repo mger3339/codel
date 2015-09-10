@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Areas extends CI_Controller {
 
     public function productViewByArea($id){
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/areas_model');
             $data_product = $this->areas_model->getProductArea($id);
@@ -21,7 +21,7 @@ class Areas extends CI_Controller {
     }
 
     public function getArea($id){
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/areas_model');
             $area = $this->areas_model->getAreaAll();
@@ -41,7 +41,7 @@ class Areas extends CI_Controller {
     }
 
     public function getAreas(){
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/areas_model');
             $area = $this->areas_model->getArea();

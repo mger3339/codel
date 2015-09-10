@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 
     public function index()
     {
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');

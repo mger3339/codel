@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Categories extends CI_Controller {
 
     public function productViewByCategory($id){
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/categories_model');
             $data_product = $this->categories_model->getProductCategory($id);
@@ -31,7 +31,7 @@ class Categories extends CI_Controller {
     }
 
     public function getCategory($id){
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/categories_model');
             $category = $this->categories_model->getCategoryAll();
@@ -48,12 +48,6 @@ class Categories extends CI_Controller {
         {
             $this->load->view('admin/login_view');
         }
-    }
-
-    public function deleteProduct(){
-        $this->load->model('admin/categories_model');
-        $this->categories_model->deleteProduct();
-        $result = 1;
     }
 
     public function saveProduct(){

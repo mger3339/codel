@@ -24,7 +24,7 @@ class Admin  extends CI_Controller {
                                    'name' => 'admin',
                                     'login' => $log,
                                     'password' => $pass,
-                                    'chack' => TRUE
+                                    'check' => TRUE
                              );
                     $this->session->set_userdata($admin);
                     $this->load->view('admin/header_view');

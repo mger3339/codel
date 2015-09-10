@@ -5,7 +5,7 @@ class Products extends CI_Controller {
 
     public function index()
     {
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $limit = 3;
             if($this->uri->segment(4) !== null && is_numeric($this->uri->segment(4)))
@@ -53,7 +53,7 @@ class Products extends CI_Controller {
 
     public function addProduct()
     {
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/categories_model');
             $data_category = $this->categories_model->getCategoryAll();
@@ -161,7 +161,7 @@ class Products extends CI_Controller {
     }
 
     public function editProduct($id){
-        if($this->session->userdata('chack') == TRUE)
+        if($this->session->userdata('check') == TRUE)
         {
             $this->load->model('admin/products_model');
             $edit_product = $this->products_model->getEditProduct($id);

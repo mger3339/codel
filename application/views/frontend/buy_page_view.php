@@ -27,6 +27,7 @@
             <div class="desc_buy_div"><?php echo $row['desc']; ?></div>
             <div class="price_buy_div">PRICE: <?php echo ($row['price']*$row['count']); ?>$</div>
             <div class="category_buy_div">CATEGORY: <?php echo $row['category_name']; ?></div>
+            <a href="<?php echo base_url('/test/buy/' .$row['id']);?>"><button type="button" class="btn btn-primary button_buy_div">BUY PRODUCT</button></a>
         </div>
         <div class="right_div">
             <div class="country_map"><?php echo $row['country']; ?></div>

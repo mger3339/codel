@@ -108,6 +108,8 @@ class Home extends CI_Controller {
     public function cartPage(){
         $this->load->model('frontend/products_model');
         $product['data'] = $this->products_model->getProductCartPage();
+//        echo "<pre>";
+//        print_r($product); die;
         $this->load->view('frontend/header_view');
         $this->load->view('frontend/cart_page_view',$product);
         $this->load->view('frontend/footer_view');
@@ -172,19 +174,23 @@ class Home extends CI_Controller {
     }
 
     public function ordersBuy($id){
-        $this->load->library('googlemaps');
-        $config['center'] = '40.184378, 44.515669';
-        $config['zoom'] = '8';
-        $this->googlemaps->initialize($config);
-//        $polyline = array();
-//        $polyline['points'] = array('37.429, -122.1319', 'Crescent Park, Palo Alto', '37.4419, -122.1219');
-//        $this->googlemaps->add_polyline($polyline);
-        $marker = array();
-        $marker['position'] = '40.184378, 44.515669';
-        $this->googlemaps->add_marker($marker);
-        $product['map'] = $this->googlemaps->create_map();
         $this->load->model('frontend/products_model');
         $product['data'] = $this->products_model->getOrders($id);
+        $area = $product['data']['0']['country'];
+        $this->load->model('frontend/products_model');
+        $coordinates = $this->products_model->getCoordinates($area);
+        $latitude = $coordinates['0']['latitude'];
+        $longitude = $coordinates['0']['longitude'];
+//        echo "<pre>";
+//        print_r($coordinates); die;
+        $this->load->library('googlemaps');
+        $config['center'] = "$latitude,$longitude";
+        $config['zoom'] = '7';
+        $this->googlemaps->initialize($config);
+        $marker = array();
+        $marker['position'] = "$latitude, $longitude";
+        $this->googlemaps->add_marker($marker);
+        $product['map'] = $this->googlemaps->create_map();
         $this->load->view('frontend/header_view');
         $this->load->view('frontend/buy_page_view',$product);
         $this->load->view('frontend/footer_view');
