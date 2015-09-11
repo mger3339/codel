@@ -6,8 +6,6 @@
     <link href="<?php echo base_url('/assets/css/bootstrap.css'); ?>" rel="stylesheet" />
     <link href="<?php echo base_url('/assets/css/style_frontend.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!--    <script src="--><?php //echo base_url('assets/js/shipping.js'); ?><!--"></script>-->
-<!--    <script src="--><?php //echo base_url('assets/js/edit_cart_count.js'); ?><!--"></script>-->
 </head>
 <body>
     <div class="buy_div">

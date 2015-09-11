@@ -122,13 +122,14 @@ class Home extends CI_Controller {
         $this->load->model('frontend/products_model');
         $total = $this->products_model->getTotalProduct($id);
         $result = $total['0']['total'];
-        if($count<=$result)
+        if($count >= 0 && $count <= $result)
         {
             $this->load->model('frontend/products_model');
             $data = $this->products_model->editCartProduct($id, $count);
             $responce = 1;
         }
         echo $responce;
+        echo $result;
     }
 
     public function deleteCartProduct()
