@@ -356,7 +356,7 @@ body, html {
     min-height: 120px;
     border-bottom: 2px solid royalblue;
     padding-top: 10px;
-    width: 95%;
+    width: 100%;
 }
 .checkbox {
     float: left;
@@ -403,9 +403,10 @@ body, html {
     float: left;
 }
 .total_price {
+    margin-top: 2px;
+    font-weight: bold;
+    color: red;
     width: 200px;
-    height: 30px;
-    border: 1px solid red;
     float: left;
 }
 .span_count {
@@ -429,10 +430,12 @@ body, html {
     font-weight: bold;
 }
 .cart_button_buy {
+    margin-left: 10px;
     width: 90px;
     float: left;
 }
 .cart_button {
+    margin-left: 20px;
     width: 90px;
     float: left;
 }
@@ -537,5 +540,11 @@ body, html {
     margin-top: 30px;
     margin-bottom: 10px;
     margin-left: 200px;
+}
+.total_all {
+    margin: 10px auto;
+    border: 1px solid red;
+    width: 50%;
+    min-height: 80px;
 }
 

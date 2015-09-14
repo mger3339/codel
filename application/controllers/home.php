@@ -128,8 +128,9 @@ class Home extends CI_Controller {
             $data = $this->products_model->editCartProduct($id, $count);
             $responce = 1;
         }
-        echo $responce;
-        echo $result;
+        $data['responce'] = $responce;
+        $data['result'] = $result;
+        echo json_encode($data);
     }
 
     public function deleteCartProduct()

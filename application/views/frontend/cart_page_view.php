@@ -12,9 +12,7 @@
 </head>
 <body>
     <div id="content">
-
-<!--        <pre>-->
-<!--            --><?php $a = 1; //print_r($data); die; ?>
+        <?php $a = 1;?>
         <?php foreach($data as $value): ?>
             <?php
                 $id = $value['id'];
@@ -31,11 +29,11 @@
                 <label class="checkbox-inline checkbox"><input type="checkbox" value=""><?php echo $a++; ?></label>
                 <div class="cart_product_name"><?php echo $name; ?></div>
                 <div class="cart_img"><img height="100%" src="<?php echo base_url('/assets/img/' .$value['img']) ?>"></div>
-                    <div class="cart_product_price">PRICE: <?php echo $price; ?> $</div>
+                    <div id="price_<?php echo $id; ?>" class="cart_product_price">PRICE: <?php echo $price; ?> $</div>
 <!--                <div class="cart_product_country">COUNTRY: --><?php //echo $country; ?><!--</div>-->
 <!--                <div class="cart_product_category">CATEGORY: --><?php //echo $category_name; ?><!--</div>-->
-                <div class="max_count"><span class="aaa">MAX COUNT: </span><input data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="<?php echo $total; ?>"></div>
-                <div id="total<?php echo $id; ?>" class="total_price">TOTAL PRICE: <?php echo $price; ?> $</div>
+                <div class="max_count"><span class="aaa">MAX COUNT: </span><input id="input_<?=$id?>" data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="<?php echo $total; ?>"></div>
+                <div id="total<?php echo $id; ?>" class="total_price"> = <?php echo $price; ?>$</div>
                         <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
                         <a href="<?php echo base_url('/home/buyProduct/' . $value['id']) ?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button_buy btn-success">BUY</button></a>
             </div>
@@ -54,6 +52,9 @@
                 </div>
             </div>
             <?php endforeach; ?>
+        <div class="total_all">
+
+        </div>
     </div>
 </body>
 </html>
