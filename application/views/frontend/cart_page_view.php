@@ -32,7 +32,7 @@
                     <div id="price_<?php echo $id; ?>" class="cart_product_price">PRICE: <?php echo $price; ?> $</div>
 <!--                <div class="cart_product_country">COUNTRY: --><?php //echo $country; ?><!--</div>-->
 <!--                <div class="cart_product_category">CATEGORY: --><?php //echo $category_name; ?><!--</div>-->
-                <div class="max_count"><span class="aaa">MAX COUNT: </span><input id="input_<?=$id?>" data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="<?php echo $total; ?>"></div>
+                <div class="max_count"><span class="aaa">MAX COUNT: </span><input id="input_<?=$id?>" data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="1"></div>
                 <div id="total<?php echo $id; ?>" class="total_price"> = <?php echo $price; ?>$</div>
                         <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
                         <a href="<?php echo base_url('/home/buyProduct/' . $value['id']) ?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button_buy btn-success">BUY</button></a>
@@ -53,7 +53,8 @@
             </div>
             <?php endforeach; ?>
         <div class="total_all">
-
+            <div class="sum"></div>
+            <div class="_shipping">
         </div>
     </div>
 </body>
