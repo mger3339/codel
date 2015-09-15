@@ -12,7 +12,10 @@
 </head>
 <body>
     <div id="content">
+<!--        <pre>-->
+<!--        --><?php //print_r($data); die; ?>
         <?php $a = 1;?>
+<!--            <input class="hidden" type="hidden" name="hidden" value="--><?php //print_r($data); ?><!--">-->
         <?php foreach($data as $value): ?>
             <?php
                 $id = $value['id'];
@@ -66,7 +69,7 @@
         </div>
         <div class="all_total">
             <div class="total_shipping_sum"></div>
-            <button data-id="<?=$item['id'];?>" type="button" class="btn btn-primary buy_now"><div class="shipping_price">BUY NOW</div></button>
+            <a href="<?php echo base_url('/test/buy');?>"><button type="button" class="btn btn-primary buy_now"><div class="shipping_price">BUY NOW</div></button></a>
         </div>
     </div>
 </body>

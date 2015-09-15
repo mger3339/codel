@@ -1,7 +1,6 @@
 $(document).ready(function(){
     var total = $(".total_sum").text();
     var total_sum = parseInt(total.substring(5, total.length - 1));
-    $(".total_shipping_sum").text("TOTAL: " + total_sum + "$");
     $(".shipping_price_button").on("click", function(){
         var price = $(this).text();
         var id = $(this).attr('data-id');
@@ -15,15 +14,24 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $(".buy_now").on("click", function(){
-        var a = $(".product_price").text();
-        var total = parseInt(a.substring(7, a.length - 1));
-        var id = $("button").attr('data-id');
-        var count = $(".count_control").val();
+        var count = [];
+        var price = [];
+        var total = $(".total_shipping_sum").text();
+        var total_sum = parseInt(total.substring(7, total.length - 1));
+        $( ".total_price" ).each(function( index) {
+            var x = $( this ).text();
+            window.y = parseInt(x.substring(3, x.length));
+            price.push(window.y);
+        });
+        $(".count_control").each(function( index) {
+            window.a = $( this ).val();
+            count.push(window.a);
+        });
         $.ajax({
-            url: '../puyPage',
+            url: '/home/puyPage',
             type: "POST",
-            data:{total: total, id: id, count: count},
-            success: function(data){
+            data:{total: total_sum, price: price, count: count},
+            success: function(a){
             }
         });
     });

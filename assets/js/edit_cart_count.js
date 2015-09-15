@@ -6,6 +6,7 @@ $(document).ready(function() {
         sum = sum + y;
     });
     $(".total_sum").text("SUM: " + sum + "$");
+    $(".total_shipping_sum").text("TOTAL: " + sum + "$");
     $(document).on("blur",".count_control", function(){
         var id = $(this).attr('data-id');
         var count = $(this).val();
@@ -30,6 +31,7 @@ $(document).ready(function() {
                         sum = sum + y;
                     });
                     $(".total_sum").text("SUM: " + sum + "$");
+                    $(".total_shipping_sum").text("TOTAL: " + sum + "$");
                 }
                 else {
                     this_input.css({"border": "2px solid red"});

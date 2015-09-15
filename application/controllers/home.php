@@ -150,33 +150,34 @@ class Home extends CI_Controller {
         $this->load->view('frontend/buy_product_view', $product);
         $this->load->view('frontend/footer_view');
     }
-    public function puyPage(){ 
+    public function puyPage(){
         $total = $this->input->post('total');
-        $id = $this->input->post('id');
         $count = $this->input->post('count');
+        $price = $this->input->post('price');
         $this->load->model('frontend/products_model');
-        $product = $this->products_model->getProductPage($id);
-        if($count > $product['0']['total'])
-        {
-            $count =  $product['0']['total'];
-        }
+        $product = $this->products_model->getProductCartPage();
+        foreach($product as $value) :
+            array_push($value['price'], $price);
+            array_push($value['count'], $count);
         $orders = array(
-                    'product_id' => $id,
-                    'name' => $product['0']['name'],
-                    'desc' => $product['0']['desc'],
-                    'price' => $total,
-                    'img' =>  $product['0']['img'],
-                    'country' => $product['0']['country'],
-                    'category_name' => $product['0']['category_name'],
-                    'count' => $count
+                    'product_id' => $value['id'],
+                    'name' => $value['name'],
+                    'desc' => $value['desc'],
+                    'price' => ($value['price']),
+                    'img' =>  $value['img'],
+                    'country' => $value['country'],
+                    'category_name' => $value['category_name'],
+                    'count' => $value['count']
         );
-        $this->load->model('frontend/products_model');
-        $this->products_model->addProductBuy($orders);
+            $this->load->model('frontend/products_model');
+            $this->products_model->addProductBuy($orders);
+            endforeach;
+
     }
 
-    public function ordersBuy($id){
+    public function orders(){
         $this->load->model('frontend/products_model');
-        $product['data'] = $this->products_model->getOrders($id);
+        $product['data'] = $this->products_model->getOrders();
         $area = $product['data']['0']['country'];
         $this->load->model('frontend/products_model');
         $coordinates = $this->products_model->getCoordinates($area);

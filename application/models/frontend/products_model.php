@@ -95,23 +95,17 @@ class Products_model extends CI_Model {
     }
 
     public function addProductBuy($orders){
+//        foreach ($orders as $item) :
         $this->db->insert('orders',$orders);
+//            endforeach;
     }
-
-    public function getOrders($id){
-        $this->db->where('product_id', $id);
-        $data = $this->db->get('orders');
-        return $data->result_array();
-    }
-
     public function getCoordinates($area){
         $this->db->where('country', $area);
         $data = $this->db->get('coordinates');
         return $data->result_array();
     }
 
-    public function getOrdersById($id){
-        $this->db->where('id', $id);
+    public function getOrders(){
         $data = $this->db->get('orders');
         return $data->result_array();
     }
@@ -130,14 +124,12 @@ class Products_model extends CI_Model {
         $data = $this->db->get();
         return $data->result_array();
     }
-    public function getProductById($product_id){
-        $this->db->where('id', $product_id);
+    public function getProducts(){
         $data = $this->db->get('products');
         return $data->result_array();
     }
-    public function updateTotalProduct($product_id, $new_total){
-        $this->db->set('total', $new_total);
-        $this->db->where('id', $product_id);
+    public function updateTotalProduct($item){
+        $this->db->set('total', $item['total']);
         $this->db->update('products');
     }
 

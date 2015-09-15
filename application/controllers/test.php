@@ -87,9 +87,9 @@ class Test extends CI_Controller {
 	* a sample buy function in your Controller that does the SetExpressCheckout and redirects to Paypal
 	* --------------------------------------------------------------------------------------------------
 	*/
-	function buy($id) {
+	function buy() {
         $this->load->model('frontend/products_model');
-        $product = $this->products_model->getOrdersById($id);
+        $product = $this->products_model->getOrders();
 		$to_buy = array(
 			'desc' => 'Purchase from ACME Store', 
 			'currency' => $this->currency, 
@@ -108,7 +108,7 @@ class Test extends CI_Controller {
 			$temp_product = array(
 				'name' => $p['name'], 
 				'desc' => $p['desc'],
-				'quantity' => 1, // simple example -- fixed to 1
+				'quantity' => $p['count'], // simple example -- fixed to 1
 				'amount' => $p['price']);
 				
 			// add product to main $to_buy array
@@ -118,12 +118,12 @@ class Test extends CI_Controller {
 		$set_ec_return = $this->paypal_ec->set_ec($to_buy);
 		if (isset($set_ec_return['ec_status']) && ($set_ec_return['ec_status'] === true)) {
 			// redirect to Paypal
-            $product_id = $product['0']['product_id'];
-            $this->load->model('frontend/products_model');
-            $data = $this->products_model->getProductById($product_id);
-            $new_total = $data['0']['total']-$product['0']['count'];
-            $this->load->model('frontend/products_model');
-            $this->products_model->updateTotalProduct($product_id,$new_total);
+//            $this->load->model('frontend/products_model');
+//            $data = $this->products_model->getProducts();
+//            foreach($data as $item){
+//                $new_total = $item['total'] -
+//                $this->products_model->updateTotalProduct($item);
+//            }
 			$this->paypal_ec->redirect_to_paypal($set_ec_return['TOKEN']);
 			// You could detect your visitor's browser and redirect to Paypal's mobile checkout
 			// if they are on a mobile device. Just add a true as the last parameter. It defaults
@@ -139,6 +139,7 @@ class Test extends CI_Controller {
 	* --------------------------------------------------------------------------------------------------
 	*/
 	function back() {
+        redirect('home/cartPage');
 		// we are back from Paypal. We need to do GetExpressCheckoutDetails
 		// and DoExpressCheckoutPayment to complete.
 		$token = $_GET['token'];
