@@ -5,7 +5,7 @@ $(document).ready(function() {
         var y = parseInt(x.substring(3, x.length));
         sum = sum + y;
     });
-    $(".sum").text("TOTAL: " + sum + "$");
+    $(".total_sum").text("SUM: " + sum + "$");
     $(document).on("blur",".count_control", function(){
         var id = $(this).attr('data-id');
         var count = $(this).val();
@@ -29,7 +29,7 @@ $(document).ready(function() {
                         var y = parseInt(x.substring(3, x.length));
                         sum = sum + y;
                     });
-                    $(".sum").text("TOTAL: " + sum + "$");
+                    $(".total_sum").text("SUM: " + sum + "$");
                 }
                 else {
                     this_input.css({"border": "2px solid red"});

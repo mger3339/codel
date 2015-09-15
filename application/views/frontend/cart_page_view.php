@@ -7,8 +7,8 @@
     <link href="<?php echo base_url('/assets/css/style_frontend.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/delete_cart_product.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/shipping.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/edit_cart_count.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/shipping.js'); ?>"></script>
 </head>
 <body>
     <div id="content">
@@ -35,7 +35,6 @@
                 <div class="max_count"><span class="aaa">MAX COUNT: </span><input id="input_<?=$id?>" data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="1"></div>
                 <div id="total<?php echo $id; ?>" class="total_price"> = <?php echo $price; ?>$</div>
                         <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
-                        <a href="<?php echo base_url('/home/buyProduct/' . $value['id']) ?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button_buy btn-success">BUY</button></a>
             </div>
         </div>
             <div class="modal fade" id="myModal<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -52,9 +51,22 @@
                 </div>
             </div>
             <?php endforeach; ?>
-        <div class="total_all">
-            <div class="sum"></div>
-            <div class="_shipping">
+        <div class="aaa123">
+            <div class="shipping_div">
+                <?php foreach($shipping as $item) :?>
+                    <div class="shipping_total">
+                        <div class="shipping_img"><img width="100%" src="<?php echo base_url('/assets/img_icon/'. $item['shipping_img']); ?>"></div>
+                        <div class="shipping_name"><?php echo $item['shipping_name']; ?></div>
+                        <button data-id="<?=$item['id'];?>" id="" type="button" class="btn btn-success shipping_price_button"><div class="shipping_price"><?php echo $item['shipping_price']; ?>$</div></button>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="shipping"></div>
+            <div class="total_sum"></div>
+        </div>
+        <div class="all_total">
+            <div class="total_shipping_sum"></div>
+            <button data-id="<?=$item['id'];?>" type="button" class="btn btn-primary buy_now"><div class="shipping_price">BUY NOW</div></button>
         </div>
     </div>
 </body>

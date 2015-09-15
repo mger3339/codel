@@ -108,8 +108,7 @@ class Home extends CI_Controller {
     public function cartPage(){
         $this->load->model('frontend/products_model');
         $product['data'] = $this->products_model->getProductCartPage();
-//        echo "<pre>";
-//        print_r($product); die;
+        $product['shipping'] = $this->products_model->getShipping();
         $this->load->view('frontend/header_view');
         $this->load->view('frontend/cart_page_view',$product);
         $this->load->view('frontend/footer_view');
@@ -151,7 +150,7 @@ class Home extends CI_Controller {
         $this->load->view('frontend/buy_product_view', $product);
         $this->load->view('frontend/footer_view');
     }
-    public function puyPage(){
+    public function puyPage(){ 
         $total = $this->input->post('total');
         $id = $this->input->post('id');
         $count = $this->input->post('count');

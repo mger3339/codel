@@ -23,10 +23,8 @@
         <?php endforeach; ?>
 <!--        <pre>-->
 <!--            --><?php //print_r($shipping); die; ?>
-            
+
             <div class="shipping_div">
-                <div class="shipping_img_title"><img width="100%" src="<?php echo base_url('/assets/img_icon/shipping.png');?>"></div>
-                <div class="shipping_price_title">Shipping_price</div>
                 <?php foreach($shipping as $item) :?>
                 <div class="shipping_total">
                     <div class="shipping_img"><img width="100%" src="<?php echo base_url('/assets/img_icon/'. $item['shipping_img']); ?>"></div>
