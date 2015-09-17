@@ -8,18 +8,51 @@
 </head>
 <body>
 <div id="content">
-    <div class="about_title">CONTACTS</div>
-    <div class="abaut_text">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-        Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-        nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?".
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm contacts_container">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url('contacts/sendMail'); ?>">
+                        <fieldset>
+                            <legend class="text-center header">Contact us</legend>
 
-    </div>
+                            <div class="form-group contacts">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="fname" name="name" type="text" placeholder="First Name" class="form-control contacts_input">
+                                </div>
+                            </div>
+                            <div class="form-group contacts">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="lname" name="lastname" type="text" placeholder="Last Name" class="form-control contacts_input">
+                                </div>
+                            </div>
+
+                            <div class="form-group contacts">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <input id="email" name="email" type="text" placeholder="Email Address" class="form-control contacts_input">
+                                </div>
+                            </div>
+
+                            <div class="form-group contacts">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                <div class="col-md-8">
+                                    <textarea class="form-control contacts_input" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" name="submit" class="btn btn-primary btn-lg contacts_button">SEND</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 </div>
 </body>
 </html>

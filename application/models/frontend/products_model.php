@@ -133,4 +133,8 @@ class Products_model extends CI_Model {
         $this->db->update('products');
     }
 
+    public function deleteOrders(){
+        $this->db->delete('orders');
+    }
+
 }

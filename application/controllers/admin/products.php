@@ -1,19 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Products extends CI_Controller {
+class Products extends CI_Controller
+{
 
     public function index()
     {
-        if($this->session->userdata('check') == TRUE)
-        {
+        if ($this->session->userdata('check') == TRUE) {
             $limit = 3;
-            if($this->uri->segment(4) !== null && is_numeric($this->uri->segment(4)))
-            {
-                $offset = ($this->uri->segment(4) * $limit) - $limit ;
-            }
-            else
-            {
+            if ($this->uri->segment(4) !== null && is_numeric($this->uri->segment(4))) {
+                $offset = ($this->uri->segment(4) * $limit) - $limit;
+            } else {
                 $offset = 0;
             }
 
@@ -22,7 +19,7 @@ class Products extends CI_Controller {
             $config['per_page'] = $limit;
             $config['use_page_numbers'] = TRUE;
             $config['full_tag_open'] = "<ul class='pagination  pagination-centered'>";
-            $config['full_tag_close'] ="</ul>";
+            $config['full_tag_close'] = "</ul>";
             $config['num_tag_open'] = '<li>';
             $config['num_tag_close'] = '</li>';
             $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
@@ -41,11 +38,9 @@ class Products extends CI_Controller {
             $data['data_product'] = $data_product;
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
-            $this->load->view('admin/products_view',$data);
+            $this->load->view('admin/products_view', $data);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
+        } else {
             $this->load->view('admin/login_view');
         }
 
@@ -53,8 +48,7 @@ class Products extends CI_Controller {
 
     public function addProduct()
     {
-        if($this->session->userdata('check') == TRUE)
-        {
+        if ($this->session->userdata('check') == TRUE) {
             $this->load->model('admin/categories_model');
             $data_category = $this->categories_model->getCategoryAll();
             $this->load->model('admin/areas_model');
@@ -65,16 +59,14 @@ class Products extends CI_Controller {
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/addProduct_view', $arr);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
+        } else {
             $this->load->view('admin/login_view');
         }
     }
 
-    public function saveProduct(){
-        if(isset($_POST['submit']))
-        {
+    public function saveProduct()
+    {
+        if (isset($_POST['submit'])) {
             $form_rules = array(
                 array(
                     'field' => 'name',
@@ -89,18 +81,15 @@ class Products extends CI_Controller {
                     'rules' => 'required|numeric'
                 )
             );
-                $this->load->library('form_validation');
-                $this->form_validation->set_rules($form_rules);
-                $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-            if ($this->form_validation->run() == FALSE)
-            {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($form_rules);
+            $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+            if ($this->form_validation->run() == FALSE) {
                 $this->load->view('admin/header_view');
                 $this->load->view('admin/side_bar_view');
                 $this->load->view('admin/addProduct_view');
                 $this->load->view('admin/footer_view');
-            }
-            else
-            {
+            } else {
                 $id = $this->input->post('hid_id');
                 $name = $this->input->post('name');
                 $desc = $this->input->post('desc');
@@ -110,8 +99,8 @@ class Products extends CI_Controller {
                 $country = $this->input->post('country');
                 $config['upload_path'] = './assets/img';
                 $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
                 $this->load->library('upload', $config);
                 $this->upload->do_upload();
                 $arr = $this->upload->data();
@@ -125,34 +114,29 @@ class Products extends CI_Controller {
                     'img' => $img,
                     'total' => $total,
                 );
-                if($product['img'] == '')
-                {
+                if ($product['img'] == '') {
                     $this->load->model('admin/products_model');
                     $myrow = $this->products_model->getEditProduct($id);
                     $product['img'] = $myrow['0']['img'];
                 }
-                if (empty($id))
-                {
+                if (empty($id)) {
                     $this->load->model('admin/products_model');
                     $this->products_model->saveProduct($product);
                     redirect('/admin/products/index', 'refresh');
-                }
-                else
-                {
+                } else {
                     $this->load->model('admin/products_model');
                     $this->products_model->saveEditProduct($product, $id);
                     redirect('/admin/products/index', 'refresh');
                 }
             }
-        }
-        else
-        {
+        } else {
             $this->load->view('admin/addProduct_view');
         }
 
     }
 
-    public function deleteProduct(){
+    public function deleteProduct()
+    {
         $id = $this->input->post('id');
         $this->load->model('admin/products_model');
         $this->products_model->deleteProduct($id);
@@ -160,9 +144,11 @@ class Products extends CI_Controller {
         echo $result;
     }
 
-    public function editProduct($id){
-        if($this->session->userdata('check') == TRUE)
-        {
+    public function editProduct($id)
+    {
+
+        if ($this->session->userdata('check') == TRUE) {
+
             $this->load->model('admin/products_model');
             $edit_product = $this->products_model->getEditProduct($id);
             $this->load->model('admin/categories_model');
@@ -176,15 +162,14 @@ class Products extends CI_Controller {
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/editProduct_view', $arr);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
+        } else {
             $this->load->view('admin/login_view');
         }
     }
-    public function validation(){
-        if(isset($_POST['id']))
-        {
+
+    public function validation()
+    {
+        if (isset($_POST['id'])) {
             $id = $_POST['id'];
             $responce = $id;
         }

@@ -12,6 +12,16 @@ body, html {
     background-image: url('../img/bg_header.jpg');
     border-radius: 10px;
 }
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
 
 #menu {
     margin-left: 40%;
@@ -61,7 +71,30 @@ body, html {
     height: 100%;
     background-color: #7ab5d3;
     margin: 0 auto;
-    overflow: auto;
+}
+
+.contacts_container {
+    width: 80%;
+    margin: 0 auto;
+}
+.contacts {
+    width: 100%!important;
+    margin: 0!important;
+    text-align: center!important;
+    padding: 0!important;
+}
+.contacts_input {
+    margin-top: 10px;
+    border: 1px solid #a6a6a6;
+    margin-left: -70px;
+}
+
+.contacts_button {
+    font-size: 16px;
+    margin-top: 10px;
+    width: 120px;
+    height: 35px;
+    padding: 0;
 }
 #footer {
     text-align: center;

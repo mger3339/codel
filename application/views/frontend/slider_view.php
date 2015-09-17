@@ -20,7 +20,7 @@
             <?php foreach($product as $img):?>
             <?php array_push($arr, $img['img']) ?>
                 <?php endforeach; ?>
-                <?php// print_r($arr); die; ?>
+<!--                --><?php //print_r($arr); die; ?>
             <?php $i = 0; ?>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">

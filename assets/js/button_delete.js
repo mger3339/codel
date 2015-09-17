@@ -6,7 +6,7 @@ $(document).ready(function(){
             type: "POST",
             data:{id: id},
             success: function(result){
-                //alert(result);
+                alert(result);
                 if(result == 1)
                 {
                     $('.info').text('Product deleted');

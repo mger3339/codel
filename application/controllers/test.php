@@ -128,7 +128,7 @@ class Test extends CI_Controller {
 			// You could detect your visitor's browser and redirect to Paypal's mobile checkout
 			// if they are on a mobile device. Just add a true as the last parameter. It defaults
 			// to false
-			// $this->paypal_ec->redirect_to_paypal( $set_ec_return['TOKEN'], true);
+            // $this->paypal_ec->redirect_to_paypal( $set_ec_return['TOKEN'], true);
 		} else {
 			$this->_error($set_ec_return);
 		}
@@ -139,7 +139,6 @@ class Test extends CI_Controller {
 	* --------------------------------------------------------------------------------------------------
 	*/
 	function back() {
-        redirect('home/cartPage');
 		// we are back from Paypal. We need to do GetExpressCheckoutDetails
 		// and DoExpressCheckoutPayment to complete.
 		$token = $_GET['token'];
@@ -170,10 +169,9 @@ class Test extends CI_Controller {
 				// at this point, you have collected payment from your customer
 				// you may want to process the order now.
 				echo "<h1>Thank you. We will process your order now.</h1>";
-				echo "<pre>";
-				echo "\nGetExpressCheckoutDetails Data\n" . print_r($get_ec_return, true);
-				echo "\n\nDoExpressCheckoutPayment Data\n" . print_r($do_ec_return, true);
-				echo "</pre>";
+                $this->load->model('frontend/products_model');
+                $this->products_model->deleteOrders();
+                redirect('home/cartPage');
 			} else {
 				$this->_error($do_ec_return);
 			}
