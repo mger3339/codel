@@ -140,16 +140,25 @@ class Products extends CI_Controller
         $id = $this->input->post('id');
         $this->load->model('admin/products_model');
         $this->products_model->deleteProduct($id);
+        $this->products_model->deleteFromCart($id);
+        $this->products_model->deleteFromOrders($id);
         $result = 1;
         echo $result;
     }
 
     public function editProduct($id)
     {
-
         if ($this->session->userdata('check') == TRUE) {
-
+            $myrow = array();
             $this->load->model('admin/products_model');
+            $data = $this->products_model->getProducts();
+            foreach ($data as $value):
+                array_push($myrow, $value['id']);
+            endforeach;
+            if(!in_array($id,$myrow))
+            {
+                redirect('admin/products/index');
+            }
             $edit_product = $this->products_model->getEditProduct($id);
             $this->load->model('admin/categories_model');
             $data_category = $this->categories_model->getCategoryAll();

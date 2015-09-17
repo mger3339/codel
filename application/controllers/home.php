@@ -39,6 +39,7 @@ class Home extends CI_Controller {
         $config['last_tagl_close'] = "</li>";
         $this->pagination->initialize($config);
         $this->load->model('frontend/products_model');
+        $home['cart'] = $this->products_model->getCartProduct();
         $home['data'] = $this->products_model->getProduct($limit, $offset);
         $this->load->view('frontend/content_view',$home);
         $this->load->view('frontend/footer_view');
@@ -73,6 +74,15 @@ class Home extends CI_Controller {
         $this->pagination->initialize($config);
         $this->load->model('frontend/products_model');
         $product['data'] = $this->products_model->getProductPage($id);
+        $data = $this->products_model->getProducts();
+        $myrow = array();
+        foreach($data as $value) :
+            array_push($myrow, $value['id']);
+        endforeach;
+        if(!in_array($id, $myrow))
+        {
+            redirect('home');
+        }
         echo $this->pagination->create_links();
         $this->load->view('frontend/header_view');
         $this->load->view('frontend/product_page_view',$product);

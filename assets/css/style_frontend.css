@@ -127,6 +127,8 @@ body, html {
 .add_cart {
 }
 .auto_img_div {
+    overflow: hidden;
+    height: 150px;
     width: 150px;
     margin-left: 25px;
     float: left;

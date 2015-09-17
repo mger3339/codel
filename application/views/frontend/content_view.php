@@ -16,12 +16,12 @@
 <body>
         <div id="content">
             <div class="cart"><a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>
-                <div class="count"></div>
+                <div class="count"><?php echo count($cart); ?></div>
             </div>
             <?php foreach($data as $value): ?>
                 <div class="main_div">
                     <div class="title"><a href="<?php echo base_url('/home/productPage/'. $value['id']); ?>"><?php echo $value['name']; ?></a></div>
-                    <div class="auto_img_div"><a href="<?php echo base_url('/home/productPage/'. $value['id']); ?>"><img width="100%"  src="<?php echo base_url('/assets/img/'. $value['img']); ?>" alt="..." class="img-rounded"></a></div>
+                    <div class="auto_img_div"><a href="<?php echo base_url('/home/productPage/'. $value['id']); ?>"><img width="100%"   src="<?php echo base_url('/assets/img/'. $value['img']); ?>" alt="..." class="img-rounded"></a></div>
                     <div class="cart_page_div">
                         <div class="country">COUNTRY: <?php echo $value['country']; ?></div>
                         <div class="category">CATEGORY: <?php echo $value['category_name']; ?></div>

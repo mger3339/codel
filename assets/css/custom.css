@@ -482,13 +482,16 @@ line-height: 1.428571429;
     float: left;
 }
 .desc_product {
+    border: 1px solid red;
+    overflow: hidden;
+    height: 180px;
     width: 670px;
     font-size: 12px;
     float: left;
     margin-left: 10px;
 }
 .price_product {
-    margin-left: 10px;
+    margin-left: 200px;
     width: 120px;
     text-align: center;
     font-weight: bold;
@@ -499,7 +502,6 @@ line-height: 1.428571429;
 }
 .total_product{
     margin-top: -27px!important;
-    margin-top: 200px;
     width: 120px;
     margin-left: 760px;
     font-weight: bold;
@@ -653,12 +655,15 @@ select {
     width: 100px;
 }
 .admin_edit_button {
-    width: 90px;
+    padding: 0;
+    width: 100px;
     height: 40px;
     margin-top: 10px;
-    margin-left: 480px!important;
+    margin-left: 650px!important;
 }
 .admin_delete_button {
+    padding: 0;
+    width: 100px;
     height: 40px;
     margin-top: 10px;
     margin-left: 25px;

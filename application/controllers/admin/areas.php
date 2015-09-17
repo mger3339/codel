@@ -24,6 +24,14 @@ class Areas extends CI_Controller
         if ($this->session->userdata('check') == TRUE) {
             $this->load->model('admin/areas_model');
             $area = $this->areas_model->getAreaAll();
+            $myrow = array();
+            foreach($area as $value) :
+                array_push($myrow, $value['id']);
+            endforeach;
+            if(!in_array($id, $myrow))
+            {
+                redirect('admin/areas/getAreas');
+            }
             $this->load->model('admin/areas_model');
             $data = $this->areas_model->getAreaById($id);
             $arr['area'] = $area;

@@ -35,7 +35,14 @@ class Categories extends CI_Controller
         if ($this->session->userdata('check') == TRUE) {
             $this->load->model('admin/categories_model');
             $category = $this->categories_model->getCategoryAll();
-            $this->load->model('admin/categories_model');
+            $myrow = array();
+            foreach($category as $value) :
+                array_push($myrow, $value['id']);
+            endforeach;
+            if(!in_array($id, $myrow))
+            {
+                redirect('admin/categories/getCategories');
+            }
             $data = $this->categories_model->getCategoryById($id);
             $arr['category'] = $category;
             $arr['data'] = $data;

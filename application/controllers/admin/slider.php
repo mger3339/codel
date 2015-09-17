@@ -56,6 +56,15 @@ class Slider extends CI_Controller
     {
         $this->load->model('admin/slider_model');
         $data['images'] = $this->slider_model->getSliderImagesById($id);
+        $images = $this->slider_model->getSliderImages();
+        $myrow = array();
+        foreach($images as $value) :
+            array_push($myrow, $value['id']);
+        endforeach;
+        if(!in_array($id, $myrow))
+        {
+            redirect('admin/slider/editPhoto');
+        }
         $this->load->view('admin/header_view');
         $this->load->view('admin/side_bar_view');
         $this->load->view('admin/edit_slider_image_view', $data);

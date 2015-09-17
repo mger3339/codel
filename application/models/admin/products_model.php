@@ -31,6 +31,17 @@ class Products_model extends CI_Model
         $this->db->delete('products');
     }
 
+    public function deleteFromCart($id)
+    {
+        $this->db->where('product_id', $id);
+        $this->db->delete('cart');
+    }
+    public function deleteFromOrders($id)
+    {
+        $this->db->where('product_id', $id);
+        $this->db->delete('orders');
+    }
+
     public function getEditProduct($id)
     {
         $this->db->select('
@@ -63,6 +74,11 @@ class Products_model extends CI_Model
         $this->db->join('category', 'products.category_id = category.id', 'left');
         $this->db->join('areas', 'products.area_id = areas.id', 'left');
         $data = $this->db->get();
+        return $data->result_array();
+    }
+    public function getProducts()
+    {
+        $data = $this->db->get('products');
         return $data->result_array();
     }
 }

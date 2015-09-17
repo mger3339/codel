@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var add_count = 0;
+    var add_count = $(".count").text();
     $(".asd").hide();
     $(document).on("click",".add_cart", function(){
         $(".asd").show();
@@ -7,7 +7,7 @@ $(document).ready(function() {
         $(".asd").offset({top: a.top, left: a.left});
         var id = $(this).attr('data-id');
         ++add_count;
-        $(".asd").text(add_count);
+        $(".count").text(add_count);
         $.ajax({
             url: '/home/addToCart',
             type: "POST",
