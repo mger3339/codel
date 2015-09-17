@@ -29,7 +29,7 @@
                     </div>
                     <div class="div_button">
                         <a href="<?php echo base_url('/home/productPage/'. $value['id']); ?>"><button type="button" class="btn button_view_frontend btn-success btn-md">VIEW</button></a>
-                        <a href="#"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn add_cart btn-danger btn-md">Add to cart</button></a>
+                        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn add_cart btn-danger btn-md">Add to cart</button>
                     </div>
                     <div class="price">PRICE: <?php echo $value['price']; ?>$</div>
                     <div class="asd"></div>

@@ -84,6 +84,7 @@ class Home extends CI_Controller {
             redirect('home');
         }
         echo $this->pagination->create_links();
+        $product['cart'] = $this->products_model->getCartProduct();
         $this->load->view('frontend/header_view');
         $this->load->view('frontend/product_page_view',$product);
         $this->load->view('frontend/footer_view');
