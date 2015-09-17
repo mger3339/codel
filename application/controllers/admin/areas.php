@@ -65,13 +65,27 @@ class Areas extends CI_Controller
         }
     }
 
-    public function saveProduct()
+    public function saveArea()
     {
-        if ($this->input->post('area_save')) {
+        if ($this->input->post('area_save'))
+        {
+            die('test');
             $area_id = $this->input->post('hidden');
             $area_name = $this->input->post('area_name');
-            $area = array('country' => $area_name);
-
+            $this->load->model('admin/areas_model');
+            $data = $this->areas_model->getArea();
+            $myrow = array();
+            foreach($data as $value) :
+                array_push($myrow, $value['country']);
+            endforeach;
+            if(in_array($area_name, $myrow))
+            {
+                redirect('admin/areas/getAreas', 'refresh');
+            }
+            else
+            {
+                $area = array('country' => $area_name);
+            }
             if (empty($area_id)) {
                 $this->load->model('admin/areas_model');
                 $this->areas_model->saveArea($area);
@@ -79,7 +93,7 @@ class Areas extends CI_Controller
             } else {
                 $this->load->model('admin/areas_model');
                 $this->areas_model->updateArea($area, $area_id);
-                redirect('/admin/areas/getAreas', 'refresh');
+                redirect('admin/areas/getAreas', 'refresh');
             }
         }
     }
@@ -95,7 +109,7 @@ class Areas extends CI_Controller
     {
         $this->load->model('admin/areas_model');
         $this->areas_model->deleteArea($id);
-        redirect('/admin/areas/getAreas', 'refresh');
+        redirect('admin/areas/getAreas', 'refresh');
     }
 }
 

@@ -57,19 +57,32 @@ class Categories extends CI_Controller
 
     public function saveProduct()
     {
-        if ($this->input->post('category_save')) {
+        if ($this->input->post('category_save'))
+        {
             $category_id = $this->input->post('hidden');
             $category_name = $this->input->post('category_name');
-            $category = array('category_name' => $category_name);
+            $this->load->model('admin/categories_model');
+            $data = $this->categories_model->getCategoryAll();
+            $myrow = array();
+            foreach($data as $value) :
+                array_push($myrow, $value['category_name']);
+            endforeach;
+            if(in_array($category_name, $myrow))
+            {
+                redirect('admin/categories/getCategories', 'refresh');
+            }
+            else
+            {
+                $category = array('category_name' => $category_name);
+            }
         }
         if (empty($category_id)) {
-            $this->load->model('admin/categories_model');
-            $this->categories_model->saveCategory($category);
-            redirect('/admin/categories/getCategories', 'refresh');
+                $this->categories_model->saveCategory($category);
+                redirect('admin/categories/getCategories', 'refresh');
         } else {
             $this->load->model('admin/categories_model');
             $this->categories_model->updateCategory($category, $category_id);
-            redirect('/admin/categories/getCategories', 'refresh');
+            redirect('admin/categories/getCategories', 'refresh');
         }
     }
 

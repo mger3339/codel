@@ -9,7 +9,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li class="text-center">
-                <img src="<?php echo base_url('assets/img/find_user.png'); ?>" class="user-image img-responsive"/>
+                <img src="<?php echo base_url('assets/img/administrator.png'); ?>" class="user-image img-responsive"/>
             </li>
             <li>
                 <a href="<?php echo base_url('admin/products/index'); ?>"><i class="fa fa-dashboard fa-3x"></i> PRODUCTS</a>
