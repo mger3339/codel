@@ -29,7 +29,7 @@
                         <form action="<?php echo base_url('/admin/areas/saveArea'); ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="exampleInputAddArea">Enter Product country</label>
-                                <input type="text" name="area_name" class="form-control add_input" id="exampleInputAddArea" placeholder="Name Product">
+                                <input type="text" name="area_name" class="form-control add_input" id="exampleInputAddArea" placeholder="Name Country">
                             </div>
                             <input type="submit" name="area_save" class="btn btn-success" value="Save"/>
                         </form>
@@ -39,7 +39,7 @@
                             <form action="<?php echo base_url('/admin/areas/saveArea'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="exampleInputEditArea">Enter Product country</label>
-                                    <input type="text" name="area_name" class="form-control add_input" id="exampleInputEditArea" placeholder="Name Product">
+                                    <input type="text" name="area_name" class="form-control add_input" id="exampleInputEditArea" placeholder="Name Country">
                                 </div>
                                 <input type="submit" name="area_save" class="btn btn-success" value="Save"/>
                             </form>

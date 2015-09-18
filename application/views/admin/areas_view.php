@@ -26,7 +26,7 @@
             </div>
             <div class="category">
                 <div class="add_category">
-                    <form action="<?php echo base_url('index.php/admin/areas/saveProduct'); ?>" method="post"
+                    <form action="<?php echo base_url('admin/areas/saveProduct'); ?>" method="post"
                           enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Enter Product name</label>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="edit_category">
                     <div class="edit_category_name">
-                        <form action="<?php echo base_url('index.php/admin/areas/saveProduct'); ?>" method="post"
+                        <form action="<?php echo base_url('admin/areas/saveArea'); ?>" method="post"
                               enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Enter Product name</label>
@@ -52,7 +52,7 @@
                     </div>
                     <br><br>
                     <?php foreach ($area as $value) : ?>
-                        <a href="<?php echo base_url('index.php/admin/areas/getArea/' . $value['id']); ?>">
+                        <a href="<?php echo base_url('index.php/admin/areas/saveArea/' . $value['id']); ?>">
                             <button type="button"
                                     class="btn btn-primary category_button"><?php echo $value['country']; ?></button>
                         </a>

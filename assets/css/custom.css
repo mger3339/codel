@@ -712,6 +712,7 @@ select {
 .edit_category button {
     margin: 5px;
     width: 120px;
+    overflow: hidden;
 }
 .delete_category button {
     margin: 5px;
@@ -747,6 +748,7 @@ select {
     float: left;
 }
 .all_image_slider {
+    border: 2px solid #030A0C;
     width: 300px;
     height: 200px;
     overflow: hidden;

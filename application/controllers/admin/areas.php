@@ -25,11 +25,10 @@ class Areas extends CI_Controller
             $this->load->model('admin/areas_model');
             $area = $this->areas_model->getAreaAll();
             $myrow = array();
-            foreach($area as $value) :
+            foreach ($area as $value) :
                 array_push($myrow, $value['id']);
             endforeach;
-            if(!in_array($id, $myrow))
-            {
+            if (!in_array($id, $myrow)) {
                 redirect('admin/areas/getAreas');
             }
             $this->load->model('admin/areas_model');
@@ -67,33 +66,32 @@ class Areas extends CI_Controller
 
     public function saveArea()
     {
-        if ($this->input->post('area_save'))
-        {
-            die('test');
+        if ($this->input->post('area_save')) {
             $area_id = $this->input->post('hidden');
-            $area_name = $this->input->post('area_name');
-            $this->load->model('admin/areas_model');
-            $data = $this->areas_model->getArea();
-            $myrow = array();
-            foreach($data as $value) :
-                array_push($myrow, $value['country']);
-            endforeach;
-            if(in_array($area_name, $myrow))
-            {
+            $area_name = trim($this->input->post('area_name'));
+            if (empty($area_name)) {
                 redirect('admin/areas/getAreas', 'refresh');
-            }
-            else
-            {
-                $area = array('country' => $area_name);
-            }
-            if (empty($area_id)) {
-                $this->load->model('admin/areas_model');
-                $this->areas_model->saveArea($area);
-                redirect('/admin/areas/getAreas', 'refresh');
             } else {
                 $this->load->model('admin/areas_model');
-                $this->areas_model->updateArea($area, $area_id);
-                redirect('admin/areas/getAreas', 'refresh');
+                $data = $this->areas_model->getArea();
+                $myrow = array();
+                foreach ($data as $value) :
+                    array_push($myrow, $value['country']);
+                endforeach;
+                if (in_array($area_name, $myrow)) {
+                    redirect('admin/areas/getAreas', 'refresh');
+                } else {
+                    $area = array('country' => $area_name);
+                }
+                if (empty($area_id)) {
+                    $this->load->model('admin/areas_model');
+                    $this->areas_model->saveArea($area);
+                    redirect('/admin/areas/getAreas', 'refresh');
+                } else {
+                    $this->load->model('admin/areas_model');
+                    $this->areas_model->updateArea($area, $area_id);
+                    redirect('admin/areas/getAreas', 'refresh');
+                }
             }
         }
     }
