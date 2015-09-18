@@ -15,10 +15,10 @@ class Login extends CI_Controller{
         $email = trim($this->input->post('email'));
         $password = trim(md5($this->input->post('password')));
         $password_confirmation = trim(md5($this->input->post('password_confirmation')));
-        if($this->input->post('password') == ''){
+        if(trim($this->input->post('password')) == ''){
             unset($password);
         }
-        if($this->input->post('password_confirmation') == ''){
+        if(trim($this->input->post('password_confirmation') == '')){
             unset($password_confirmation);
         }
         if(empty($firs_name) || empty($last_name) || empty($email) || empty($password) || empty($password_confirmation)){
@@ -60,9 +60,42 @@ class Login extends CI_Controller{
         }
     }
 
-    public function login(){
-        $email = trim($this->input->post('first_name'));
-        $last_name = trim($this->input->post('last_name'));
+    public function entry(){
+        $email_login = trim($this->input->post('email_login'));
+        $password_login = trim(md5($this->input->post('password_login')));
+        $remember = $this->input->post('remember');
+        if(trim($this->input->post('email_login')) == ''){
+            unset($email_login);
+        }
+        if(trim($this->input->post('password_login')) == ''){
+            unset($password_login);
+        }
+        if(empty($email_login) || empty($password_login)){
+            echo "<p style='text-align: center; color: red; font-size: 22px'>Empty field</p>";
+        }
+        else {
+            if(!filter_var($email_login,FILTER_VALIDATE_EMAIL)) {
+                echo "<p style='text-align: center; color: red; font-size: 22px'>Enter corrcet E-mail</p>";
+            }
+            else {
+                $this->load->model('frontend/login_model');
+                $users = $this->login_model->getUsers();
+                $data_email = array();
+                $data_password = array();
+                foreach($users as $value) :
+                    array_push($data_email, $value['email']);
+                endforeach;
+                foreach($users as $value) :
+                    array_push($data_password, $value['password']);
+                endforeach;
+                if(!in_array($email_login,$data_email) || !in_array($password_login,$data_password)){
+                    echo "<p>ERROR</p>";
+                }
+                else {
+                    echo "ok";
+                }
+            }
+        }
     }
 }
 
