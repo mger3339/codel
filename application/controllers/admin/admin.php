@@ -15,7 +15,7 @@ class Admin extends CI_Controller
             $login = $_POST['login'];
             $password = $_POST['password'];
             $this->load->model('admin/login_model');
-            $admin_user = $this->login_model->getUsers();
+            $admin_user = $this->login_model->getAdmin();
             foreach ($admin_user as $value) {
                 $log = $value['login'];
                 $pass = $value['password'];

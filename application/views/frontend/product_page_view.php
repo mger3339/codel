@@ -9,7 +9,7 @@
     <script src="<?php echo base_url('/assets/js/add_cart.js'); ?>"></script>
 </head>
 <body>
-<div id="content">
+<div id="content1">
     <div class="cart">
         <a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>
         <div class="count"><?php echo count($cart); ?></div>
