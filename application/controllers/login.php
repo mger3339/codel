@@ -52,7 +52,17 @@ class Login extends CI_Controller{
                         $this->load->model('frontend/login_model');
                         $this->login_model->UserRegistration($data);
                         echo "<p style='text-align: center; color: red; font-size: 22px'>Registration successful</p>";
-                        redirect('login');
+                        $user_data = $this->login_model->getUsersByEmail($email);
+                        $session_data = array(
+                            'user_id' => $user_data['0']['id'],
+                            'first_name' => $user_data['0']['first_name'],
+                            'last_name' => $user_data['0']['last_name'],
+                            'email_login' => $email,
+                            'password_login' => $password,
+                            'check' => TRUE,
+                        );
+                        $this->session->set_userdata($session_data);
+                        redirect('home');
                     }
 
                 }
@@ -61,25 +71,26 @@ class Login extends CI_Controller{
     }
 
     public function entry(){
-        $email_login = trim($this->input->post('email_login'));
+        $email = trim($this->input->post('email_login'));
         $password_login = trim(md5($this->input->post('password_login')));
         $remember = $this->input->post('remember');
         if(trim($this->input->post('email_login')) == ''){
-            unset($email_login);
+            unset($email);
         }
         if(trim($this->input->post('password_login')) == ''){
             unset($password_login);
         }
-        if(empty($email_login) || empty($password_login)){
+        if(empty($email) || empty($password_login)){
             echo "<p style='text-align: center; color: red; font-size: 22px'>Empty field</p>";
         }
         else {
-            if(!filter_var($email_login,FILTER_VALIDATE_EMAIL)) {
+            if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
                 echo "<p style='text-align: center; color: red; font-size: 22px'>Enter corrcet E-mail</p>";
             }
             else {
                 $this->load->model('frontend/login_model');
                 $users = $this->login_model->getUsers();
+                $user_data = $this->login_model->getUsersByEmail($email);
                 $data_email = array();
                 $data_password = array();
                 foreach($users as $value) :
@@ -88,14 +99,31 @@ class Login extends CI_Controller{
                 foreach($users as $value) :
                     array_push($data_password, $value['password']);
                 endforeach;
-                if(!in_array($email_login,$data_email) || !in_array($password_login,$data_password)){
-                    echo "<p>ERROR</p>";
+                if(!in_array($email,$data_email) || !in_array($password_login,$data_password)){
+                    echo "<p>WRONG LOGIN OR PASSWORD</p>";
                 }
                 else {
+                    $session_data = array(
+                                    'user_id' => $user_data['0']['id'],
+                                    'first_name' => $user_data['0']['first_name'],
+                                    'last_name' => $user_data['0']['last_name'],
+                                    'email' => $email,
+                                    'password_login' => $password_login,
+                                    'check' => TRUE,
+                                    'remember' => $remember
+                                    );
+                    $this->session->set_userdata($session_data);
+                    redirect('home/index');
                     echo "ok";
                 }
             }
         }
+    }
+
+    public function logOut()
+    {
+        $this->session->sess_destroy();
+        redirect('login');
     }
 }
 

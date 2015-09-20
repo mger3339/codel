@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_users extends CI_Migration{
+class Migration_admin extends CI_Migration{
 
     public function up(){
         $this->dbforge->add_field(array(
@@ -20,18 +20,18 @@ class Migration_users extends CI_Migration{
             ),
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('users');
-        echo "<li>Created  table Users</li><br>";
+        $this->dbforge->create_table('admin');
+        echo "<li>Created  table Admin</li><br>";
         $users = array(
             array(
                 'login' => 'mher',
                 'password' => '123123'
             )
         );
-        $this->db->insert_batch('users', $users);
+        $this->db->insert_batch('admin', $users);
     }
 
     public function down(){
-        $this->dbforge->drop_table('users');
+        $this->dbforge->drop_table('admin');
     }
 }
