@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets/js/user_login.js'); ?>"></script>
 </head>
 <body>
     <div id="header">
