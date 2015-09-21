@@ -110,11 +110,10 @@ class Login extends CI_Controller{
                                     'email' => $email,
                                     'password_login' => $password_login,
                                     'check' => TRUE,
-                                    'remember' => $remember
+                                    'remember' => $remember,
                                     );
                     $this->session->set_userdata($session_data);
                     redirect('home/index');
-                    echo "ok";
                 }
             }
         }
@@ -125,6 +124,22 @@ class Login extends CI_Controller{
         $this->session->sess_destroy();
         redirect('login');
     }
+
+    public function emailValidate(){
+        $responce = 0;
+        $data_email = array();
+        $email = $this->input->post('email');
+        $this->load->model('frontend/login_model');
+        $users = $this->login_model->getUsers();
+        foreach($users as $value){
+            array_push($data_email, $value['email']);
+        }
+        if(!in_array($email,$data_email)){
+            $responce = 1;
+        }
+        echo $responce;
+    }
+
 }
 
 //

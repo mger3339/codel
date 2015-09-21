@@ -14,11 +14,7 @@
                 </div>
                 <div class="form-group password_div">
                     <label>Password</label><br>
-                    <input type="password" name="password_login" class="form-control input_password" id="password" placeholder="Enter password">
-                </div>
-                <div class="checkbox checkbox_login">
-                    <label>Remember me</label>
-                    <input type="checkbox" name="remember">
+                    <input type="password" name="password_login" class="form-control input_password" id="password_login" placeholder="Enter password">
                 </div>
                 <button type="submit" class="btn btn-primary button_login">Log In</button>
             </form>

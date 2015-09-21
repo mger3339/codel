@@ -42,7 +42,8 @@ class Home extends CI_Controller {
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $this->load->model('frontend/products_model');
-            $home['cart'] = $this->products_model->getCartProduct();
+            $user_id = $this->session->userdata('user_id');
+            $home['cart'] = $this->products_model->getCartProductByUserId($user_id);
             $home['data'] = $this->products_model->getProduct($limit, $offset);
             $this->load->view('frontend/content_view',$home);
             $this->load->view('frontend/footer_view');
@@ -124,7 +125,8 @@ class Home extends CI_Controller {
                 redirect('home');
             }
             echo $this->pagination->create_links();
-            $product['cart'] = $this->products_model->getCartProduct();
+            $user_id = $this->session->userdata('user_id');
+            $product['cart'] = $this->products_model->getCartProductByUserId($user_id);
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
@@ -142,14 +144,15 @@ class Home extends CI_Controller {
     public function addToCart(){
         if($this->session->userdata('check') == 1) {
             $id = $this->input->post('id');
+            $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
-            $arr = $this->products_model->getCartProduct();
+            $arr = $this->products_model->getCartProductByUserId($user_id);
             $myrow = array();
             foreach ($arr as $value) {
                 array_push($myrow, $value['product_id']);
             }
             if (!in_array($id, $myrow)) {
-                $cart = array('product_id' => $id, 'count' => 1);
+                $cart = array('product_id' => $id, 'count' => 1, 'user_id' => $user_id);
                 $this->load->model('frontend/products_model');
                 $this->products_model->addCartProduct($cart);
             } else {
@@ -157,7 +160,6 @@ class Home extends CI_Controller {
                 $data = $this->products_model->getCartProductById($id);
                 $count = $data['0']['count'];
                 $count = $count + 1;
-
                 $this->load->model('frontend/products_model');
                 $this->products_model->editCartProduct($id, $count);
             }
@@ -170,8 +172,9 @@ class Home extends CI_Controller {
     }
     public function cartPage(){
         if($this->session->userdata('check') == 1) {
+            $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
-            $product['data'] = $this->products_model->getProductCartPage();
+            $product['data'] = $this->products_model->getProductCartPage($user_id);
             $product['shipping'] = $this->products_model->getShipping();
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
@@ -191,13 +194,14 @@ class Home extends CI_Controller {
         if($this->session->userdata('check') == 1) {
             $responce = 0;
             $id = $this->input->post('id');
+            $user_id = $this->session->userdata('user_id');
             $count = $this->input->post('count');
             $this->load->model('frontend/products_model');
             $total = $this->products_model->getTotalProduct($id);
             $result = $total['0']['total'];
             if ($count >= 0 && $count <= $result) {
                 $this->load->model('frontend/products_model');
-                $data = $this->products_model->editCartProduct($id, $count);
+                $data = $this->products_model->editCartProduct($id, $user_id, $count);
                 $responce = 1;
             }
             $data['responce'] = $responce;
@@ -245,11 +249,12 @@ class Home extends CI_Controller {
     }
     public function puyPage(){
         if($this->session->userdata('check') == 1) {
+            $user_id = $this->session->userdata('user_id');
             $total = $this->input->post('total');
             $count = $this->input->post('count');
             $price = $this->input->post('price');
             $this->load->model('frontend/products_model');
-            $product = $this->products_model->getProductCartPage();
+            $product = $this->products_model->getProductCartPage($user_id);
             foreach ($product as $value) :
                 array_push($value['price'], $price);
                 array_push($value['count'], $count);
@@ -261,7 +266,8 @@ class Home extends CI_Controller {
                     'img' => $value['img'],
                     'country' => $value['country'],
                     'category_name' => $value['category_name'],
-                    'count' => $value['count']
+                    'count' => $value['count'],
+                    'user_id' => $user_id
                 );
                 $this->load->model('frontend/products_model');
                 $this->products_model->addProductBuy($orders);

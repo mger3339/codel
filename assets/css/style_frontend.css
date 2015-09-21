@@ -41,8 +41,8 @@ body, html {
     float: left;
 }
 .log_out {
-    margin-left: 150px;
-    margin-top: -10px;
+    margin-left: 50px;
+    margin-top: -8px;
 }
 .menu_list {
     padding-top: 3px;
@@ -597,7 +597,7 @@ body, html {
     background-color: #59AD82;
 }
 .fb-like {
-    width: 250px!important;
+    width: 300px!important;
     margin-top: 10px;
     float: right;
 }

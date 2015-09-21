@@ -70,17 +70,21 @@ class Test extends CI_Controller {
 	* a sample order page, which just iterate $this->product and display them
 	* --------------------------------------------------------------------------------------------------
 	*/
-	function index($id) {
+	function index() {
         $this->load->model('frontend/products_model');
-        $product = $this->products_model->getOrdersById($id);
+        $user_id = $this->session->userdata('user_id');
+        $product = $this->products_model->getOrders($user_id);
 		echo "<p>You are about to buy</p>";
 		echo "<ul>";
+        $total = 0;
 		foreach($product as $p) {
             $p['price'] = $p['price'] * $p['count'];
 			echo "<li>{$p['name']} - \${$p['price']}</li>";
+            $total = $total + $p['price'];
 		}
+        echo "<br><li>TOTAL - \$$total</li>";
 		echo "</ul>";
-		echo "<h1><a href='" . site_url('test/buy/' .$id) . "'>BUY NOW</a></h1>";
+		echo "<h1><a href='" . site_url('test/buy/') . "'>BUY NOW</a></h1>";
 	}
 	
 	/* -------------------------------------------------------------------------------------------------
@@ -89,7 +93,8 @@ class Test extends CI_Controller {
 	*/
 	function buy() {
         $this->load->model('frontend/products_model');
-        $product = $this->products_model->getOrders();
+        $user_id = $this->session->userdata('user_id');
+        $product = $this->products_model->getOrders($user_id);
 		$to_buy = array(
 			'desc' => 'Purchase from ACME Store', 
 			'currency' => $this->currency, 
@@ -169,8 +174,6 @@ class Test extends CI_Controller {
 				// at this point, you have collected payment from your customer
 				// you may want to process the order now.
 				echo "<h1>Thank you. We will process your order now.</h1>";
-                $this->load->model('frontend/products_model');
-                $this->products_model->deleteOrders();
                 redirect('home/cartPage');
 			} else {
 				$this->_error($do_ec_return);

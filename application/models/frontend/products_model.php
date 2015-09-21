@@ -43,13 +43,20 @@ class Products_model extends CI_Model {
         $this->db->insert('cart',$cart);
     }
 
-    public function editCartProduct($id, $count){
+    public function editCartProduct($id, $user_id, $count){
         $this->db->set('count', $count);
+        $this->db->where('user_id', $user_id);
         $this->db->where('product_id', $id);
         $this->db->update('cart');
     }
 
     public function getCartProduct(){
+        $data = $this->db->get('cart');
+        return $data->result_array();
+    }
+
+    public function getCartProductByUserId($user_id){
+        $this->db->where('user_id', $user_id);
         $data = $this->db->get('cart');
         return $data->result_array();
     }
@@ -60,18 +67,21 @@ class Products_model extends CI_Model {
         return $data->result_array();
     }
 
-    public function getProductCartPage(){
+    public function getProductCartPage($user_id){
         $this->db->select('
             products.*,
             category.category_name,
             areas.country,
             cart.product_id,
-            cart.count
+            cart.count,
+            cart.user_id
             ');
         $this->db->from('products');
-        $this->db->join('category', 'products.category_id = category.id', 'right');
-        $this->db->join('areas', 'products.area_id = areas.id', 'right');
-        $this->db->join('cart', 'products.id = cart.product_id', 'right');
+        $this->db->join('category', 'products.category_id = category.id', 'left');
+        $this->db->join('areas', 'products.area_id = areas.id', 'left');
+        $this->db->join('cart', 'products.id = cart.product_id', 'left');
+        $this->db->where('cart.user_id', $user_id);
+        $this->db->order_by('products.id', 'desc ');
         $data = $this->db->get();
         return $data->result_array();
     }
@@ -95,9 +105,7 @@ class Products_model extends CI_Model {
     }
 
     public function addProductBuy($orders){
-//        foreach ($orders as $item) :
         $this->db->insert('orders',$orders);
-//            endforeach;
     }
     public function getCoordinates($area){
         $this->db->where('country', $area);
@@ -105,7 +113,8 @@ class Products_model extends CI_Model {
         return $data->result_array();
     }
 
-    public function getOrders(){
+    public function getOrders($user_id){
+        $this->db->where('user_id', $user_id);
         $data = $this->db->get('orders');
         return $data->result_array();
     }
