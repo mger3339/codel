@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var add_count = $(".count").text();
     $(".asd").hide();
-    $(document).on("click",".add_cart", function(){
+    $(document).on("click", ".add_cart", function () {
         $(".asd").show();
         var a = $(".count").offset();
         $(".asd").offset({top: a.top, left: a.left});
@@ -11,11 +11,8 @@ $(document).ready(function() {
         $.ajax({
             url: '/home/addToCart',
             type: "POST",
-            data:{id: id},
-            success: function(){
-                }
+            data: {id: id}
         });
         return false;
     });
-
 });

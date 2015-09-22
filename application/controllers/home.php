@@ -1,19 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
     public function index()
     {
-        if($this->session->userdata('check') == 1){
+        if ($this->session->userdata('check') == 1)
+        {
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
-            $this->load->view('frontend/header_view',$home);
+            $this->load->view('frontend/header_view', $home);
             $limit = 3;
-            if($this->uri->segment(3) !== null && is_numeric($this->uri->segment(3)))
+            if ($this->uri->segment(3) !== null && is_numeric($this->uri->segment(3)))
             {
-                $offset = ($this->uri->segment(3) * $limit) - $limit ;
+                $offset = ($this->uri->segment(3) * $limit) - $limit;
             }
             else
             {
@@ -21,13 +23,13 @@ class Home extends CI_Controller {
             }
             $this->load->model('frontend/products_model');
             $data['product'] = $this->products_model->sliderImg();
-            $this->load->view('frontend/slider_view',$data);
+            $this->load->view('frontend/slider_view', $data);
             $config['base_url'] = base_url('/home/index');
             $config['total_rows'] = $this->db->count_all('products');
             $config['per_page'] = $limit;
             $config['use_page_numbers'] = TRUE;
             $config['full_tag_open'] = "<ul class='pagination  pagination-centered'>";
-            $config['full_tag_close'] ="</ul>";
+            $config['full_tag_close'] = "</ul>";
             $config['num_tag_open'] = '<li>';
             $config['num_tag_close'] = '</li>';
             $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
@@ -45,10 +47,11 @@ class Home extends CI_Controller {
             $user_id = $this->session->userdata('user_id');
             $home['cart'] = $this->products_model->getCartProductByUserId($user_id);
             $home['data'] = $this->products_model->getProduct($limit, $offset);
-            $this->load->view('frontend/content_view',$home);
+            $this->load->view('frontend/content_view', $home);
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
@@ -57,15 +60,17 @@ class Home extends CI_Controller {
 
     public function porducts()
     {
-        if($this->session->userdata('check') == 1) {
+        if ($this->session->userdata('check') == 1)
+        {
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
-            $this->load->view('frontend/header_view',$home);
+            $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/products_view');
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
@@ -74,7 +79,8 @@ class Home extends CI_Controller {
 
     public function about()
     {
-        if($this->session->userdata('check') == 1) {
+        if ($this->session->userdata('check') == 1)
+        {
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
@@ -82,7 +88,8 @@ class Home extends CI_Controller {
             $this->load->view('frontend/about_view');
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
@@ -91,7 +98,8 @@ class Home extends CI_Controller {
 
     public function contacts()
     {
-        if($this->session->userdata('check') == 1) {
+        if ($this->session->userdata('check') == 1)
+        {
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
@@ -99,7 +107,8 @@ class Home extends CI_Controller {
             $this->load->view('frontend/contacts_view');
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
@@ -108,7 +117,8 @@ class Home extends CI_Controller {
 
     public function productPage($id)
     {
-        if($this->session->userdata('check') == 1) {
+        if ($this->session->userdata('check') == 1)
+        {
 
             $config['base_url'] = base_url('frontend/home/productPage');
             $config['total_rows'] = '2';
@@ -121,7 +131,8 @@ class Home extends CI_Controller {
             foreach ($data as $value) :
                 array_push($myrow, $value['id']);
             endforeach;
-            if (!in_array($id, $myrow)) {
+            if (!in_array($id, $myrow))
+            {
                 redirect('home');
             }
             echo $this->pagination->create_links();
@@ -134,15 +145,18 @@ class Home extends CI_Controller {
             $this->load->view('frontend/product_page_view', $product);
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
     }
 
-    public function addToCart(){
-        if($this->session->userdata('check') == 1) {
+    public function addToCart()
+    {
+        if ($this->session->userdata('check') == 1)
+        {
             $id = $this->input->post('id');
             $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
@@ -155,7 +169,9 @@ class Home extends CI_Controller {
                 $cart = array('product_id' => $id, 'count' => 1, 'user_id' => $user_id);
                 $this->load->model('frontend/products_model');
                 $this->products_model->addCartProduct($cart);
-            } else {
+            }
+            else
+            {
                 $this->load->model('frontend/products_model');
                 $data = $this->products_model->getCartProductById($id);
                 $count = $data['0']['count'];
@@ -164,14 +180,18 @@ class Home extends CI_Controller {
                 $this->products_model->editCartProduct($id, $count);
             }
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
     }
-    public function cartPage(){
-        if($this->session->userdata('check') == 1) {
+
+    public function cartPage()
+    {
+        if ($this->session->userdata('check') == 1)
+        {
             $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
             $product['data'] = $this->products_model->getProductCartPage($user_id);
@@ -182,16 +202,18 @@ class Home extends CI_Controller {
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/cart_page_view', $product);
             $this->load->view('frontend/footer_view');
-        }
-        else {
+        } else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
     }
 
-    public function editCartCount(){
-        if($this->session->userdata('check') == 1) {
+    public function editCartCount()
+    {
+        if ($this->session->userdata('check') == 1)
+        {
             $responce = 0;
             $id = $this->input->post('id');
             $user_id = $this->session->userdata('user_id');
@@ -199,7 +221,8 @@ class Home extends CI_Controller {
             $this->load->model('frontend/products_model');
             $total = $this->products_model->getTotalProduct($id);
             $result = $total['0']['total'];
-            if ($count >= 0 && $count <= $result) {
+            if ($count >= 0 && $count <= $result)
+            {
                 $this->load->model('frontend/products_model');
                 $data = $this->products_model->editCartProduct($id, $user_id, $count);
                 $responce = 1;
@@ -208,7 +231,8 @@ class Home extends CI_Controller {
             $data['result'] = $result;
             echo json_encode($data);
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
@@ -217,22 +241,26 @@ class Home extends CI_Controller {
 
     public function deleteCartProduct()
     {
-        if($this->session->userdata('check') == 1) {
+        if ($this->session->userdata('check') == 1)
+        {
             $id = $this->input->post('id');
             $this->load->model('frontend/products_model');
             $total = $this->products_model->deleteProduct($id);
             $result = 1;
             echo $result;
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
     }
 
-    public function buyProduct($id){
-        if($this->session->userdata('check') == 1) {
+    public function buyProduct($id)
+    {
+        if ($this->session->userdata('check') == 1)
+        {
             $this->load->model('frontend/products_model');
             $product['data'] = $this->products_model->getProductPage($id);
             $this->load->model('frontend/products_model');
@@ -241,20 +269,34 @@ class Home extends CI_Controller {
             $this->load->view('frontend/buy_product_view', $product);
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
     }
-    public function puyPage(){
-        if($this->session->userdata('check') == 1) {
+
+    public function puyPage()
+    {
+        if ($this->session->userdata('check') == 1)
+        {
+            if($this->input->post('shipping'))
+            {
+                $shipping = $this->input->post('shipping');
+            }
+            else
+            {
+                $shipping = 0;
+            }
+            $data = array();
+            $id = $this->input->post('id');
             $user_id = $this->session->userdata('user_id');
             $total = $this->input->post('total');
             $count = $this->input->post('count');
             $price = $this->input->post('price');
             $this->load->model('frontend/products_model');
-            $product = $this->products_model->getProductCartPage($user_id);
+            $product = $this->products_model->getCartProductByIdUserId($id,$user_id);
             foreach ($product as $value) :
                 array_push($value['price'], $price);
                 array_push($value['count'], $count);
@@ -267,23 +309,28 @@ class Home extends CI_Controller {
                     'country' => $value['country'],
                     'category_name' => $value['category_name'],
                     'count' => $value['count'],
-                    'user_id' => $user_id
+                    'user_id' => $user_id,
+                    'shipping' => $shipping
                 );
                 $this->load->model('frontend/products_model');
                 $this->products_model->addProductBuy($orders);
             endforeach;
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
     }
 
-    public function orders(){
-        if($this->session->userdata('check') == 1) {
+    public function orders()
+    {
+        if ($this->session->userdata('check') == 1)
+        {
+            $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
-            $product['data'] = $this->products_model->getOrders();
+            $product['data'] = $this->products_model->getOrders($user_id);
             $area = $product['data']['0']['country'];
             $this->load->model('frontend/products_model');
             $coordinates = $this->products_model->getCoordinates($area);
@@ -301,7 +348,8 @@ class Home extends CI_Controller {
             $this->load->view('frontend/buy_page_view', $product);
             $this->load->view('frontend/footer_view');
         }
-        else {
+        else
+        {
             $this->load->view('frontend/header_login_view');
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');

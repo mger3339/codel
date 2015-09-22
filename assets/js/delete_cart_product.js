@@ -6,8 +6,7 @@ $(document).ready(function(){
             type: "POST",
             data:{id: id},
             success: function(result){
-                if(result == 1)
-                {
+                if(result == 1){
                     $(".cart_1"+id+"").remove();
                 }
             }

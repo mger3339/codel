@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login_model extends CI_Model
 {
-    public function getUsers(){
+    public function getUsers()
+    {
         $query = $this->db->get('users');
         return $query->result_array();
     }
@@ -13,7 +14,8 @@ class Login_model extends CI_Model
         $this->db->insert('users', $data);
     }
 
-    public function getUsersByEmail($email){
+    public function getUsersByEmail($email)
+    {
         $this->db->where('email', $email);
         $query = $this->db->get('users');
         return $query->result_array();

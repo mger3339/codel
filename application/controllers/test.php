@@ -82,7 +82,6 @@ class Test extends CI_Controller {
 			echo "<li>{$p['name']} - \${$p['price']}</li>";
             $total = $total + $p['price'];
 		}
-        echo "<br><li>TOTAL - \$$total</li>";
 		echo "</ul>";
 		echo "<h1><a href='" . site_url('test/buy/') . "'>BUY NOW</a></h1>";
 	}
@@ -104,23 +103,23 @@ class Test extends CI_Controller {
 			// whatever you use, make sure the URL is live and can process
 			// the next steps
 			'cancel_URL' => site_url('test'), // this goes to this controllers index()
-			'get_shipping' => true);
+            'shipping_amount' => $product['0']['shipping'],
+            'get_shipping' => true);
             // I am just iterating through $this->product from defined
             // above. In a live case, you could be iterating through
             // the content of your shopping cart.
 		foreach($product as $p) {
-            $p['price'] = $p['price'] * $p['count'];
 			$temp_product = array(
-				'name' => $p['name'], 
-				'desc' => $p['desc'],
+				'name' => $p['name'],
 				'quantity' => $p['count'], // simple example -- fixed to 1
 				'amount' => $p['price']);
-				
 			// add product to main $to_buy array
 			$to_buy['products'][] = $temp_product;
 		}
 		// enquire Paypal API for token
 		$set_ec_return = $this->paypal_ec->set_ec($to_buy);
+//        echo "<pre>";
+//        print_r($set_ec_return);die;
 		if (isset($set_ec_return['ec_status']) && ($set_ec_return['ec_status'] === true)) {
 			// redirect to Paypal
 //            $this->load->model('frontend/products_model');
@@ -130,7 +129,7 @@ class Test extends CI_Controller {
 //                $this->products_model->updateTotalProduct($item);
 //            }
 			$this->paypal_ec->redirect_to_paypal($set_ec_return['TOKEN']);
-			// You could detect your visitor's browser and redirect to Paypal's mobile checkout
+ 			// You could detect your visitor's browser and redirect to Paypal's mobile checkout
 			// if they are on a mobile device. Just add a true as the last parameter. It defaults
 			// to false
             // $this->paypal_ec->redirect_to_paypal( $set_ec_return['TOKEN'], true);
@@ -174,6 +173,28 @@ class Test extends CI_Controller {
 				// at this point, you have collected payment from your customer
 				// you may want to process the order now.
 				echo "<h1>Thank you. We will process your order now.</h1>";
+                $user_id = $this->session->userdata('user_id');
+                $this->load->model('frontend/products_model');
+                $product = $this->products_model->getOrders($user_id);
+                $data_id = array();
+                foreach($product as $value){
+                    array_push($data_id, $value['product_id']);
+                }
+                $data = $this->products_model->getProductsById($data_id);
+
+                $count = array();
+                //$total = array();
+                 foreach($product as $item) {
+                     $count[$item['product_id']] = $item['count'];
+                 }
+                foreach($data as &$value){
+                    $value['total'] = $value['total'] - $count[$value['id']];
+                    $this->products_model->updateTotalProduct($value['total'],$value['id']);
+                }
+//                echo "<pre>";
+//                print_r($count);die;
+                $this->load->model('frontend/products_model');
+                $this->products_model->deleteOrders($user_id);
                 redirect('home/cartPage');
 			} else {
 				$this->_error($do_ec_return);

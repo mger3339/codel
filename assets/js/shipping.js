@@ -13,11 +13,25 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+    $(".select_error").hide();
     $(".buy_now").on("click", function(){
+        var id = [];
         var count = [];
         var price = [];
+        var a =  $( "input:checked").val();
+        if(!a){
+            $(".select_error").show();
+            $(".select_error").text('Please select minimum 1 product');
+            return false;
+        }
+        var shipp = $(".shipping").text();
+        var shipping = parseInt(shipp.substring(10, shipp.length - 1));
         var total = $(".total_shipping_sum").text();
         var total_sum = parseInt(total.substring(7, total.length - 1));
+        $( "input:checked").each(function( index) {
+            var ids = $( this ).val();
+            id.push(ids);
+        });
         $( ".total_price" ).each(function( index) {
             var x = $( this ).text();
             window.y = parseInt(x.substring(3, x.length));
@@ -28,11 +42,37 @@ $(document).ready(function(){
             count.push(window.a);
         });
         $.ajax({
-            url: '/home/puyPage',
+            url: './puyPage',
             type: "POST",
-            data:{total: total_sum, price: price, count: count},
-            success: function(a){
+            data:{total: total_sum, price: price, count: count,id: id, shipping:shipping },
+            success: function(){
             }
         });
     });
+});
+
+$(document).ready(function(){
+    $('#select_all').click(function(event) {
+        if(this.checked) {
+            // Iterate each checkbox
+            $(':checkbox').each(function() {
+                this.checked = true;
+            });
+        }
+        else {
+            $(':checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+});
+
+$(document).ready(function(){
+    window.location.watch(
+        'hash',
+        function(id,oldVal,newVal){
+            debugger;
+            console.log("the window's hash value has changed from "+oldval+" to "+newVal);
+        }
+    );
 });

@@ -1,18 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contacts extends CI_Controller{
+class Contacts extends CI_Controller
+{
 
-    public function sendMail(){
+    public function sendMail()
+    {
         $submit = trim($this->input->post('submit'));
         $name = trim($this->input->post('name'));
         $lastname = trim($this->input->post('lastname'));
         $message = trim($this->input->post('message'));
         $email = trim($this->input->post('email'));
         $this->load->helper('email');
-        if(isset($submit)) {
-            if(!empty($name) && !empty($lastname) && !empty($email) && !empty($message)){
-                if (filter_var($this->input->post('email'),FILTER_VALIDATE_EMAIL)){
+        if (isset($submit)) {
+            if (!empty($name) && !empty($lastname) && !empty($email) && !empty($message)) {
+                if (filter_var($this->input->post('email'), FILTER_VALIDATE_EMAIL)) {
                     $config['protocol'] = "smtp";
                     $config['smtp_host'] = "ssl://smtp.gmail.com";
                     $config['smtp_port'] = "465";
@@ -32,17 +34,14 @@ class Contacts extends CI_Controller{
                     if (!$this->email->send()) {
                         // Raise error message
                         show_error($this->email->print_debugger());
-                    }
-                    else {
+                    } else {
                         // Show success notification or other things here
                         echo 'Success to send email';
                     }
-                }
-                else {
+                } else {
                     echo 'Wrong E-mail';
                 }
-            }
-            else{
+            } else {
                 echo "All fields must be filled necessarily";
             }
         }

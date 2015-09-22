@@ -40,6 +40,7 @@
         <button data-id="<?php echo $value['id']; ?>" type="button" class="btn add_cart btn-danger btn-md">Add to cart</button>
     </div>
     <div class="asd"></div>
+<!--    <div class="map">--><?php //echo $map['html']; ?><!--</div>-->
 </div>
 </body>
 </html>
