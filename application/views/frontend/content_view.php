@@ -15,6 +15,42 @@
 </head>
 <body>
         <div id="content">
+            <div class="col-md-12 search_div">
+                <form class="form-inline form_search">
+                    <div class="form-group select_div">
+                        <select class="form-control" name="areas">
+                            <option>Areas</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group select_div">
+                        <select class="form-control" name="areas">
+                            <option>Category</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="label_price">From - </div>
+                    <div class="form-group from_div">
+                        <input type="text" name="from" class="form-control price_input" placeholder="Price $"/>
+                    </div>
+                    <div class="label_price">Before - </div>
+                    <div class="form-group from_div">
+                        <input type="text" name="from" class="form-control price_input" placeholder="Price $" />
+                    </div>
+                    <div class="form-group search_input_div">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <input type="submit" name="submit" class="btn btn-success" value="Search">
+                </form>
+            </div>
             <div class="cart"><a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>
                 <div class="count"><?php echo count($cart); ?></div>
             </div>

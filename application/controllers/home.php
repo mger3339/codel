@@ -314,8 +314,6 @@ class Home extends CI_Controller
                 );
                 $this->load->model('frontend/products_model');
                 $data_orders = $this->products_model->getOrders($user_id);
-                echo "<pre>";
-                print_r($data_orders);
                 $this->products_model->addProductBuy($orders);
             endforeach;
             redirect('test/index');

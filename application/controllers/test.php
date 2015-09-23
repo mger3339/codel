@@ -126,22 +126,16 @@ class Test extends CI_Controller {
 		}
 		// enquire Paypal API for token
 		$set_ec_return = $this->paypal_ec->set_ec($to_buy);
-//        echo "<pre>";
-//        print_r($set_ec_return);die;
 		if (isset($set_ec_return['ec_status']) && ($set_ec_return['ec_status'] === true)) {
-			// redirect to Paypal
-//            $this->load->model('frontend/products_model');
-//            $data = $this->products_model->getProducts();
-//            foreach($data as $item){
-//                $new_total = $item['total'] -
-//                $this->products_model->updateTotalProduct($item);
-//            }
 			$this->paypal_ec->redirect_to_paypal($set_ec_return['TOKEN']);
  			// You could detect your visitor's browser and redirect to Paypal's mobile checkout
 			// if they are on a mobile device. Just add a true as the last parameter. It defaults
 			// to false
             // $this->paypal_ec->redirect_to_paypal( $set_ec_return['TOKEN'], true);
+
 		} else {
+            $this->load->model('frontend/products_model');
+            $this->products_model->deleteOrders($user_id);
 			$this->_error($set_ec_return);
 		}
 	}
@@ -189,9 +183,7 @@ class Test extends CI_Controller {
                     array_push($data_id, $value['product_id']);
                 }
                 $data = $this->products_model->getProductsById($data_id);
-
                 $count = array();
-                //$total = array();
                  foreach($product as $item) {
                      $count[$item['product_id']] = $item['count'];
                  }
@@ -199,15 +191,17 @@ class Test extends CI_Controller {
                     $value['total'] = $value['total'] - $count[$value['id']];
                     $this->products_model->updateTotalProduct($value['total'],$value['id']);
                 }
-//                echo "<pre>";
-//                print_r($count);die;
                 $this->load->model('frontend/products_model');
                 $this->products_model->deleteOrders($user_id);
-                redirect('home/cartPage');
+//                redirect('home/cartPage');
 			} else {
+                $this->load->model('frontend/products_model');
+                $this->products_model->deleteOrders($user_id);
 				$this->_error($do_ec_return);
 			}
 		} else {
+            $this->load->model('frontend/products_model');
+            $this->products_model->deleteOrders($user_id);
 			$this->_error($get_ec_return);
 		}
 	}

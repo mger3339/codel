@@ -53,6 +53,7 @@ body, html {
     height: 30px;
 }
 .cart {
+    margin-top: 5px;
     border-bottom: 2px solid #002a80;
     padding-bottom: 10px;
 }
@@ -427,7 +428,6 @@ body, html {
     width: 30px!important;
 }
 .cart_img {
-    border: 1px solid royalblue;
     padding-top: 10px;
     width: 80px;
     height: 80px;
@@ -732,4 +732,34 @@ body, html {
     margin-left: 10px;
     margin-top: 40px!important;
 }
-
+.search_div {
+    min-height: 50px;
+    border-bottom: 2px solid #002a80;
+    width: 100%;
+    background-color: #C9EDFF;
+    margin: 0 auto;
+    padding-top: 7px;
+}
+.price_input {
+    width: 70px!important;
+}
+.form_search {
+}
+.label_price {
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 50px;
+    margin-top: 8px;
+    margin-right: 5px;
+    float: left;
+}
+.select_div {
+    margin-left: 20px;
+    float: left;
+}
+.from_div {
+    float: left;
+}
+.search_input_div {
+    margin-left: 150px;
+}

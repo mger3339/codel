@@ -67,14 +67,13 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-window.onbeforeunload = function(){
-    $.ajax({
-        url: './deleteOrders',
-        type: 'POST',
-        data:{},
-        success: function(){
-        }
-    });
-}
-});
+//$(document).ready(function(){
+//window.onbeforeunload = function(){
+//        $.ajax({
+//            url: '/home/deleteOrders',
+//            type: 'POST',
+//            success: function(){
+//            }
+//        });
+//}
+//});
