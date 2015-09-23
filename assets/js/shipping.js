@@ -68,11 +68,13 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    window.location.watch(
-        'hash',
-        function(id,oldVal,newVal){
-            debugger;
-            console.log("the window's hash value has changed from "+oldval+" to "+newVal);
+window.onbeforeunload = function(){
+    $.ajax({
+        url: './deleteOrders',
+        type: 'POST',
+        data:{},
+        success: function(){
         }
-    );
+    });
+}
 });

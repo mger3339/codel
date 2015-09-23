@@ -71,19 +71,23 @@ class Test extends CI_Controller {
 	* --------------------------------------------------------------------------------------------------
 	*/
 	function index() {
-        $this->load->model('frontend/products_model');
-        $user_id = $this->session->userdata('user_id');
-        $product = $this->products_model->getOrders($user_id);
-		echo "<p>You are about to buy</p>";
-		echo "<ul>";
-        $total = 0;
-		foreach($product as $p) {
-            $p['price'] = $p['price'] * $p['count'];
-			echo "<li>{$p['name']} - \${$p['price']}</li>";
-            $total = $total + $p['price'];
-		}
-		echo "</ul>";
-		echo "<h1><a href='" . site_url('test/buy/') . "'>BUY NOW</a></h1>";
+        if ($this->session->userdata('check') == 1) {
+            $first_name = $this->session->userdata('first_name');
+            $last_name = $this->session->userdata('last_name');
+            $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
+            $this->load->model('frontend/products_model');
+            $user_id = $this->session->userdata('user_id');
+            $product['product'] = $this->products_model->getOrders($user_id);
+            $this->load->view('frontend/header_view', $home);
+            $this->load->view('frontend/paypall_buy_now_view', $product);
+            $this->load->view('frontend/footer_view');
+        }
+        else
+            {
+                $this->load->view('frontend/header_login_view');
+                $this->load->view('frontend/registration_view');
+                $this->load->view('frontend/footer_view');
+            }
 	}
 	
 	/* -------------------------------------------------------------------------------------------------
@@ -94,6 +98,10 @@ class Test extends CI_Controller {
         $this->load->model('frontend/products_model');
         $user_id = $this->session->userdata('user_id');
         $product = $this->products_model->getOrders($user_id);
+        if(empty($product))
+        {
+            echo "Select product";die;
+        }
 		$to_buy = array(
 			'desc' => 'Purchase from ACME Store', 
 			'currency' => $this->currency, 

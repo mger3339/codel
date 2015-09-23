@@ -313,8 +313,12 @@ class Home extends CI_Controller
                     'shipping' => $shipping
                 );
                 $this->load->model('frontend/products_model');
+                $data_orders = $this->products_model->getOrders($user_id);
+                echo "<pre>";
+                print_r($data_orders);
                 $this->products_model->addProductBuy($orders);
             endforeach;
+            redirect('test/index');
         }
         else
         {
@@ -354,6 +358,12 @@ class Home extends CI_Controller
             $this->load->view('frontend/registration_view');
             $this->load->view('frontend/footer_view');
         }
+    }
+
+    public function deleteOrders(){
+        $user_id = $this->session->userdata('user_id');
+        $this->load->model('frontend/products_model');
+        $this->products_model->deleteOrders($user_id);
     }
 
 }

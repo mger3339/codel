@@ -12,8 +12,10 @@
 </head>
 <body>
     <div id="content">
-        <input type="checkbox" name="select-all" id="select_all" /><label for="select_all">Select All</label>
-        <div class="select_error"></div>
+        <div class="select_all">
+            <input type="checkbox" name="select-all" id="select_all" /><label for="select_all">Select All</label>
+            <div class="select_error"></div>
+        </div>
         <?php foreach($data as $value): ?>
             <?php
                 $id = $value['id'];
