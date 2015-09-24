@@ -66,14 +66,3 @@ $(document).ready(function(){
         }
     });
 });
-
-//$(document).ready(function(){
-//window.onbeforeunload = function(){
-//        $.ajax({
-//            url: '/home/deleteOrders',
-//            type: 'POST',
-//            success: function(){
-//            }
-//        });
-//}
-//});

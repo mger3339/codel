@@ -12,43 +12,41 @@
     <link href="<?php echo base_url('/assets/css/style_frontend.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('/assets/js/add_cart.js'); ?>"></script>
+<!--    <script src="--><?php //echo base_url('/assets/js/search.js'); ?><!--"></script>-->
 </head>
 <body>
         <div id="content">
             <div class="col-md-12 search_div">
-                <form class="form-inline form_search">
+                <form class="form-inline form_search" action="<?php echo base_url('/search/index'); ?>" method="get">
+                    <input type="text" name="text" class="form-control text_search" placeholder="Search">
                     <div class="form-group select_div">
-                        <select class="form-control" name="areas">
-                            <option>Areas</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select class="form-control area_value" name="areas">
+                            <option value=""disabled selected>Areas</option>
+                            <?php foreach($areas as $areas): ?>
+                            <option value="<?php echo $areas['country']; ?>"><?php echo $areas['country']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group select_div">
-                        <select class="form-control" name="areas">
-                            <option>Category</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select class="form-control category_value" name="category">
+                            <option value=""disabled selected>Categories</option>
+                            <?php foreach($categories as $categories): ?>
+                            <option value="<?php echo $categories['category_name']; ?>"><?php echo $categories['category_name']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="label_price">From - </div>
                     <div class="form-group from_div">
-                        <input type="text" name="from" class="form-control price_input" placeholder="Price $"/>
+                        <input type="text" name="from" class="form-control price_input from_price" placeholder="Price $"/>
                     </div>
-                    <div class="label_price">Before - </div>
+                    <div class="label_price">To - </div>
                     <div class="form-group from_div">
-                        <input type="text" name="from" class="form-control price_input" placeholder="Price $" />
+                        <input type="text" name="to" class="form-control price_input before_price" placeholder="Price $" />
                     </div>
                     <div class="form-group search_input_div">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="submit" name="submit" class="btn btn-success button_search" value="Search">
                     </div>
-                    <input type="submit" name="submit" class="btn btn-success" value="Search">
+<!--                    <div class="loading_img"><img src="--><?php //echo base_url('/assets/gif/loading.gif') ?><!--" width="30px"></div>-->
                 </form>
             </div>
             <div class="cart"><a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>

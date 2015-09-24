@@ -23,6 +23,7 @@ class Home extends CI_Controller
             }
             $this->load->model('frontend/products_model');
             $data['product'] = $this->products_model->sliderImg();
+
             $this->load->view('frontend/slider_view', $data);
             $config['base_url'] = base_url('/home/index');
             $config['total_rows'] = $this->db->count_all('products');
@@ -45,6 +46,8 @@ class Home extends CI_Controller
             $this->pagination->initialize($config);
             $this->load->model('frontend/products_model');
             $user_id = $this->session->userdata('user_id');
+            $home['areas'] = $this->products_model->getAreas();
+            $home['categories'] = $this->products_model->getCategories();
             $home['cart'] = $this->products_model->getCartProductByUserId($user_id);
             $home['data'] = $this->products_model->getProduct($limit, $offset);
             $this->load->view('frontend/content_view', $home);

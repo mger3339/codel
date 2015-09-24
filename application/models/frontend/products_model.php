@@ -196,4 +196,16 @@ class Products_model extends CI_Model
         $this->db->where('user_id', $user_id);
         $this->db->delete('orders');
     }
+
+    public function getAreas()
+    {
+        $data = $this->db->get('areas');
+        return $data->result_array();
+    }
+
+    public function getCategories()
+    {
+        $data = $this->db->get('category');
+        return $data->result_array();
+    }
 }

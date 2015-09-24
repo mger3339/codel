@@ -748,7 +748,7 @@ body, html {
 .label_price {
     font-weight: bold;
     font-size: 12px;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-top: 8px;
     margin-right: 5px;
     float: left;
@@ -761,5 +761,13 @@ body, html {
     float: left;
 }
 .search_input_div {
-    margin-left: 150px;
+    float: left;
+    margin-left: 100px;
+}
+.loading_img {
+    margin-left: 20px;
+    float: left;
+}
+.text_search {
+    float: left;
 }
