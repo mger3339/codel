@@ -31,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="content_view.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="content_view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/frontend/content_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41754386" vertical-offset="0" max-vertical-offset="1496">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="99" />
+            <state vertical-scroll-proportion="-2.3076923" vertical-offset="722" max-vertical-offset="1496">
+              <caret line="46" column="99" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -44,9 +44,31 @@
       <file leaf-file-name="search_result_view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/frontend/search_result_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="51" max-vertical-offset="1479">
-              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="884" max-vertical-offset="1530">
+              <caret line="58" column="32" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_validation.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/search_validation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33497536" vertical-offset="0" max-vertical-offset="609">
+              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/search.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.653846" vertical-offset="539" max-vertical-offset="1173">
+              <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+              <folding>
+                <marker date="1443188673132" expanded="true" signature="318:345" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,8 +76,18 @@
       <file leaf-file-name="search_model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/frontend/search_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1153846" vertical-offset="148" max-vertical-offset="833">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="22" />
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="102" max-vertical-offset="833">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style_frontend.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/style_frontend.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.107143" vertical-offset="12730" max-vertical-offset="13362">
+              <caret line="777" column="1" selection-start-line="777" selection-start-column="1" selection-end-line="777" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -66,7 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/admin/slider_images_view.php" />
         <option value="$PROJECT_DIR$/application/models/admin/categories_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/home.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/slider.php" />
@@ -84,12 +115,10 @@
         <option value="$PROJECT_DIR$/application/migrations/201509201151_users.php" />
         <option value="$PROJECT_DIR$/application/config/migration.php" />
         <option value="$PROJECT_DIR$/application/migrations/20150920115100_users.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/header_view.php" />
         <option value="$PROJECT_DIR$/assets/css/custom.css" />
         <option value="$PROJECT_DIR$/application/views/frontend/registration_view.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/header_login_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/login.php" />
         <option value="$PROJECT_DIR$/application/controllers/migrate.php" />
         <option value="$PROJECT_DIR$/application/controllers/contacts.php" />
         <option value="$PROJECT_DIR$/application/models/frontend/login_model.php" />
@@ -107,25 +136,25 @@
         <option value="$PROJECT_DIR$/application/views/frontend/buy_page_view.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/cart_page_view.php" />
         <option value="$PROJECT_DIR$/application/models/frontend/products_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/home.php" />
         <option value="$PROJECT_DIR$/assets/js/shipping.js" />
-        <option value="$PROJECT_DIR$/assets/js/search.js" />
-        <option value="$PROJECT_DIR$/assets/css/style_frontend.css" />
-        <option value="$PROJECT_DIR$/application/models/frontend/search_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/search.php" />
         <option value="$PROJECT_DIR$/application/controllers/test.php" />
-        <option value="$PROJECT_DIR$/assets/js/search_validation.js" />
-        <option value="$PROJECT_DIR$/application/views/frontend/search_result_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/home.php" />
+        <option value="$PROJECT_DIR$/application/controllers/login.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/models/frontend/search_model.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/content_view.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/search_result_error_view.php" />
+        <option value="$PROJECT_DIR$/assets/css/style_frontend.css" />
+        <option value="$PROJECT_DIR$/assets/js/search.js" />
+        <option value="$PROJECT_DIR$/application/controllers/search.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/search_result_view.php" />
+        <option value="$PROJECT_DIR$/assets/js/search_validation.js" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-  </component>
-  <component name="PhpServers">
-    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -217,6 +246,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -254,6 +301,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -375,8 +444,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="742" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="742" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -423,13 +492,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/add_validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -474,13 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8822171" vertical-offset="0" max-vertical-offset="0">
-          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15704387" vertical-offset="0" max-vertical-offset="0">
@@ -513,20 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/registration_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20877193" vertical-offset="0" max-vertical-offset="0">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/header_login_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41754386" vertical-offset="0" max-vertical-offset="0">
-          <caret line="14" column="113" selection-start-line="14" selection-start-column="102" selection-end-line="14" selection-end-column="113" />
         </state>
       </provider>
     </entry>
@@ -628,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="0" max-vertical-offset="0">
-          <caret line="123" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/addProduct_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32807016" vertical-offset="0" max-vertical-offset="0">
@@ -656,34 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52487135" vertical-offset="0" max-vertical-offset="0">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/user_registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22331691" vertical-offset="0" max-vertical-offset="0">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/user_login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/edit_cart_count.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13464697" vertical-offset="0" max-vertical-offset="0">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/delete_product_category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36288998" vertical-offset="0" max-vertical-offset="0">
@@ -698,40 +704,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/shipping.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8325123" vertical-offset="0" max-vertical-offset="0">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/edit_validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5632184" vertical-offset="0" max-vertical-offset="0">
           <caret line="56" column="26" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46655232" vertical-offset="51" max-vertical-offset="731">
-          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style_frontend.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68330467" vertical-offset="2017" max-vertical-offset="13226">
-          <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,44 +727,159 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/registration_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10526316" vertical-offset="59" max-vertical-offset="1088">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/header_login_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41754386" vertical-offset="0" max-vertical-offset="570">
+          <caret line="14" column="113" selection-start-line="14" selection-start-column="102" selection-end-line="14" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5368421" vertical-offset="1887" max-vertical-offset="2686">
+          <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
+          <folding>
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443170946935" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79588336" vertical-offset="437" max-vertical-offset="1020">
+          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8370497" vertical-offset="1530" max-vertical-offset="6375">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/frontend/search_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="102" max-vertical-offset="833">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/search_result_error_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25438598" vertical-offset="144" max-vertical-offset="1139">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/add_validation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1445">
+        <state vertical-scroll-proportion="0.05090312" vertical-offset="530" max-vertical-offset="1445">
           <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/edit_cart_count.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5303777" vertical-offset="0" max-vertical-offset="833">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style_frontend.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.107143" vertical-offset="12730" max-vertical-offset="13362">
+          <caret line="777" column="1" selection-start-line="777" selection-start-column="1" selection-end-line="777" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/user_registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.456486" vertical-offset="1074" max-vertical-offset="1683">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/user_login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/shipping.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3908046" vertical-offset="510" max-vertical-offset="1258">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94909686" vertical-offset="0" max-vertical-offset="680">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/content_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3076923" vertical-offset="722" max-vertical-offset="1496">
+          <caret line="46" column="99" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.653846" vertical-offset="539" max-vertical-offset="1173">
+          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+          <folding>
+            <marker date="1443188673132" expanded="true" signature="318:345" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/search_result_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="884" max-vertical-offset="1530">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/search_validation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="609">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="2" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/frontend/search_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1153846" vertical-offset="148" max-vertical-offset="833">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/search_result_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="51" max-vertical-offset="1479">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/content_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41754386" vertical-offset="0" max-vertical-offset="1496">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.33497536" vertical-offset="0" max-vertical-offset="609">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
           <folding />
         </state>
       </provider>

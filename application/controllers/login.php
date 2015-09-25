@@ -6,9 +6,17 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('frontend/header_login_view');
-        $this->load->view('frontend/registration_view');
-        $this->load->view('frontend/footer_view');
+        if ($this->session->userdata('check') == 1)
+        {
+            redirect('home');
+        }
+        else
+        {
+            $this->load->view('frontend/header_login_view');
+            $this->load->view('frontend/registration_view');
+            $this->load->view('frontend/footer_view');
+        }
+
     }
 
     public function registration()

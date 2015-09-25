@@ -6,9 +6,12 @@ class Search extends CI_Controller
     public function index()
     {
 
-        if($this->input->get('submit')) {
+        if($this->input->get()) {
             $data = $this->input->get();
-            unset($data['submit']);
+            if(empty($data['text']))
+            {
+                $data['text'] = '';
+            }
             if(empty($data['areas']))
             {
                 $data['areas'] = '';
@@ -17,10 +20,24 @@ class Search extends CI_Controller
             {
                 $data['category'] = '';
             }
-            $data['text'] = trim($data['text']);
+            if(empty($data['from']))
+            {
+                $data['from'] = '';
+            }
+            if(empty($data['to']))
+            {
+                $data['to'] = '';
+            }
+            $result['responce'] = 0;
             $this->load->model('frontend/search_model');
-            $this->load->model('frontend/products_model');
             $result['data'] = $this->search_model->search($data);
+            if(empty($result['data']))
+            {
+                $result['responce'] = 1;
+            }
+            $result['values'] = $data;
+            $data['text'] = trim($data['text']);
+            $this->load->model('frontend/products_model');
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $user_id = $this->session->userdata('user_id');
@@ -32,6 +49,15 @@ class Search extends CI_Controller
             $this->load->view('frontend/search_result_view', $result);
             $this->load->view('frontend/footer_view');
         }
+        else
+        {
+            redirect('home');
+        }
+    }
+
+    public function searchAjax(){
+        $responce = 1;
+        echo $responce;
     }
 }
 

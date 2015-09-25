@@ -1,23 +1,17 @@
-//$(document).ready(function () {
-//    $(".button_search").on("click", function(){
-//        var min_price = $(".from_price").val();
-//        var max_price = $(".before_price").val();
-//        window.result = true;
-//        if (!$.isNumeric(min_price))
-//        {
-//            window.result = false;
-//            $(".from_price").css({"border": "1px solid #f00"});
-//        }
-//        if (!$.isNumeric(max_price))
-//        {
-//            window.result = false;
-//            $(".before_price").css({"border": "1px solid #f00"});
-//        }
-//        if(window.result == false)
-//        {
-//            return false;
-//        }
-//    });
-//});
+$('body').on('submit', '#serarchForm', function(e) {
+    $(e.target).find('input').each(function(i, v){
+        var elm = $(v);
+        if(elm.val() == ''){
+            elm.attr('name', '');
+        }
+    });
+});
+$(document).ready(function(){
+    var responce = $(".hidden_responce").val();
+    if(responce == 1)
+    {
+        $(".main_div").text('Not results');
+    }
+});
 
 

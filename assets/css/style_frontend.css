@@ -381,7 +381,6 @@ body, html {
     text-align: center;
     font-weight: bold;
     font-size: 16px;
-    float: left;
 }
 .product_total {
     margin-top: 10px;
@@ -390,7 +389,6 @@ body, html {
     text-align: center;
     font-weight: bold;
     font-size: 16px;
-    float: left;
 }
 .pag_product {
     width: 50%;
@@ -770,4 +768,14 @@ body, html {
 }
 .text_search {
     float: left;
+}
+.no_result {
+    margin-top: 15px;
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.button_search {
+    width: 120px;
 }
