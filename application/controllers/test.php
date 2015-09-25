@@ -145,6 +145,7 @@ class Test extends CI_Controller {
 	* --------------------------------------------------------------------------------------------------
 	*/
 	function back() {
+        $user_id = $this->session->userdata('user_id');
 		// we are back from Paypal. We need to do GetExpressCheckoutDetails
 		// and DoExpressCheckoutPayment to complete.
 		$token = $_GET['token'];
@@ -195,13 +196,9 @@ class Test extends CI_Controller {
                 $this->products_model->deleteOrders($user_id);
 //                redirect('home/cartPage');
 			} else {
-                $this->load->model('frontend/products_model');
-                $this->products_model->deleteOrders($user_id);
 				$this->_error($do_ec_return);
 			}
 		} else {
-            $this->load->model('frontend/products_model');
-            $this->products_model->deleteOrders($user_id);
 			$this->_error($get_ec_return);
 		}
 	}

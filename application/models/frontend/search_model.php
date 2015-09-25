@@ -28,6 +28,14 @@ class Search_model extends CI_Model
         {
             $this->db->where('category_name', $data['category']);
         }
+        if($data['from'] && !empty($data['from']))
+        {
+            $this->db->where('price >=', $data['from']);
+        }
+        if($data['to'] && !empty($data['to']))
+        {
+            $this->db->where('price <=', $data['to']);
+        }
 
 //        echo $this->db->last_query(); die;
         return $this->db->get()->result_array();

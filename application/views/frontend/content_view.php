@@ -12,12 +12,12 @@
     <link href="<?php echo base_url('/assets/css/style_frontend.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('/assets/js/add_cart.js'); ?>"></script>
-<!--    <script src="--><?php //echo base_url('/assets/js/search.js'); ?><!--"></script>-->
+<!--    <script src="--><?php //echo base_url('/assets/js/search_validation.js'); ?><!--"></script>-->
 </head>
 <body>
         <div id="content">
             <div class="col-md-12 search_div">
-                <form class="form-inline form_search" action="<?php echo base_url('/search/index'); ?>" method="get">
+                <form class="form-inline form_search" action="<?php echo base_url('/search'); ?>" method="get">
                     <input type="text" name="text" class="form-control text_search" placeholder="Search">
                     <div class="form-group select_div">
                         <select class="form-control area_value" name="areas">

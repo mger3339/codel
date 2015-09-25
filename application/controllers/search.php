@@ -9,6 +9,15 @@ class Search extends CI_Controller
         if($this->input->get('submit')) {
             $data = $this->input->get();
             unset($data['submit']);
+            if(empty($data['areas']))
+            {
+                $data['areas'] = '';
+            }
+            if(empty($data['category']))
+            {
+                $data['category'] = '';
+            }
+            $data['text'] = trim($data['text']);
             $this->load->model('frontend/search_model');
             $this->load->model('frontend/products_model');
             $result['data'] = $this->search_model->search($data);
@@ -24,70 +33,5 @@ class Search extends CI_Controller
             $this->load->view('frontend/footer_view');
         }
     }
-//        }
-//        if(empty($area) && empty($category) && empty($text))
-//        {
-//            echo "Not search result";
-//        }
-//        if(empty($area) && empty($category))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->searchByText($text);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-//        if(empty($area) && empty($text))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->getCategory($category);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-//        if(empty($category) && empty($text))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->getAreas($area);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-//        if(empty($text))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->getAreasAndCategories($category,$area);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-//        if(empty($area))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->searchByCategory($category,$text);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-//        if(empty($category))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->searchByAreas($area,$text);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-//        if(!empty($category) && !empty($area) && !empty($text))
-//        {
-//            $this->load->model('frontend/search_model');
-//            $data_search_text = $this->search_model->searchByAll($category,$area,$text);
-////            echo "<pre>";
-//            print_r($data_search_text);die;
-//        }
-////
-////            $first_name = $this->session->userdata('first_name');
-////            $last_name = $this->session->userdata('last_name');
-////            $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
-////            $this->load->view('frontend/header_view', $home);
-////            $this->load->view('frontend/search_rsult_view', $data_search_text);
-////            $this->load->view('frontend/footer_view');
-////
-////            $this->load->view('frontend/header_login_view');
-////            $this->load->view('frontend/registration_view');
-////            $this->load->view('frontend/footer_view');
 }
 
