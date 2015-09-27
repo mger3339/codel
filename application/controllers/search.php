@@ -54,10 +54,5 @@ class Search extends CI_Controller
             redirect('home');
         }
     }
-
-    public function searchAjax(){
-        $responce = 1;
-        echo $responce;
-    }
 }
 

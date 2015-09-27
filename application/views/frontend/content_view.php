@@ -46,6 +46,7 @@
                     <div class="form-group search_input_div">
                         <button type="submit" class="btn btn-success button_search">Search</button>
                     </div>
+                    <div class="warning"></div>
 <!--                    <div class="loading_img"><img src="--><?php //echo base_url('/assets/gif/loading.gif') ?><!--" width="30px"></div>-->
                 </form>
             </div>

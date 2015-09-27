@@ -22,8 +22,14 @@
                 <input type="text" name="text" value="<?php echo $values['text']; ?>" class="form-control text_search" placeholder="Search">
                 <div class="form-group select_div">
                     <select class="form-control area_value" name="areas">
-                        <option value=""disabled selected>Areas</option>
-                        <option selected value="<?php echo $values['areas']; ?>"><?php echo $values['areas']; ?></option>
+                        <?php if($values['areas'] == '')
+                        {?>
+                            <option value=""disabled selected>Areas</option>
+                        <?php }
+                        else
+                        {?>
+                            <option value="<?php echo $values['areas']; ?>" selected><?php echo $values['areas']; ?></option>
+                         <?php } ?>
                         <?php foreach($areas as $areas): ?>
                             <option value="<?php echo $areas['country']; ?>"><?php echo $areas['country']; ?></option>
                         <?php endforeach; ?>
@@ -31,8 +37,14 @@
                 </div>
                 <div class="form-group select_div">
                     <select class="form-control category_value" name="category">
-                        <option value=""disabled selected>Categories</option>
-                        <option selected value="<?php echo $values['category']; ?>"><?php echo $values['category']; ?></option>
+                        <?php if($values['category'] == '')
+                        {?>
+                            <option value=""disabled selected>Categories</option>
+                        <?php }
+                        else
+                        {?>
+                            <option value="<?php echo $values['category']; ?>" selected><?php echo $values['category']; ?></option>
+                        <?php } ?>
                         <?php foreach($categories as $categories): ?>
                             <option value="<?php echo $categories['category_name']; ?>"><?php echo $categories['category_name']; ?></option>
                         <?php endforeach; ?>
@@ -49,6 +61,7 @@
                 <div class="form-group search_input_div">
                     <button type="submit" class="btn btn-success button_search">Search</button>
                 </div>
+                <div class="warning"></div>
                 <!--   <div class="loading_img"><img src="--><?php //echo base_url('/assets/gif/loading.gif') ?><!--" width="30px"></div>-->
             </form>
         </div>

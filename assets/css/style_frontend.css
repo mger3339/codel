@@ -779,3 +779,16 @@ body, html {
 .button_search {
     width: 120px;
 }
+.warning {
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 250px;
+    float: left;
+    width: 300px;
+    color: red;
+
+}
