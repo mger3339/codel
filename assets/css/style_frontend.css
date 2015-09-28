@@ -812,3 +812,28 @@ body, html {
     width: 300px;
     color: red;
 }
+.live_search {
+    font-size: 12px;
+    display: block;
+    margin-top: 35px;
+    border-radius: 3px;
+    border: 1px solid #333;
+    width: 190px;
+    background-color: #ffffff;
+    position: absolute;
+    min-height: 30px;
+}
+.live_search ul li {
+    padding-left: 5px;
+    list-style: none;
+}
+.live_search ul li:hover {
+    cursor: default;
+    background-color: #DADADA;
+}
+.live_search ul {
+    margin-top: 3px;
+    overflow: hidden;
+    font-weight: bold;
+    padding: 0;
+}

@@ -122,7 +122,6 @@ class Home extends CI_Controller
     {
         if ($this->session->userdata('check') == 1)
         {
-
             $config['base_url'] = base_url('frontend/home/productPage');
             $config['total_rows'] = '2';
             $config['per_page'] = '5';

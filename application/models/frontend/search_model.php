@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Search_model extends CI_Model
 {
     public function search($data, $text){
-//        echo "<pre>";
-//        print_r(count($text)); die;
         $this->db->select('
         products.*,
         category.category_name,
@@ -21,7 +19,6 @@ class Search_model extends CI_Model
                 $this->db->like('name', $value);
                 $this->db->or_like('desc', $value);
                 $this->db->group_end();
-
             endforeach;
         }
         if($data['areas'] && !empty($data['areas']))
@@ -40,8 +37,28 @@ class Search_model extends CI_Model
         {
             $this->db->where('price <=', $data['to']);
         }
+        return $this->db->get()->result_array();
+    }
 
-//        echo $this->db->last_query(); die;
+    public function liveSearch($text)
+    {
+        $this->db->select('
+        products.*,
+        category.category_name,
+        areas.country
+        ');
+        $this->db->from('products');
+        $this->db->join('category', 'products.category_id = category.id', 'left');
+        $this->db->join('areas', 'products.area_id = areas.id', 'left');
+        if($text && !empty($text))
+        {
+            foreach($text as $key => $value) :
+                $this->db->group_start();
+                $this->db->like('name', $value);
+                $this->db->or_like('desc', $value);
+                $this->db->group_end();
+            endforeach;
+        }
         return $this->db->get()->result_array();
     }
 }

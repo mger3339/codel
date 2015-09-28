@@ -21,6 +21,7 @@ class Categories extends CI_Controller
 
     public function getCategories()
     {
+        if ($this->session->userdata('check') == TRUE) {
         $this->load->model('admin/categories_model');
         $category = $this->categories_model->getCategoryAll();
         $arr['category'] = $category;
@@ -28,6 +29,9 @@ class Categories extends CI_Controller
         $this->load->view('admin/side_bar_view');
         $this->load->view('admin/categories_all_view', $arr);
         $this->load->view('admin/footer_view');
+        } else {
+            $this->load->view('admin/login_view');
+        }
     }
 
     public function getCategory($id)

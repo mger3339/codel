@@ -13,6 +13,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('/assets/js/add_cart.js'); ?>"></script>
     <script src="<?php echo base_url('/assets/js/search_validation.js'); ?>"></script>
+    <script src="<?php echo base_url('/assets/js/search.js'); ?>"></script>
 </head>
 <body>
     <div id="content">
