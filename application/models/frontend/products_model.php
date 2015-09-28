@@ -130,6 +130,11 @@ class Products_model extends CI_Model
         $this->db->where('product_id', $id);
         $this->db->delete('cart');
     }
+    public function deleteCartAllProduct($user_id)
+    {
+        $this->db->where('user_id', $user_id);
+        $this->db->delete('cart');
+    }
 
     public function getShipping()
     {

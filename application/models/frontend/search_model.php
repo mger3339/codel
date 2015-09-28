@@ -3,8 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search_model extends CI_Model
 {
-    public function search($data){
-        //print_r($data); die;
+    public function search($data, $text){
+//        echo "<pre>";
+//        print_r(count($text)); die;
         $this->db->select('
         products.*,
         category.category_name,
@@ -13,12 +14,15 @@ class Search_model extends CI_Model
         $this->db->from('products');
         $this->db->join('category', 'products.category_id = category.id', 'left');
         $this->db->join('areas', 'products.area_id = areas.id', 'left');
-        if($data['text'] && !empty($data['text']))
+        if($text && !empty($text))
         {
-            $this->db->group_start();
-            $this->db->like('name', $data['text']);
-            $this->db->or_like('desc', $data['text']);
-            $this->db->group_end();
+            foreach($text as $key => $value) :
+                $this->db->group_start();
+                $this->db->like('name', $value);
+                $this->db->or_like('desc', $value);
+                $this->db->group_end();
+
+            endforeach;
         }
         if($data['areas'] && !empty($data['areas']))
         {

@@ -1,18 +1,18 @@
 $(document).ready(function(){
     $(".button_save").on("click",function(){
-        var name = $.trim($("#exampleInputEmail1").val());
+        var name = $.trim($("#product_name").val());
         var desc = $.trim($("#textarea").val());
-        var price = $.trim($("#exampleInputPassword1").val());
-        var total = $.trim($("#exampleInputTotal").val());
+        var price = $.trim($("#product_price").val());
+        var total = $.trim($("#product_total").val());
         var file = $("#exampleInputFile").val();
         window.result = true;
         if(name == ""){
             window.result = false;
-            $("#exampleInputEmail1").css({"border":"1px solid #f00"});
+            $("#product_name").css({"border":"1px solid #f00"});
             $(".name_error").text("Enter name");
         }
         else {
-            $("#exampleInputEmail1").css({"border":"1px solid green"});
+            $("#product_name").css({"border":"1px solid green"});
             $(".name_error").hide();
         }
 
@@ -28,28 +28,28 @@ $(document).ready(function(){
 
         if(price == "" || $.isNumeric(price) == false) {
             window.result = false;
-            $("#exampleInputPassword1").css({"border": "1px solid #f00"});
+            $("#product_price").css({"border": "1px solid #f00"});
             $(".price_error").show();
             $(".price_error").text("Enter correct price");
         }
         else {
-            $("#exampleInputPassword1").css({"border":"1px solid green"});
+            $("#product_price").css({"border":"1px solid green"});
             $(".price_error").hide();
         }
         if(total == "" || $.isNumeric(total) == false) {
             window.result = false;
-            $("#exampleInputTotal").css({"border": "1px solid #f00"});
+            $("#product_total").css({"border": "1px solid #f00"});
             $(".total_error").show();
             $(".total_error").text("Enter correct total");
         }
         else {
-            $("#exampleInputTotal").css({"border":"1px solid green"});
+            $("#product_total").css({"border":"1px solid green"});
             $(".total_error").hide();
         }
-        if(file == "")
-        {
-            window.result = true;
-        }
+        //if(file == "")
+        //{
+        //    window.result = true;
+        //}
             /*var file_format = file.split('.').pop();
              $.ajax({
              url: "/admin/form_validation/",
@@ -71,7 +71,6 @@ $(document).ready(function(){
         }
     });
 });
-
 
 $(document).on('change', '.btn-file :file', function() {
     var input = $(this),

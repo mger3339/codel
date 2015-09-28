@@ -13,41 +13,56 @@
 <body>
     <div id="content">
         <div class="select_all">
+            <input type="hidden" class="user_id_hidden" name="hidden" value="<?php echo $this->session->userdata('user_id'); ?>">
             <input type="checkbox" name="select-all" id="select_all" /><label for="select_all">Select All</label>
-            <div class="select_error"></div>
-        </div>
-        <?php foreach($data as $value): ?>
-            <?php
-                $id = $value['id'];
-                $name = $value['name'];
-                $desc = $value['desc'];
-                $price = $value['price'];
-                $img = $value['img'];
-                $country = $value['country'];
-                $category_name = $value['category_name'];
-                $total = $value['total'];
-            ?>
-        <form action="<?php echo base_url('test/index') ?>" method="post">
-            <div class="cart_1<?=$id?>">
-                <div class="cart_products">
-                    <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox" value="<?php echo $id; ?>"></label>
-                    <div class="cart_product_name"><?php echo $name; ?></div>
-                    <div class="cart_img"><img height="100%" src="<?php echo base_url('/assets/img/' .$value['img']) ?>"></div>
-                        <div id="price_<?php echo $id; ?>" class="cart_product_price">PRICE: <?php echo $price; ?> $</div>
-                    <div class="max_count"><span class="aaa">MAX COUNT: </span><input id="input_<?=$id?>" data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="1"></div>
-                    <div id="total<?php echo $id; ?>" class="total_price"> = <?php echo $price; ?>$</div>
-                            <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal_content">
+                        <div class="modal-body">
+                            <p class="confirm">Are you sure?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="<?php echo base_url('/home/cartPage');?>"><button type="button" class="btn btn-success" data-dismiss="modal">NO</button></a>
+                            <a href="<?php echo base_url('/home/deleteCartProduct');?>"><button type="button" class="btn btn-danger delete_all_in_cart" data-dismiss="modal">YES</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-                <div class="modal fade" id="myModal<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content modal_content">
-                            <div class="modal-body">
-                                <p class="confirm">Are you sure</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="<?php echo base_url('/home/cartPage');?>"><button type="button" class="btn btn-success" data-dismiss="modal">NO</button></a>
-                                <a href="<?php echo base_url('/home/deleteCartProduct');?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-danger delete" data-dismiss="modal">YES</button></a>
+            <button type="button" class="btn delete_all btn-danger" data-toggle="modal" data-target="#myModal">DELETE ALL</button>
+            <div class="select_error"></div>
+    </div>
+    <?php foreach($data as $value): ?>
+    <?php
+    $id = $value['id'];
+    $name = $value['name'];
+    $desc = $value['desc'];
+    $price = $value['price'];
+    $img = $value['img'];
+    $country = $value['country'];
+    $category_name = $value['category_name'];
+    $total = $value['total'];
+    ?>
+    <form action="<?php echo base_url('test/index') ?>" method="post">
+        <div class="cart_1<?=$id?>">
+            <div class="cart_products">
+                <label class="checkbox-inline checkbox"><input type="checkbox" name="checkbox" value="<?php echo $id; ?>"></label>
+                <div class="cart_product_name"><?php echo $name; ?></div>
+                <div class="cart_img"><img height="100%" src="<?php echo base_url('/assets/img/' .$value['img']) ?>"></div>
+                <div id="price_<?php echo $id; ?>" class="cart_product_price">PRICE: <?php echo $price; ?> $</div>
+                <div class="max_count"><span class="aaa">MAX COUNT: </span><input id="input_<?=$id?>" data-id="<?php echo $id; ?>" type="text" class="form-control count_control" value="1"></div>
+                <div id="total<?php echo $id; ?>" class="total_price"> = <?php echo $price; ?>$</div>
+                <button data-id="<?php echo $value['id']; ?>" type="button" class="btn cart_button btn-danger" data-toggle="modal" data-target="#myModal<?php echo $value['id']; ?>">DELETE</button>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal_content">
+                    <div class="modal-body">
+                        <p class="confirm">Are you sure?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="<?php echo base_url('/home/cartPage');?>"><button type="button" class="btn btn-success" data-dismiss="modal">NO</button></a>
+                        <a href="<?php echo base_url('/home/deleteCartProduct');?>"><button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-danger delete" data-dismiss="modal">YES</button></a>
                             </div>
                         </div>
                     </div>

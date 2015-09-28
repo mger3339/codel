@@ -50,7 +50,7 @@
 <!--                    <div class="loading_img"><img src="--><?php //echo base_url('/assets/gif/loading.gif') ?><!--" width="30px"></div>-->
                 </form>
             </div>
-            <div class="cart"><a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>
+            <div class="cart_div"><a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>
                 <div class="count"><?php echo count($cart); ?></div>
             </div>
             <?php foreach($data as $value): ?>

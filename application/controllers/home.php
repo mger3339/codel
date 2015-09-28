@@ -260,6 +260,13 @@ class Home extends CI_Controller
         }
     }
 
+    public function deleteAllCartProduct()
+    {
+        $user_id = $this->input->post('user_id');
+        $this->load->model('frontend/products_model');
+        $product['data'] = $this->products_model->deleteCartAllProduct($user_id);
+    }
+
     public function buyProduct($id)
     {
         if ($this->session->userdata('check') == 1)

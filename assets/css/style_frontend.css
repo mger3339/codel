@@ -57,6 +57,12 @@ body, html {
     border-bottom: 2px solid #002a80;
     padding-bottom: 10px;
 }
+.cart_div {
+    margin-top: 5px;
+    border-bottom: 2px solid #002a80;
+    padding-bottom: 10px;
+    margin-top: 57px;
+}
 .count {
     text-align: center;
     border-radius: 15px;
@@ -284,6 +290,11 @@ body, html {
     margin-left: 300px;
     float: left;
 }
+
+.shipping_total {
+    width: 100%;
+    margin: 0.1px;
+}
 .shipping_img {
     overflow: hidden;
     border-radius: 10px;
@@ -329,7 +340,7 @@ body, html {
     float: left;
 }
 .img_div {
-    margin: 5px auto;
+    margin: 10px auto;
     overflow: hidden;
     width: 200px;
     height: 200px;
@@ -344,6 +355,7 @@ body, html {
     float: left;
 }
 .page_desc {
+    margin-top: 10px;
     padding: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
@@ -630,7 +642,7 @@ body, html {
     height: 35px;
     float: left;
     text-align: center;
-    margin-left: 500px;
+    margin-left: 560px;
     margin-bottom: 10px;
 }
 .login_form {
@@ -716,15 +728,24 @@ body, html {
     margin-left: 10px;
 }
 .select_all {
+    height: 35px;
     border-bottom: 2px solid royalblue;
 }
 .select_error {
+    float: right;
+    margin-right: 100px;
     font-weight: bold;
     width: 300px;
     color: red;
-    float: right;
-    margin-right: 650px;
     font-size: 16px;
+}
+.delete_all {
+    font-size: 13px;
+    margin-right: 270px;
+    width: 100px;
+    padding: 0;
+    height: 30px;
+    float: right;
 }
 .checkbox {
     margin-left: 10px;
@@ -790,5 +811,4 @@ body, html {
     float: left;
     width: 300px;
     color: red;
-
 }

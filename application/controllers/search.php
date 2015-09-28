@@ -8,6 +8,7 @@ class Search extends CI_Controller
 
         if($this->input->get()) {
             $data = $this->input->get();
+            $data['text'] = trim($data['text']);
             if(empty($data['text']))
             {
                 $data['text'] = '';
@@ -28,9 +29,12 @@ class Search extends CI_Controller
             {
                 $data['to'] = '';
             }
+            $text = explode(" ", $data['text']);
+//            echo "<pre>";
+//            print_r($text); die;
             $result['responce'] = 0;
             $this->load->model('frontend/search_model');
-            $result['data'] = $this->search_model->search($data);
+            $result['data'] = $this->search_model->search($data,$text);
             if(empty($result['data']))
             {
                 $result['responce'] = 1;
