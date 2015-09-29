@@ -90,6 +90,5 @@ $(document).ready( function() {
         } else {
             if( log ) alert(log);
         }
-
     });
 });

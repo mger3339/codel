@@ -66,7 +66,7 @@ class Products extends CI_Controller
 
     public function saveProduct()
     {
-        if (isset($_POST['submit'])) {
+        if ($this->input->post('submit')) {
             $form_rules = array(
                 array(
                     'field' => 'name',

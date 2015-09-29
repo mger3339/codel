@@ -122,10 +122,6 @@ class Home extends CI_Controller
     {
         if ($this->session->userdata('check') == 1)
         {
-            $config['base_url'] = base_url('frontend/home/productPage');
-            $config['total_rows'] = '2';
-            $config['per_page'] = '5';
-            $this->pagination->initialize($config);
             $this->load->model('frontend/products_model');
             $product['data'] = $this->products_model->getProductPage($id);
             $data = $this->products_model->getProducts();
@@ -137,12 +133,26 @@ class Home extends CI_Controller
             {
                 redirect('home');
             }
-            echo $this->pagination->create_links();
             $user_id = $this->session->userdata('user_id');
             $product['cart'] = $this->products_model->getCartProductByUserId($user_id);
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
+
+            $area = $product['data']['0']['country'];
+            $coordinates = $this->products_model->getCoordinates($area);
+            $latitude = $coordinates['0']['latitude'];
+            $longitude = $coordinates['0']['longitude'];
+            $this->load->library('googlemaps');
+            $config['center'] = "$latitude,$longitude";
+            $config['zoom'] = '7';
+            $this->googlemaps->initialize($config);
+            $marker = array();
+            $marker['position'] = "$latitude, $longitude";
+            $this->googlemaps->add_marker($marker);
+            $product['map'] = $this->googlemaps->create_map();
+//            echo "<pre>";
+//            print_r($product['map']);die;
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/product_page_view', $product);
             $this->load->view('frontend/footer_view');
@@ -264,26 +274,6 @@ class Home extends CI_Controller
         $user_id = $this->input->post('user_id');
         $this->load->model('frontend/products_model');
         $product['data'] = $this->products_model->deleteCartAllProduct($user_id);
-    }
-
-    public function buyProduct($id)
-    {
-        if ($this->session->userdata('check') == 1)
-        {
-            $this->load->model('frontend/products_model');
-            $product['data'] = $this->products_model->getProductPage($id);
-            $this->load->model('frontend/products_model');
-            $product['shipping'] = $this->products_model->getShipping();
-            $this->load->view('frontend/header_view');
-            $this->load->view('frontend/buy_product_view', $product);
-            $this->load->view('frontend/footer_view');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function puyPage()

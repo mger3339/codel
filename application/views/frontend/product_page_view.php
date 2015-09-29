@@ -7,6 +7,7 @@
     <link href="<?php echo base_url('/assets/css/style_frontend.css'); ?>" rel='stylesheet' type='text/css'/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('/assets/js/add_cart.js'); ?>"></script>
+    <?php echo $map['js']; ?>
 </head>
 <body>
 <div id="content1">
@@ -31,16 +32,14 @@
         <div class="product_country">COUNTRY: <?php echo $country ?></div>
         <div class="product_category">CATEGORY: <?php echo $category_name ?></div>
         <div class="product_category">TOTAL: <?php echo $total ?></div>
+        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn add_cart btn-danger btn-md">Add to cart</button>
     </div>
     <div class="page_desc">
         <div class="product_name"><?php echo $name ?></div>
+        <div class="map"><?php echo $map['html']; ?></div>
         <?php echo $desc ?><br><br>
     </div>
-    <div class="add_cart_button_div">
-        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn add_cart btn-danger btn-md">Add to cart</button>
-    </div>
     <div class="asd"></div>
-<!--    <div class="map">--><?php //echo $map['html']; ?><!--</div>-->
 </div>
 </body>
 </html>

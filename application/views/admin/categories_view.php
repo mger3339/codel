@@ -29,9 +29,9 @@
                     <form action="<?php echo base_url('index.php/admin/categories/saveProduct'); ?>" method="post"
                           enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Enter Product name</label>
+                            <label for="category_name">Enter Product name</label>
                             <input type="text" name="category_name" class="form-control add_input"
-                                   id="exampleInputEmail1" placeholder="Name Product">
+                                   id="category_name" placeholder="Category Name">
                         </div>
                         <input type="submit" name="category_save" class="btn btn-success" value="Save"/>
                     </form>
@@ -41,11 +41,11 @@
                         <form action="<?php echo base_url('index.php/admin/categories/saveProduct'); ?>" method="post"
                               enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Enter Product name</label>
+                                <label for="edit_category_name">Enter Product name</label>
                                 <input type="hidden" name="hidden" value="<?php echo $data['0']['id']; ?>">
                                 <input type="text" name="category_name"
                                        value="<?php echo $data['0']['category_name']; ?>" class="form-control add_input"
-                                       id="exampleInputEmail1" placeholder="Name Product">
+                                       id="edit_category_name" placeholder="Category Name">
                             </div>
                             <input type="submit" name="category_save" class="btn btn-success" value="Save"/>
                         </form>

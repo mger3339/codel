@@ -29,10 +29,20 @@
                     <form action="<?php echo base_url('admin/areas/saveProduct'); ?>" method="post"
                           enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Enter Product name</label>
-                            <input type="text" name="area_name" class="form-control add_input" id="exampleInputEmail1"
-                                   placeholder="Name Product">
+                            <label for="country_name">Enter Product name</label>
+                            <input type="text" name="area_name" class="form-control add_input" id="country_name"
+                                   placeholder="Country Name">
                         </div>
+                        <div class="form-group coordinates">
+                            <label class="label_latitude">Enter Coordinates(Latitude)</label>
+                            <div class="div_latitude">
+                                <input type="text" name="latitude" class="form-control latitude_input" id="latitude"  placeholder="Latitude"><div class="latitude_error"><?php echo form_error('latitude'); ?></div>
+                            </div>
+                            <label class="label_longitude">Enter Coordinates(Longitude)</label>
+                            <div class="div_longitude">
+                                <input type="text" name="longitude" class="form-control longitude_input" id="longitude"  placeholder="Longitude"><div class="longitude_error"><?php echo form_error('longitude'); ?></div>
+                            </div>
+                        </div><br>
                         <input type="submit" name="area_save" class="btn btn-success" value="Save"/>
                     </form>
                 </div>
@@ -41,18 +51,28 @@
                         <form action="<?php echo base_url('admin/areas/saveArea'); ?>" method="post"
                               enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Enter Product name</label>
+                                <label for="edit_country_name">Enter Product name</label>
                                 <input type="hidden" name="hidden" value="<?php echo $data['0']['id']; ?>">
                                 <input type="text" name="area_name" value="<?php echo $data['0']['country']; ?>"
-                                       class="form-control add_input" id="exampleInputEmail1"
-                                       placeholder="Name Product">
+                                       class="form-control add_input" id="edit_country_name"
+                                       placeholder="Country Name">
                             </div>
+                            <div class="form-group coordinates">
+                                <label class="label_latitude">Enter Coordinates(Latitude)</label>
+                                <div class="div_latitude">
+                                    <input type="text" name="latitude" class="form-control latitude_input" id="latitude"  placeholder="Latitude"><div class="latitude_error"><?php echo form_error('latitude'); ?></div>
+                                </div>
+                                <label class="label_longitude">Enter Coordinates(Longitude)</label>
+                                <div class="div_longitude">
+                                    <input type="text" name="longitude" class="form-control longitude_input" id="longitude"  placeholder="Longitude"><div class="longitude_error"><?php echo form_error('longitude'); ?></div>
+                                </div>
+                            </div><br>
                             <input type="submit" name="area_save" class="btn btn-success" value="Save"/>
                         </form>
                     </div>
                     <br><br>
                     <?php foreach ($area as $value) : ?>
-                        <a href="<?php echo base_url('index.php/admin/areas/saveArea/' . $value['id']); ?>">
+                        <a href="<?php echo base_url('index.php/admin/areas/getArea/' . $value['id']); ?>">
                             <button type="button"
                                     class="btn btn-primary category_button"><?php echo $value['country']; ?></button>
                         </a>

@@ -23,21 +23,21 @@
             <div class="form_div">
                 <form action="<?php echo base_url('index.php/admin/products/saveProduct'); ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Enter Product name</label>
-                        <input type="text" name="name" class="form-control add_input" id="exampleInputEmail1"  placeholder="Name Product"><div class="name_error"><?php echo form_error('name'); ?></div><br>
+                        <label for="product_name">Enter Product name</label>
+                        <input type="text" name="name" class="form-control add_input" id="product_name"  placeholder="Name Product"><div class="name_error"><?php echo form_error('name'); ?></div><br>
                     </div>
                     <div class="form-group">
                         <label for="textarea">Enter Product Description</label><br>
-                        <textarea id="textarea" rows="8" cols="48" name="desc"></textarea>
-                        <div class="desc_error"><?php echo form_error('desc'); ?></div><br><br>
+                        <textarea id="textarea" rows="8" cols="57" name="desc"></textarea>
+                        <div class="desc_error"><?php echo form_error('desc'); ?></div><br>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Enter Product Price</label>
-                        <input type="text"  name="price" class="form-control add_input" id="exampleInputPassword1" placeholder="Product Price"><div class="price_error"><?php echo form_error('price'); ?></div><br>
+                        <label for="product_price">Enter Product Price</label>
+                        <input type="text"  name="price" class="form-control add_input" id="product_price" placeholder="Product Price"><div class="price_error"><?php echo form_error('price'); ?></div><br>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Enter Product Total</label>
-                        <input type="text" name="total" class="form-control add_input" id="exampleInputTotal"  placeholder="Total Product"><div class="total_error"><?php echo form_error('total'); ?></div><br>
+                        <label for="product_total">Enter Product Total</label>
+                        <input type="text" name="total" class="form-control add_input" id="product_total"  placeholder="Total Product"><div class="total_error"><?php echo form_error('total'); ?></div><br>
                     </div>
                     <div class="category_select">
                         <label>Enter product country</label>

@@ -55,7 +55,6 @@ class Search_model extends CI_Model
             foreach($text as $key => $value) :
                 $this->db->group_start();
                 $this->db->like('name', $value);
-                $this->db->or_like('desc', $value);
                 $this->db->group_end();
             endforeach;
         }

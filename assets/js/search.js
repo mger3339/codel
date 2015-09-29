@@ -3,6 +3,11 @@ $(document).ready(function () {
    $(".text_search").keyup(function(){
        $(".live_search").show();
        var text = $(this).val();
+       text = text.trim();
+       if(text == '')
+       {
+           $(".live_search").hide();
+       }
        $.ajax({
            url: '/search/liveSearch',
            type: "POST",
@@ -18,6 +23,7 @@ $(document).ready(function () {
    });
     $("body").on("click",'.live_search ul li', function(){
         $(".text_search").val($(this).text());
+        $(".live_search").hide();
     })
 
 });
