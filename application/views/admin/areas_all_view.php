@@ -12,28 +12,35 @@
     <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/category_validation.js'); ?>"></script>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="page-wrapper">
-            <div id="page-inner">
-                <div class="button_category">
-                    <a href="<?php echo base_url('admin/areas/addArea'); ?>"><button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button></a>
-                    <a href="<?php echo base_url('admin/areas/editArea'); ?>"><button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button></a>
-                    <a href="<?php echo base_url('admin/areas/deleteArea'); ?>"><button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button></a>
-                </div>
-                <div class="container div_ul">
-                    <h2 class="h2_cat">AREAS</h2>
-                    <ul class="list-group">
-                        <?php foreach($area as $value) : ?>
-                            <li class="list-group-item list-group-item-success"><?php echo $value['country'] ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+<div id="wrapper">
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="button_category">
+                <a href="<?php echo base_url('admin/areas/addArea'); ?>">
+                    <button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button>
+                </a>
+                <a href="<?php echo base_url('admin/areas/editArea'); ?>">
+                    <button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button>
+                </a>
+                <a href="<?php echo base_url('admin/areas/deleteArea'); ?>">
+                    <button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button>
+                </a>
+            </div>
+            <div class="container div_ul">
+                <h2 class="h2_cat">AREAS</h2>
+                <ul class="list-group">
+                    <?php foreach ($area as $value) : ?>
+                        <li class="list-group-item list-group-item-success"><?php echo $value['country'] ?></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

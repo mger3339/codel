@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link href="<?php echo base_url('/assets/css/bootstrap.css'); ?>" rel="stylesheet"/>
     <link href="<?php echo base_url('/assets/css/custom.css'); ?>" rel='stylesheet' type='text/css'/>
+    <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
     <title></title>
 </head>
 <body>

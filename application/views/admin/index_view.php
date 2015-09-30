@@ -10,9 +10,8 @@
     <link href="<?php echo base_url('assets/css/font-awesome.css'); ?>" rel="stylesheet"/>
     <!-- MORRIS CHART STYLES-->
     <link href="<?php echo base_url('assets/js/morris/morris-0.4.3.min.css'); ?>" rel="stylesheet"/>
-    <!-- CUSTOM STYLES-->
+    <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
     <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet"/>
-    <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 </head>
 <body>

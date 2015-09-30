@@ -48,7 +48,6 @@
             <div class="form-group search_input_div">
                 <button type="submit" class="btn btn-success button_search">Search</button>
             </div>
-            <!--   <div class="loading_img"><img src="--><?php //echo base_url('/assets/gif/loading.gif') ?><!--" width="30px"></div>-->
         </form>
     </div>
     <div class="cart"><a href="<?php echo base_url('/home/cartPage'); ?>"><img class="img_cart" src="<?php echo base_url('/assets/img/cart_img.jpg'); ?>"/></a>

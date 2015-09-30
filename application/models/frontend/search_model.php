@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search_model extends CI_Model
 {
-    public function search($data, $text){
+    public function search($data, $text)
+    {
         $this->db->select('
         products.*,
         category.category_name,

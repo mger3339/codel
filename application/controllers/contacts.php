@@ -12,9 +12,12 @@ class Contacts extends CI_Controller
         $message = trim($this->input->post('message'));
         $email = trim($this->input->post('email'));
         $this->load->helper('email');
-        if (isset($submit)) {
-            if (!empty($name) && !empty($lastname) && !empty($email) && !empty($message)) {
-                if (filter_var($this->input->post('email'), FILTER_VALIDATE_EMAIL)) {
+        if (isset($submit))
+        {
+            if (!empty($name) && !empty($lastname) && !empty($email) && !empty($message))
+            {
+                if (filter_var($this->input->post('email'), FILTER_VALIDATE_EMAIL))
+                {
                     $config['protocol'] = "smtp";
                     $config['smtp_host'] = "ssl://smtp.gmail.com";
                     $config['smtp_port'] = "465";
@@ -31,17 +34,22 @@ class Contacts extends CI_Controller
                     $this->email->subject('Тест Email');
                     $this->email->message($message);
 
-                    if (!$this->email->send()) {
-                        // Raise error message
+                    if (!$this->email->send())
+                    {
                         show_error($this->email->print_debugger());
-                    } else {
-                        // Show success notification or other things here
+                    }
+                    else
+                    {
                         echo 'Success to send email';
                     }
-                } else {
+                }
+                else
+                {
                     echo 'Wrong E-mail';
                 }
-            } else {
+            }
+            else
+            {
                 echo "All fields must be filled necessarily";
             }
         }

@@ -5,7 +5,8 @@ class Search extends CI_Controller
 {
     public function index()
     {
-        if($this->input->get()) {
+        if($this->input->get())
+        {
             $data = $this->input->get();
             $data['text'] = trim($data['text']);
             if(empty($data['text']))
@@ -61,7 +62,6 @@ class Search extends CI_Controller
         $text = explode(" ", $text);
         $this->load->model('frontend/search_model');
         $result = $this->search_model->liveSearch($text);
-//        echo "<pre>";
         echo json_encode($result);
     }
 }

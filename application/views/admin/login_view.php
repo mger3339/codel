@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet"/>
     <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet"/>
+    <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
 </head>
 <body style="background-color: #bce8f1">
 <div id="login">

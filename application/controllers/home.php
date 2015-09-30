@@ -23,7 +23,6 @@ class Home extends CI_Controller
             }
             $this->load->model('frontend/products_model');
             $data['product'] = $this->products_model->sliderImg();
-
             $this->load->view('frontend/slider_view', $data);
             $config['base_url'] = base_url('/home/index');
             $config['total_rows'] = $this->db->count_all('products');
@@ -151,8 +150,6 @@ class Home extends CI_Controller
             $marker['position'] = "$latitude, $longitude";
             $this->googlemaps->add_marker($marker);
             $product['map'] = $this->googlemaps->create_map();
-//            echo "<pre>";
-//            print_r($product['map']);die;
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/product_page_view', $product);
             $this->load->view('frontend/footer_view');
@@ -174,10 +171,12 @@ class Home extends CI_Controller
             $this->load->model('frontend/products_model');
             $arr = $this->products_model->getCartProductByUserId($user_id);
             $myrow = array();
-            foreach ($arr as $value) {
+            foreach ($arr as $value)
+            {
                 array_push($myrow, $value['product_id']);
             }
-            if (!in_array($id, $myrow)) {
+            if (!in_array($id, $myrow))
+            {
                 $cart = array('product_id' => $id, 'count' => 1, 'user_id' => $user_id);
                 $this->load->model('frontend/products_model');
                 $this->products_model->addCartProduct($cart);

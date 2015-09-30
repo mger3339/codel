@@ -11,17 +11,21 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        if (isset($_POST['submit'])) {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
+        if ($this->load->post('submit'))
+        {
+            $login = $this->load->post('login');
+            $password = $this->load->post('password');
             $this->load->model('admin/login_model');
             $admin_user = $this->login_model->getAdmin();
-            foreach ($admin_user as $value) {
+            foreach ($admin_user as $value)
+            {
                 $log = $value['login'];
                 $pass = $value['password'];
             }
-            if (isset($login) && isset($password)) {
-                if ($login == $log && $password == $pass) {
+            if (isset($login) && isset($password))
+            {
+                if ($login == $log && $password == $pass)
+                {
                     $admin = array(
                         'name' => 'admin',
                         'login' => $log,
@@ -33,15 +37,21 @@ class Admin extends CI_Controller
                     $this->load->view('admin/side_bar_view');
                     $this->load->view('admin/index_view');
                     $this->load->view('admin/footer_view');
-                } else {
+                }
+                else
+                {
                     echo "Wrong Login or Password";
                     $this->load->view('admin/login_view');
                 }
-            } else {
+            }
+            else
+            {
                 echo "Wrong field";
                 $this->load->view('admin/login_view');
             }
-        } else {
+        }
+        else
+        {
             $this->load->view('admin/login_view');
         }
     }
