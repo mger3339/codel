@@ -13,7 +13,6 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/category.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/add_validation.js'); ?>"></script>
 </head>
 <body>

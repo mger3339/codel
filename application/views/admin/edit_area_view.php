@@ -13,7 +13,7 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/category.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/area.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/category_validation.js'); ?>"></script>
 </head>
 <body>
@@ -31,7 +31,7 @@
                 <?php endforeach; ?>
             </div>
             <div class="category_edit">
-                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" class="edit_area_form" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="hidden_id_area" class="hidden_id" value="">
                     <div class="form-group">
                         <label for="country_name">Enter Product name</label>

@@ -145,7 +145,7 @@ class Areas extends CI_Controller
     public function checkArea()
     {
         $result = 0;
-        $area = $this->input->post('area');
+        $area = $this->input->post('area_name');
         $this->load->model('admin/areas_model');
         $data = $this->areas_model->getArea();
         $myrow = array();
@@ -155,7 +155,9 @@ class Areas extends CI_Controller
         if (in_array($area, $myrow)) {
             $result = 1;
         }
-        echo $result;
+        $json['result'] = $result;
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($json));
     }
 }
 

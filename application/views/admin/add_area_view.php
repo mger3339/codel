@@ -13,7 +13,7 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/category.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/area.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/category_validation.js'); ?>"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
                 <a href="<?php echo base_url('admin/areas/deleteArea'); ?>"><button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button></a>
             </div>
             <div class="category">
-                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" class="add_area_form" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="country_name">Enter Product name</label>
                         <input type="text" name="area_name" class="form-control add_input" id="country_name" placeholder="Country Name"><div class="country_name_error"></div>

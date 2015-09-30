@@ -13,49 +13,27 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/category.js'); ?>"></script>
+<!--    <script src="--><?php //echo base_url('assets/js/category.js'); ?><!--"></script>-->
 </head>
 <body>
-<div id="wrapper">
-    <div id="page-wrapper" >
-        <div id="page-inner">
-            <div class="button_category">
-                <button type="button" class="btn btn-primary add_category_button">ADD CATEGORY</button>
-                <button type="button" class="btn btn-success edit_category_button">EDIT CATEGORY</button>
-                <button type="button" class="btn btn-danger delete_category_button">DELETE CATEGORY</button>
-            </div>
-            <div class="category">
-                <div class="add_category">
-                    <form action="<?php echo base_url('admin/categories/saveProduct'); ?>" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="exampleInputAddCategory">Enter Product category</label>
-                            <input type="text" name="category_name" class="form-control add_input" id="exampleInputAddCategory"  placeholder="Name Product">
-                        </div>
-                        <input type="submit" name="category_save" class="btn btn-success" value="Save"/>
-                    </form>
+    <div id="wrapper">
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="button_category">
+                    <a href="<?php echo base_url('admin/categories/addCategory'); ?>"><button type="button" class="btn btn-primary add_category_button">ADD CATEGORY</button></a>
+                    <a href="<?php echo base_url('admin/categories/editCategory'); ?>"><button type="button" class="btn btn-success edit_category_button">EDIT CATEGORY</button><a>
+                    <a href="<?php echo base_url('admin/categories/deleteCategory'); ?>"><button type="button" class="btn btn-danger delete_category_button">DELETE CATEGORY</button></a>
                 </div>
-                <div class="edit_category">
-                    <div class="edit_category_name">
-                        <form action="<?php echo base_url('admin/categories/saveProduct'); ?>" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="exampleInputEditCategory">Enter Product category</label>
-                                <input type="text" name="category_name" value="" class="form-control add_input" id="exampleInputEditCategory"  placeholder="Name Product">
-                            </div>
-                            <input type="submit" name="category_save" class="btn btn-success" value="Save"/>
-                        </form>
-                    </div><br><br>
-                    <?php foreach ($category as $value) : ?>
-                        <a href="<?php echo base_url('admin/categories/getCategory/' .$value['id']); ?>"><button type="button" class="btn btn-primary category_button"><?php echo $value['category_name']; ?></button></a>
-                    <?php endforeach; ?>
-                </div>
-                <div class="delete_category">
-                    <?php foreach ($category as $value) : ?>
-                        <a href="<?php echo base_url('admin/categories/deleteCategory/' . $value['id']); ?>"><button type="button" class="btn btn-danger add_category_button"><?php echo $value['category_name']; ?></button></a>
-                    <?php endforeach; ?>
+                <div class="container div_ul">
+                    <h2 class="h2_cat">CATEGORIES</h2>
+                    <ul class="list-group">
+                        <?php foreach($category as $value) : ?>
+                        <li class="list-group-item list-group-item-success"><?php echo $value['category_name'] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

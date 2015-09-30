@@ -3,73 +3,130 @@ $(document).ready(function () {
         var id = $(this).attr('data-id');
         var area = $(this).text();
         $(".hidden_id").val(id);
-        $("#country_edit_name").val(area);
-        $.ajax({
-            url: './getCoordinates',
-            type: "POST",
-            data: {id: id, area: area},
-            success: function(result){
-                var data = JSON.parse(result);
-                $("#edit_latitude").val(data[0].latitude);
-                $("#edit_longitude").val(data[0].longitude);
-            }
-        });
+        $("#edit_category").val(area);
     });
 });
 
 $(document).ready(function () {
-    $(".save_add_area").on("click", function(){
-        var area = $.trim($('#country_name').val());
-        if(area == '')
-        {
-            return false;
+
+    $('#add_category').change(function(){
+        $('.country_name_error').empty();
+        submitCount = 0;
+    });
+    submitCount = 0;
+    $('.add_category_form').on('submit',function(e){
+        if($('.country_name_error').text()){
+            e.preventDefault();
         }
-        $.ajax({
-            url: './checkArea',
-            type: "POST",
-            data: {area: area},
-            success: function(result){
-                if(result == 1)
-                {
-                    $(".country_name_error").show();
-                    $("#country_name").css({"border": "1px solid #f00"});
-                    $(".country_name_error").text('The city is already there, choose another');
-                    return false;
-                }
-                else
-                {
-                    $("#country_name").css({"border": "1px solid green"});
-                    $(".country_name_error").hide();
-                }
+        else{
+            if(!submitCount){
+                e.preventDefault();
+                var data = $(this).serialize();
+                $.ajax({
+                    url: './checkCategory',
+                    type: "POST",
+                    data: data,
+                    dataType:'json',
+                    success: function (response) {
+                        submitCount ++;
+                        if(response.result){
+                            $("#add_category").css({"border": "1px solid #f00"});
+                            $('.country_name_error').text('The city is already there, choose another');
+                        }
+                        else{
+                            console.log(submitCount);
+                            $('.country_name_error').empty();
+                            $('.add_category_form').submit();
+                        }
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                });
+            }else{
+                submitCount = 0;
+                return true;
             }
-        });
+        }
     });
 });
 $(document).ready(function () {
-    $(".save_edit_area").on("click", function(){
-        var area = $.trim($('#country_edit_name').val());
-        if(area == '')
+
+    $('#edit_category').change(function(){
+        $('.country_name_error').empty();
+        submitCount = 0;
+    });
+    submitCount = 0;
+    $('.edit_category_form').on('submit',function(e){
+        if($('.country_name_error').text()){
+            e.preventDefault();
+        }
+        else{
+            if(!submitCount){
+                e.preventDefault();
+                var data = $(this).serialize();
+                $.ajax({
+                    url: './checkCategory',
+                    type: "POST",
+                    data: data,
+                    dataType:'json',
+                    success: function (response) {
+                        submitCount ++;
+                        if(response.result){
+                            $("#edit_category").css({"border": "1px solid #f00"});
+                            $('.country_name_error').text('The city is already there, choose another');
+                        }
+                        else{
+                            console.log(submitCount);
+                            $('.country_name_error').empty();
+                            $('.edit_category_form').submit();
+                        }
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                });
+            }else{
+                submitCount = 0;
+                return true;
+            }
+        }
+    });
+});
+
+$(document).ready(function(){
+   $('.save_add_category').on('click', function(){
+       var category = $.trim($("#add_category").val());
+       window.result = true;
+       if(category == '')
+       {
+           window.result = false;
+           $("#add_category").css({"border": "1px solid #f00"});
+           $('.country_name_error').text('Enter Category');
+       }
+       else
+       {
+           $("#add_category").css({"border": "1px solid green"});
+       }
+       if(window.result = false)
+       {
+           return false;
+       }
+   });
+
+});
+$(document).ready(function(){
+    $('.save_edit_category').on('click', function(){
+        var category = $.trim($("#edit_category").val());
+        if(category == '')
         {
+            $("#edit_category").css({"border": "1px solid #f00"});
             return false;
         }
-        $.ajax({
-            url: './checkArea',
-            type: "POST",
-            data: {area: area},
-            success: function(result){
-                if(result == 1)
-                {
-                    $(".country_name_error").show();
-                    $("#country_edit_name").css({"border": "1px solid #f00"});
-                    $(".country_name_error").text('The city is already there, choose another');
-                    return false;
-                }
-                else
-                {
-                    $("#country_edit_name").css({"border": "1px solid green"});
-                    $(".country_name_error").hide();
-                }
-            }
-        });
+        else
+        {
+            $("#edit_category").css({"border": "1px solid green"});
+        }
     });
+
 });

@@ -24,6 +24,14 @@
                     <a href="<?php echo base_url('admin/areas/editArea'); ?>"><button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button></a>
                     <a href="<?php echo base_url('admin/areas/deleteArea'); ?>"><button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button></a>
                 </div>
+                <div class="container div_ul">
+                    <h2 class="h2_cat">AREAS</h2>
+                    <ul class="list-group">
+                        <?php foreach($area as $value) : ?>
+                            <li class="list-group-item list-group-item-success"><?php echo $value['country'] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
