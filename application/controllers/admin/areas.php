@@ -101,6 +101,15 @@ class Areas extends CI_Controller
                 }
                 else
                 {
+                    $this->load->model('admin/areas_model');
+                    $data = $this->areas_model->getArea();
+                    $myrow = array();
+                    foreach ($data as $value) :
+                        array_push($myrow, $value['country']);
+                    endforeach;
+                    if (in_array($area_name, $myrow)) {
+                        redirect('admin/areas/editArea');
+                    }
                     $coordinates = array(
                         'latitude' => $latitude,
                         'longitude' => $longitude,
@@ -131,6 +140,22 @@ class Areas extends CI_Controller
         $this->areas_model->deleteArea($id);
         $this->areas_model->deleteCoordinates($id);
         redirect('admin/areas/deleteArea');
+    }
+
+    public function checkArea()
+    {
+        $result = 0;
+        $area = $this->input->post('area');
+        $this->load->model('admin/areas_model');
+        $data = $this->areas_model->getArea();
+        $myrow = array();
+        foreach ($data as $value) :
+            array_push($myrow, $value['country']);
+        endforeach;
+        if (in_array($area, $myrow)) {
+            $result = 1;
+        }
+        echo $result;
     }
 }
 

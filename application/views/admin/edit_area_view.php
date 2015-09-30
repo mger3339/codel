@@ -35,17 +35,16 @@
                     <input type="hidden" name="hidden_id_area" class="hidden_id" value="">
                     <div class="form-group">
                         <label for="country_name">Enter Product name</label>
-                        <input type="text" name="area_name" class="form-control add_input" id="country_name"
-                               placeholder="Country Name">
+                        <input type="text" name="area_name" class="form-control add_input" id="country_edit_name" placeholder="Country Name"><div class="country_name_error"></div>
                     </div>
                     <div class="form-group coordinates">
                         <label class="label_latitude">Enter Coordinates(Latitude)</label>
                         <div class="div_latitude">
-                            <input type="text" name="latitude" class="form-control latitude_input" id="edit_latitude"  placeholder="Latitude"><div class="latitude_error"><?php echo form_error('latitude'); ?></div>
+                            <input type="text" name="latitude" class="form-control latitude_input" id="edit_latitude"  placeholder="Latitude"><div class="latitude_error"></div>
                         </div>
                         <label class="label_longitude">Enter Coordinates(Longitude)</label>
                         <div class="div_longitude">
-                            <input type="text" name="longitude" class="form-control longitude_input" id="edit_longitude"  placeholder="Longitude"><div class="longitude_error"><?php echo form_error('longitude'); ?></div>
+                            <input type="text" name="longitude" class="form-control longitude_input" id="edit_longitude"  placeholder="Longitude"><div class="longitude_error"></div>
                         </div>
                     </div><br>
                     <input type="submit" name="area_save" class="btn btn-success save_edit_area" value="Save"/>

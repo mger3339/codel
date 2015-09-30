@@ -3,7 +3,7 @@ $(document).ready(function () {
         var id = $(this).attr('data-id');
         var area = $(this).text();
         $(".hidden_id").val(id);
-        $("#country_name").val(area);
+        $("#country_edit_name").val(area);
         $.ajax({
             url: './getCoordinates',
             type: "POST",
@@ -18,21 +18,57 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".delete_button").on("click", function(){
-        var this_button = $(this);
-        var id = $(this).attr('data-id');
-        var area = $(this).text();
-        alert(area);
-        $(".hidden_delete_id").val(id);
+    $(".save_add_area").on("click", function(){
+        var area = $.trim($('#country_name').val());
+        if(area == '')
+        {
+            return false;
+        }
         $.ajax({
-            url: './getCoordinates',
+            url: './checkArea',
             type: "POST",
-            data: {id: id},
+            data: {area: area},
             success: function(result){
-                var data = JSON.parse(result);
-                $("#edit_latitude").val(data[0].latitude);
-                $("#edit_longitude").val(data[0].longitude);
-
+                if(result == 1)
+                {
+                    $(".country_name_error").show();
+                    $("#country_name").css({"border": "1px solid #f00"});
+                    $(".country_name_error").text('The city is already there, choose another');
+                    return false;
+                }
+                else
+                {
+                    $("#country_name").css({"border": "1px solid green"});
+                    $(".country_name_error").hide();
+                }
+            }
+        });
+    });
+});
+$(document).ready(function () {
+    $(".save_edit_area").on("click", function(){
+        var area = $.trim($('#country_edit_name').val());
+        if(area == '')
+        {
+            return false;
+        }
+        $.ajax({
+            url: './checkArea',
+            type: "POST",
+            data: {area: area},
+            success: function(result){
+                if(result == 1)
+                {
+                    $(".country_name_error").show();
+                    $("#country_edit_name").css({"border": "1px solid #f00"});
+                    $(".country_name_error").text('The city is already there, choose another');
+                    return false;
+                }
+                else
+                {
+                    $("#country_edit_name").css({"border": "1px solid green"});
+                    $(".country_name_error").hide();
+                }
             }
         });
     });

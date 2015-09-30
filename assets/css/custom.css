@@ -806,6 +806,10 @@ select {
     color: #ff0000;
     font-weight: bold;
 }
+.country_name_error {
+    color: #ff0000;
+    font-weight: bold;
+}
 .area_save {
     width: 100px;
     margin-bottom: 10px;
