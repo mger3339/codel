@@ -47,7 +47,7 @@
                     <div class="form-group search_input_div">
                         <button type="submit" class="btn btn-success button_search">Search</button>
                     </div>
-                    <div class="live_search">
+                    <div class="live_search" change_url="<?php echo base_url('/home/productPage/'); ?>">
                         <ul></ul>
                     </div>
                     <div class="warning"></div>

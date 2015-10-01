@@ -176,6 +176,7 @@ class Test extends CI_Controller {
 				// at this point, you have collected payment from your customer
 				// you may want to process the order now.
 				echo "<h1>Thank you. We will process your order now.</h1>";
+                echo "<a href='". base_url('home/cartPage') ."'></a>";
                 $user_id = $this->session->userdata('user_id');
                 $this->load->model('frontend/products_model');
                 $product = $this->products_model->getOrders($user_id);

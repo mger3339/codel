@@ -29,8 +29,8 @@ $(document).ready(function(){
         var shipping = parseInt(shipp.substring(10, shipp.length - 1));
         var total = $(".total_shipping_sum").text();
         var total_sum = parseInt(total.substring(7, total.length - 1));
-        $( "input:checked").each(function( index) {
-            var ids = $( this ).val();
+        $( "input:checked").each(function(i,v) {
+            var ids = $(v).val();
             id.push(ids);
         });
         $( ".total_price" ).each(function(i, v) {
@@ -41,7 +41,6 @@ $(document).ready(function(){
         $(".count_control").each(function(i, v) {
             count[$(v).attr('data-id')] = parseInt($(v).val());
         });
-        id.shift();
         $.ajax({
             url: './puyPage',
             type: "POST",

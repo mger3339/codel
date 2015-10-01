@@ -482,6 +482,7 @@ line-height: 1.428571429;
     float: left;
 }
 .desc_product {
+    padding: 10px;
     background-color: #DCEEFF;
     overflow: hidden;
     height: 180px;

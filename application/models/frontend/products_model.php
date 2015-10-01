@@ -213,4 +213,16 @@ class Products_model extends CI_Model
         $data = $this->db->get('category');
         return $data->result_array();
     }
+    public function getAreasByNotCountry($area)
+    {
+        $this->db->where_not_in('country', $area);
+        $query = $this->db->get('areas');
+        return $query->result_array();
+    }
+    public function getCategoriesByNotCategoryName($category)
+    {
+        $this->db->where_not_in('category_name', $category);
+        $query = $this->db->get('category');
+        return $query->result_array();
+    }
 }

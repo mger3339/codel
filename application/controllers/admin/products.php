@@ -179,11 +179,13 @@ class Products extends CI_Controller
                 redirect('admin/products/index');
             }
             $edit_product = $this->products_model->getEditProduct($id);
-            $this->load->model('admin/categories_model');
-            $data_category = $this->categories_model->getCategoryAll();
-            $this->load->model('admin/areas_model');
-            $data_area = $this->areas_model->getArea();
             $arr['edit_product'] = $edit_product;
+            $area_id = $arr['edit_product']['0']['area_id'];
+            $category_id = $arr['edit_product']['0']['category_id'];
+            $this->load->model('admin/categories_model');
+            $data_category = $this->categories_model->getCategoryNotId($category_id);
+            $this->load->model('admin/areas_model');
+            $data_area = $this->areas_model->getAreaNotId($area_id);
             $arr['myrow'] = $data_category;
             $arr['data'] = $data_area;
             $this->load->view('admin/header_view');

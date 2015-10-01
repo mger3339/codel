@@ -55,7 +55,7 @@
                     <div class="category_select">
                         <label>Edit product country</label>
                         <select class="selectpicker" name="country" data-style="btn-danger">
-                            <option selected value="<?php echo $item['country']; ?>"><?php echo $item['country']; ?></option>
+                            <option selected value="<?php echo $item['area_id']; ?>"><?php echo $item['country']; ?></option>
                             <?php foreach ($data as $value_country) : ?>
                                 <option
                                     value="<?php echo $value_country['id']; ?>"><?php echo $value_country['country'] ?>
@@ -66,7 +66,7 @@
                     <div class="category_select">
                         <label>Edit product category</label>
                         <select class="selectpicker" name="category" data-style="btn-danger">
-                            <option selected value="<?php echo $item['category_name']; ?>"><?php echo $item['category_name']; ?></option>
+                            <option selected value="<?php echo $item['category_id']; ?>"><?php echo $item['category_name']; ?></option>
                             <?php foreach ($myrow as $value) : ?>
                                 <option
                                     value="<?php echo $value['id']; ?>"><?php echo $value['category_name']; ?>
@@ -87,7 +87,7 @@
                     <br><br>
 
                     <div class="img_edit">
-                        <img src="<?php echo base_url('assets/img/' . $item['img']); ?>"/>
+                        <img src="<?php echo base_url('assets/img/' . $item['img']); ?>" width="100%"/>
                     </div>
                     <input type="hidden" name="hid_id" value="<?php echo $item['id']; ?>"/>
                     <input type="submit" id="edit_submit" name="submit" class="btn btn-success button_save"

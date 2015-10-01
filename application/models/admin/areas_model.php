@@ -72,4 +72,11 @@ class Areas_model extends CI_Model
         $data = $this->db->get();
         return $data->result_array();
     }
+
+    public function getAreaNotId($area_id)
+    {
+        $this->db->where_not_in('id', $area_id);
+        $query = $this->db->get('areas');
+        return $query->result_array();
+    }
 }

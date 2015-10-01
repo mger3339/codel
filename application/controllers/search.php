@@ -37,14 +37,16 @@ class Search extends CI_Controller
                 $result['responce'] = 1;
             }
             $result['values'] = $data;
+            $area = $data['areas'];
+            $category = $data['category'];
             $this->load->model('frontend/products_model');
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $user_id = $this->session->userdata('user_id');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
             $home['cart'] = $this->products_model->getCartProductByUserId($user_id);
-            $result['areas'] = $this->products_model->getAreas();
-            $result['categories'] = $this->products_model->getCategories();
+            $result['areas'] = $this->products_model->getAreasByNotCountry($area);
+            $result['categories'] = $this->products_model->getCategoriesByNotCategoryName($category);
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/search_result_view', $result);
             $this->load->view('frontend/footer_view');

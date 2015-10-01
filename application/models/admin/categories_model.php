@@ -57,4 +57,11 @@ class Categories_model extends CI_Model
         $data = $this->db->get('category');
         return $data->result_array();
     }
+
+    public function getCategoryNotId($category_id)
+    {
+        $this->db->where_not_in('id', $category_id);
+        $query = $this->db->get('category');
+        return $query->result_array();
+    }
 }
