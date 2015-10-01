@@ -18,6 +18,10 @@ class Migration_cart extends CI_Migration{
                 'type' => 'INT',
                 'constraint' => 11
             ),
+            'user_id' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+            ),
         ));
         $this->dbforge->add_key('id', TRUE);
         $this->dbforge->create_table('cart');

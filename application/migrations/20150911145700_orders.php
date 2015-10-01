@@ -14,30 +14,23 @@ class Migration_orders extends CI_Migration{
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ),
-            'desc' => array(
-                'type' => 'TEXT',
-            ),
             'price' => array(
                 'type' => 'INT',
                 'constraint' => 11,
-            ),
-            'img' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ),
-            'country' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ),
-            'category_name' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '255',
             ),
             'product_id' => array(
                 'type' => 'INT',
                 'constraint' => 11,
             ),
             'count' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+            ),
+            'user_id' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+            ),
+            'shipping' => array(
                 'type' => 'INT',
                 'constraint' => 11,
             ),
