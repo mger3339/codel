@@ -41,7 +41,7 @@ class Areas_model extends CI_Model
         $this->db->update('coordinates', $coordinates);
     }
 
-    public function updateCoordinatesById($id,$name)
+    public function updateCoordinatesById($id, $name)
     {
         $this->db->set('country_id', $id);
         $this->db->where('country', $name);

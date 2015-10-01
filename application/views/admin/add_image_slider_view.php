@@ -12,6 +12,7 @@
     <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/category.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/add_validation.js'); ?>"></script>
@@ -20,7 +21,6 @@
 <div id="wrapper">
     <div id="page-wrapper">
         <div class="slider_image_view">
-
         </div>
         <div class="add_image_slider_div">
             <form action="<?php echo base_url('admin/slider/savePhoto'); ?>" method="post"

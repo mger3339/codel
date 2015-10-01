@@ -83,7 +83,7 @@
             </div>
             <div class="all_total">
                 <div class="total_shipping_sum"></div>
-                <a href="<?php echo base_url('/test/buy');?>"><button type="button" class="btn btn-primary buy_now"><div class="shipping_price">BUY NOW</div></button></a>
+                <button type="button" class="btn btn-primary buy_now" change_url = <?= base_url('test/buy')?>><div class="shipping_price">BUY NOW</div></button>
             </div>
         </form>
     </div>

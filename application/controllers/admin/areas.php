@@ -6,40 +6,49 @@ class Areas extends CI_Controller
 
     public function addArea()
     {
-        if ($this->session->userdata('check') == TRUE) {
+        if ($this->session->userdata('check') == TRUE)
+        {
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/add_area_view');
             $this->load->view('admin/footer_view');
-        } else {
+        }
+        else
+        {
             $this->load->view('admin/login_view');
         }
     }
 
     public function editArea()
     {
-        if ($this->session->userdata('check') == TRUE) {
+        if ($this->session->userdata('check') == TRUE)
+        {
             $this->load->model('admin/areas_model');
             $data['data'] = $this->areas_model->getAreaAll();
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/edit_area_view', $data);
             $this->load->view('admin/footer_view');
-        } else {
+        }
+        else
+        {
             $this->load->view('admin/login_view');
         }
     }
 
     public function deleteArea()
     {
-        if ($this->session->userdata('check') == TRUE) {
+        if ($this->session->userdata('check') == TRUE)
+        {
             $this->load->model('admin/areas_model');
             $data['data'] = $this->areas_model->getAreaAll();
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/delete_area_view', $data);
             $this->load->view('admin/footer_view');
-        } else {
+        }
+        else
+        {
             $this->load->view('admin/login_view');
         }
     }
@@ -47,7 +56,8 @@ class Areas extends CI_Controller
 
     public function getAreas()
     {
-        if ($this->session->userdata('check') == TRUE) {
+        if ($this->session->userdata('check') == TRUE)
+        {
             $this->load->model('admin/areas_model');
             $area = $this->areas_model->getArea();
             $arr['area'] = $area;
@@ -55,14 +65,17 @@ class Areas extends CI_Controller
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/areas_all_view', $arr);
             $this->load->view('admin/footer_view');
-        } else {
+        }
+        else
+        {
             $this->load->view('admin/login_view');
         }
     }
 
     public function saveArea()
     {
-        if ($this->input->post('area_save')) {
+        if ($this->input->post('area_save'))
+        {
             $area_id = ($this->input->post('hidden_id_area'));
             $area_name = trim($this->input->post('area_name'));
             $latitude = trim($this->input->post('latitude'));
@@ -152,7 +165,8 @@ class Areas extends CI_Controller
         foreach ($data as $value) :
             array_push($myrow, $value['country']);
         endforeach;
-        if (in_array($area, $myrow)) {
+        if (in_array($area, $myrow))
+        {
             $result = 1;
         }
         $json['result'] = $result;

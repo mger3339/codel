@@ -12,6 +12,7 @@
     <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/area.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/category_validation.js'); ?>"></script>
@@ -21,32 +22,53 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="button_category">
-                <a href="<?php echo base_url('admin/areas/addArea'); ?>"><button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button></a>
-                <a href="<?php echo base_url('admin/areas/editArea'); ?>"><button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button></a>
-                <a href="<?php echo base_url('admin/areas/deleteArea'); ?>"><button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button></a>
+                <a href="<?php echo base_url('admin/areas/addArea'); ?>">
+                    <button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button>
+                </a>
+                <a href="<?php echo base_url('admin/areas/editArea'); ?>">
+                    <button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button>
+                </a>
+                <a href="<?php echo base_url('admin/areas/deleteArea'); ?>">
+                    <button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button>
+                </a>
             </div>
             <div class="edit_category">
                 <?php foreach ($data as $value) : ?>
-                        <button data-id="<?php echo $value['id']; ?>" type="button" class="btn btn-primary edit_button"><?php echo $value['country']; ?></button>
+                    <button data-id="<?php echo $value['id']; ?>" type="button"
+                            class="btn btn-primary edit_button"><?php echo $value['country']; ?></button>
                 <?php endforeach; ?>
             </div>
             <div class="category_edit">
-                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" class="edit_area_form" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" class="edit_area_form" method="post"
+                      enctype="multipart/form-data">
                     <input type="hidden" name="hidden_id_area" class="hidden_id" value="">
+
                     <div class="form-group">
                         <label for="country_name">Enter Product name</label>
-                        <input type="text" name="area_name" class="form-control add_input" id="country_edit_name" placeholder="Country Name"><div class="country_name_error"></div>
+                        <input type="text" name="area_name" class="form-control add_input" id="country_edit_name"
+                               placeholder="Country Name">
+
+                        <div class="country_name_error"></div>
                     </div>
                     <div class="form-group coordinates">
                         <label class="label_latitude">Enter Coordinates(Latitude)</label>
+
                         <div class="div_latitude">
-                            <input type="text" name="latitude" class="form-control latitude_input" id="edit_latitude"  placeholder="Latitude"><div class="latitude_error"></div>
+                            <input type="text" name="latitude" class="form-control latitude_input" id="edit_latitude"
+                                   placeholder="Latitude">
+
+                            <div class="latitude_error"></div>
                         </div>
                         <label class="label_longitude">Enter Coordinates(Longitude)</label>
+
                         <div class="div_longitude">
-                            <input type="text" name="longitude" class="form-control longitude_input" id="edit_longitude"  placeholder="Longitude"><div class="longitude_error"></div>
+                            <input type="text" name="longitude" class="form-control longitude_input" id="edit_longitude"
+                                   placeholder="Longitude">
+
+                            <div class="longitude_error"></div>
                         </div>
-                    </div><br>
+                    </div>
+                    <br>
                     <input type="submit" name="area_save" class="btn btn-success save_edit_area" value="Save"/>
                 </form>
             </div>

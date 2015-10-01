@@ -23,7 +23,6 @@ class Home extends CI_Controller
             }
             $this->load->model('frontend/products_model');
             $data['product'] = $this->products_model->sliderImg();
-
             $this->load->view('frontend/slider_view', $data);
             $config['base_url'] = base_url('/home/index');
             $config['total_rows'] = $this->db->count_all('products');
@@ -151,8 +150,6 @@ class Home extends CI_Controller
             $marker['position'] = "$latitude, $longitude";
             $this->googlemaps->add_marker($marker);
             $product['map'] = $this->googlemaps->create_map();
-//            echo "<pre>";
-//            print_r($product['map']);die;
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/product_page_view', $product);
             $this->load->view('frontend/footer_view');
@@ -174,10 +171,12 @@ class Home extends CI_Controller
             $this->load->model('frontend/products_model');
             $arr = $this->products_model->getCartProductByUserId($user_id);
             $myrow = array();
-            foreach ($arr as $value) {
+            foreach ($arr as $value)
+            {
                 array_push($myrow, $value['product_id']);
             }
-            if (!in_array($id, $myrow)) {
+            if (!in_array($id, $myrow))
+            {
                 $cart = array('product_id' => $id, 'count' => 1, 'user_id' => $user_id);
                 $this->load->model('frontend/products_model');
                 $this->products_model->addCartProduct($cart);
@@ -291,23 +290,17 @@ class Home extends CI_Controller
             $data = array();
             $id = $this->input->post('id');
             $user_id = $this->session->userdata('user_id');
-            $total = $this->input->post('total');
+            $total = $this->input->post('total_sum');
             $count = $this->input->post('count');
             $price = $this->input->post('price');
             $this->load->model('frontend/products_model');
             $product = $this->products_model->getCartProductByIdUserId($id,$user_id);
             foreach ($product as $value) :
-                array_push($value['price'], $price);
-                array_push($value['count'], $count);
                 $orders = array(
                     'product_id' => $value['id'],
                     'name' => $value['name'],
-                    'desc' => $value['desc'],
-                    'price' => ($value['price']),
-                    'img' => $value['img'],
-                    'country' => $value['country'],
-                    'category_name' => $value['category_name'],
-                    'count' => $value['count'],
+                    'price' => $price[$value['id']],
+                    'count' => $count[$value['id']],
                     'user_id' => $user_id,
                     'shipping' => $shipping
                 );
@@ -316,25 +309,6 @@ class Home extends CI_Controller
                 $this->products_model->addProductBuy($orders);
             endforeach;
             redirect('test/index');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
-    }
-
-    public function orders()
-    {
-        if ($this->session->userdata('check') == 1)
-        {
-            $user_id = $this->session->userdata('user_id');
-            $this->load->model('frontend/products_model');
-            $product['data'] = $this->products_model->getOrders($user_id);
-            $this->load->view('frontend/header_view');
-            $this->load->view('frontend/buy_page_view', $product);
-            $this->load->view('frontend/footer_view');
         }
         else
         {

@@ -81,7 +81,8 @@ class Slider extends CI_Controller
         $this->upload->do_upload();
         $arr = $this->upload->data();
         $img = $arr['file_name'];
-        if (empty($img)) {
+        if (empty($img))
+        {
             redirect('admin/slider/editSliderImage/' . $id);
         }
         $data = array('img' => $img);

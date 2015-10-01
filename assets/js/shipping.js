@@ -15,9 +15,10 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".select_error").hide();
     $(".buy_now").on("click", function(){
+        var changeUrl = $(this).attr('change_url');
         var id = [];
-        var count = [];
-        var price = [];
+        var count = {};
+        var price = {};
         var a =  $( "input:checked").val();
         if(!a){
             $(".select_error").show();
@@ -32,20 +33,24 @@ $(document).ready(function(){
             var ids = $( this ).val();
             id.push(ids);
         });
-        $( ".total_price" ).each(function( index) {
-            var x = $( this ).text();
-            window.y = parseInt(x.substring(3, x.length));
-            price.push(window.y);
+        $( ".total_price" ).each(function(i, v) {
+            var x = $(v).text();
+            x = parseInt(x.substring(3, x.length));
+            price[$(v).attr('id').replace('total', '')] = x;
         });
-        $(".count_control").each(function( index) {
-            window.a = $( this ).val();
-            count.push(window.a);
+        $(".count_control").each(function(i, v) {
+            count[$(v).attr('data-id')] = parseInt($(v).val());
         });
+        id.shift();
         $.ajax({
             url: './puyPage',
             type: "POST",
             data:{total: total_sum, price: price, count: count,id: id, shipping:shipping },
-            success: function(){
+            success: function(data){
+                console.log(data);
+                window.location.href = changeUrl;
+            },
+            error: function (data) {
             }
         });
     });

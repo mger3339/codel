@@ -7,7 +7,7 @@ class Products_model extends CI_Model
     public function sliderImg()
     {
         $this->db->order_by('id', 'random');
-//        $this->db->limit(5);
+        $this->db->limit(5);
         $query = $this->db->get('slider');
         return $query->result_array();
     }
