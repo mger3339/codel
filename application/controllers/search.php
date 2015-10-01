@@ -7,7 +7,6 @@ class Search extends CI_Controller
     {
         if($this->input->get()) {
             $data = $this->input->get();
-            $data['text'] = trim($data['text']);
             if(empty($data['text']))
             {
                 $data['text'] = '';
@@ -37,7 +36,6 @@ class Search extends CI_Controller
                 $result['responce'] = 1;
             }
             $result['values'] = $data;
-            $data['text'] = trim($data['text']);
             $this->load->model('frontend/products_model');
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');

@@ -750,7 +750,7 @@ body, html {
 }
 .delete_all {
     font-size: 13px;
-    margin-right: 270px;
+    margin-right: 135px;
     width: 100px;
     padding: 0;
     height: 30px;
@@ -845,4 +845,19 @@ body, html {
     overflow: hidden;
     font-weight: bold;
     padding: 0;
+}
+.first_name_error {
+    color: #ff0000;
+}
+.last_name_error {
+    color: #ff0000;
+}
+.email_error {
+    color: #ff0000;
+}
+.password_error {
+    color: #ff0000;
+}
+.password_confirmation_error {
+    color: #ff0000;
 }

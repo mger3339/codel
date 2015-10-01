@@ -34,9 +34,17 @@ $(document).ready(function() {
                     $(".total_shipping_sum").text("TOTAL: " + sum + "$");
                 }
                 else {
-                    this_input.css({"border": "2px solid red"});
+                    this_input.css({"border": "2px solid green"});
                     $("#total" +id).text(" = " + total_price * data.result + "$");
                     this_input.val(data.result);
+                    var sum = 0;
+                    $( ".total_price" ).each(function( index) {
+                        var x = $( this ).text();
+                        var y = parseInt(x.substring(3, x.length));
+                        sum = sum + y;
+                    });
+                    $(".total_sum").text("SUM: " + sum + "$");
+                    $(".total_shipping_sum").text("TOTAL: " + sum + "$");
                 }
             }
         });
