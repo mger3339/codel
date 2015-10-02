@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-default navbar-cls-top " role="navigation">
     <div class="navbar-header">
         <a class="navbar-brand" href="<?php echo base_url('admin/home'); ?>">ADMINISTRATOR</a>
     </div>

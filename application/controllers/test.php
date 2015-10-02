@@ -40,6 +40,10 @@ are wise to think on your on for that part.
 
 */
 class Test extends CI_Controller {
+
+    public $user_id;
+    public $first_name;
+    public $last_name;
 	// This is just sample products -- you can name your
 	// products anything and use any variables you like.
 	// But you should be storing and calling product info
@@ -52,6 +56,13 @@ class Test extends CI_Controller {
 	
 	function __construct() {
 		parent::__construct();
+        $this->load->library('session');
+        $this->first_name = $this->session->userdata('first_name');
+        $this->last_name = $this->session->userdata('last_name');
+        $this->user_id = $this->session->userdata('user_id');
+        if ($this->session->userdata('check') != 1) {
+            redirect('login');
+        }
 		$paypal_details = array(
 			// you can get this from your Paypal account, or from your
 			// test accounts in Sandbox
@@ -71,23 +82,12 @@ class Test extends CI_Controller {
 	* --------------------------------------------------------------------------------------------------
 	*/
 	function index() {
-        if ($this->session->userdata('check') == 1) {
-            $first_name = $this->session->userdata('first_name');
-            $last_name = $this->session->userdata('last_name');
-            $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
+            $home['user_data'] = array('first_name' => $this->first_name, 'last_name' => $this->last_name);
             $this->load->model('frontend/products_model');
-            $user_id = $this->session->userdata('user_id');
-            $product['product'] = $this->products_model->getOrders($user_id);
+            $product['product'] = $this->products_model->getOrders($this->user_id);
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/paypall_buy_now_view', $product);
             $this->load->view('frontend/footer_view');
-        }
-        else
-            {
-                $this->load->view('frontend/header_login_view');
-                $this->load->view('frontend/registration_view');
-                $this->load->view('frontend/footer_view');
-            }
 	}
 	
 	/* -------------------------------------------------------------------------------------------------
@@ -96,8 +96,7 @@ class Test extends CI_Controller {
 	*/
 	function buy() {
         $this->load->model('frontend/products_model');
-        $user_id = $this->session->userdata('user_id');
-        $product = $this->products_model->getOrders($user_id);
+        $product = $this->products_model->getOrders($this->user_id);
         if(empty($product))
         {
             echo "Select product";die;
@@ -135,7 +134,7 @@ class Test extends CI_Controller {
 
 		} else {
             $this->load->model('frontend/products_model');
-            $this->products_model->deleteOrders($user_id);
+            $this->products_model->deleteOrders($this->user_id);
 			$this->_error($set_ec_return);
 		}
 	}
@@ -145,7 +144,6 @@ class Test extends CI_Controller {
 	* --------------------------------------------------------------------------------------------------
 	*/
 	function back() {
-        $user_id = $this->session->userdata('user_id');
 		// we are back from Paypal. We need to do GetExpressCheckoutDetails
 		// and DoExpressCheckoutPayment to complete.
 		$token = $_GET['token'];
@@ -177,9 +175,8 @@ class Test extends CI_Controller {
 				// you may want to process the order now.
 				echo "<h1>Thank you. We will process your order now.</h1>";
                 echo "<a href='". base_url('home/cartPage') ."'></a>";
-                $user_id = $this->session->userdata('user_id');
                 $this->load->model('frontend/products_model');
-                $product = $this->products_model->getOrders($user_id);
+                $product = $this->products_model->getOrders($this->user_id);
                 $data_id = array();
                 foreach($product as $value){
                     array_push($data_id, $value['product_id']);
@@ -194,7 +191,7 @@ class Test extends CI_Controller {
                     $this->products_model->updateTotalProduct($value['total'],$value['id']);
                 }
                 $this->load->model('frontend/products_model');
-                $this->products_model->deleteOrders($user_id);
+                $this->products_model->deleteOrders($this->user_id);
 //                redirect('home/cartPage');
 			} else {
 				$this->_error($do_ec_return);

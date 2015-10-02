@@ -3,11 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Products extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        if ($this->session->userdata('check') != TRUE)
+        {
+            redirect('admin/admin');
+        }
+    }
 
     public function index()
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $limit = 3;
             if ($this->uri->segment(4) !== null && is_numeric($this->uri->segment(4))) {
                 $offset = ($this->uri->segment(4) * $limit) - $limit;
@@ -43,18 +49,10 @@ class Products extends CI_Controller
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/products_view', $data);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
-
     }
 
     public function addProduct()
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $this->load->model('admin/categories_model');
             $data_category = $this->categories_model->getCategoryAll();
             $this->load->model('admin/areas_model');
@@ -63,13 +61,8 @@ class Products extends CI_Controller
             $arr['area'] = $data_area;
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
-            $this->load->view('admin/addProduct_view', $arr);
+            $this->load->view('admin/add_product_view', $arr);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
     }
 
     public function saveProduct()
@@ -166,8 +159,6 @@ class Products extends CI_Controller
 
     public function editProduct($id)
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $myrow = array();
             $this->load->model('admin/products_model');
             $data = $this->products_model->getProducts();
@@ -192,20 +183,6 @@ class Products extends CI_Controller
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/edit_product_view', $arr);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
-    }
-
-    public function validation()
-    {
-        if ($this->input->post('id'))
-        {
-            $id = $this->input->post('id');
-            $responce = $id;
-        }
     }
 }
 

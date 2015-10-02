@@ -5,7 +5,8 @@ class Login_model extends CI_Model
 {
     public function getAdmin()
     {
-        $query = $this->db->get('admin');
+        $this->db->where('role', 'admin');
+        $query = $this->db->get('users');
         return $query->result_array();
     }
 }

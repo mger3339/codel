@@ -68,7 +68,8 @@ class Login extends CI_Controller
                             'first_name' => $firs_name,
                             'last_name' => $last_name,
                             'email' => $email,
-                            'password' => $password
+                            'password' => $password,
+                            'role' => 'user'
                         );
                         $this->load->model('frontend/login_model');
                         $this->login_model->UserRegistration($data);
@@ -81,6 +82,7 @@ class Login extends CI_Controller
                             'email_login' => $email,
                             'password_login' => $password,
                             'check' => TRUE,
+                            'role' => 'user'
                         );
                         $this->session->set_userdata($session_data);
                         redirect('home');
@@ -140,7 +142,6 @@ class Login extends CI_Controller
                         'email' => $email,
                         'password_login' => $password_login,
                         'check' => TRUE,
-                        'remember' => $remember,
                     );
                     $this->session->set_userdata($session_data);
                     redirect('home/index');

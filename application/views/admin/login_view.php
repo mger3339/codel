@@ -6,9 +6,9 @@
     <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet"/>
     <link href="<?php echo base_url('/assets/css/style_admin.css'); ?>" rel='stylesheet' type='text/css' />
 </head>
-<body style="background-color: #bce8f1">
+<body>
 <div id="login">
-    <form class="form-inline" method="post" action="<?php echo base_url('index.php/admin/admin') ?>">
+    <form class="form-inline" method="post" action="<?php echo base_url('admin/admin') ?>">
         <div class="form-group">
             <label class="login_label" for="exampleInputName2">LOGIN</label><br>
             <input type="text" name="login" class="form-control login_input" id="exampleInputName2" placeholder="LOGIN">

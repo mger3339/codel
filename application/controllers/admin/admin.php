@@ -12,12 +12,12 @@ class Admin extends CI_Controller
     public function index()
     {
             $login = $this->input->post('login');
-            $password = $this->input->post('password');
+            $password = md5($this->input->post('password'));
             $this->load->model('admin/login_model');
             $admin_user = $this->login_model->getAdmin();
             foreach ($admin_user as $value)
             {
-                $log = $value['login'];
+                $log = $value['first_name'];
                 $pass = $value['password'];
             }
             if (isset($login) && isset($password))
@@ -44,7 +44,6 @@ class Admin extends CI_Controller
             }
             else
             {
-                echo "Wrong field";
                 $this->load->view('admin/login_view');
             }
     }

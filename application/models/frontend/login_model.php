@@ -5,6 +5,7 @@ class Login_model extends CI_Model
 {
     public function getUsers()
     {
+        $this->db->where('role', 'user');
         $query = $this->db->get('users');
         return $query->result_array();
     }
@@ -17,6 +18,7 @@ class Login_model extends CI_Model
     public function getUsersByEmail($email)
     {
         $this->db->where('email', $email);
+        $this->db->where('role', 'user');
         $query = $this->db->get('users');
         return $query->result_array();
     }

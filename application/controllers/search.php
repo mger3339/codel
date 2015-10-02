@@ -3,6 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search extends CI_Controller
 {
+    public $user_id;
+    public $first_name;
+    public $last_name;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+        $this->first_name = $this->session->userdata('first_name');
+        $this->last_name = $this->session->userdata('last_name');
+        $this->user_id = $this->session->userdata('user_id');
+        if ($this->session->userdata('check') != 1) {
+            redirect('login');
+        }
+    }
+
     public function index()
     {
         if($this->input->get())
@@ -40,11 +55,8 @@ class Search extends CI_Controller
             $area = $data['areas'];
             $category = $data['category'];
             $this->load->model('frontend/products_model');
-            $first_name = $this->session->userdata('first_name');
-            $last_name = $this->session->userdata('last_name');
-            $user_id = $this->session->userdata('user_id');
-            $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
-            $home['cart'] = $this->products_model->getCartProductByUserId($user_id);
+            $home['user_data'] = array('first_name' => $this->first_name, 'last_name' => $this->last_name);
+            $home['cart'] = $this->products_model->getCartProductByUserId($this->user_id);
             $result['areas'] = $this->products_model->getAreasByNotCountry($area);
             $result['categories'] = $this->products_model->getCategoriesByNotCategoryName($category);
             $this->load->view('frontend/header_view', $home);

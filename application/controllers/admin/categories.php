@@ -4,78 +4,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Categories extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        if ($this->session->userdata('check') != TRUE)
+        {
+            redirect('admin/admin');
+        }
+    }
+
     public function addCategory()
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/add_category_view');
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
     }
 
     public function editCategory()
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $this->load->model('admin/categories_model');
             $category['data'] = $this->categories_model->getCategoryAll();
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/edit_category_view', $category);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
     }
 
     public function checkCategory()
     {
-        $area = $this->input->post('category_name');
-        $result = 0;
-        $this->load->model('admin/categories_model');
-        $category = $this->categories_model->getCategoryAll();
-        $myrow = array();
-        foreach ($category as $value) :
-            array_push($myrow, $value['category_name']);
-        endforeach;
-        if (in_array($area, $myrow))
-        {
-            $result = 1;
-        }
-        $json['result'] = $result;
-        $this->output->set_content_type('application/json');
-        $this->output->set_output(json_encode($json));
+            $area = $this->input->post('category_name');
+            $result = 0;
+            $this->load->model('admin/categories_model');
+            $category = $this->categories_model->getCategoryAll();
+            $myrow = array();
+            foreach ($category as $value) :
+                array_push($myrow, $value['category_name']);
+            endforeach;
+            if (in_array($area, $myrow)) {
+                $result = 1;
+            }
+            $json['result'] = $result;
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode($json));
     }
 
     public function deleteCategory()
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $this->load->model('admin/categories_model');
             $category['category'] = $this->categories_model->getCategoryAll();
             $this->load->view('admin/header_view');
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/delete_category_view', $category);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
     }
 
     public function getCategories()
     {
-        if ($this->session->userdata('check') == TRUE)
-        {
             $this->load->model('admin/categories_model');
             $category = $this->categories_model->getCategoryAll();
             $arr['category'] = $category;
@@ -83,11 +68,6 @@ class Categories extends CI_Controller
             $this->load->view('admin/side_bar_view');
             $this->load->view('admin/categories_all_view', $arr);
             $this->load->view('admin/footer_view');
-        }
-        else
-        {
-            $this->load->view('admin/login_view');
-        }
     }
 
     public function saveCategory()

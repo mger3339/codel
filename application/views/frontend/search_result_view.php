@@ -19,7 +19,7 @@
     <div id="content">
         <input type="hidden" class="hidden_responce" value="<?php echo $responce; ?>">
         <div class="col-md-12 search_div">
-            <form class="form-inline form_search" id="serarchForm" action="<?php echo base_url('/search'); ?>" method="get">
+            <form class="form-inline form_search" id="serarchForm" autocomplete="off" action="<?php echo base_url('/search'); ?>" method="get">
                 <input type="text" name="text" value="<?php echo $values['text']; ?>" class="form-control text_search" placeholder="Search">
                 <div class="form-group select_div">
                     <select class="form-control area_value" name="areas">
@@ -61,6 +61,9 @@
                 </div>
                 <div class="form-group search_input_div">
                     <button type="submit" class="btn btn-success button_search">Search</button>
+                </div>
+                <div class="live_search" change_url="<?php echo base_url('/home/productPage/'); ?>">
+                    <ul></ul>
                 </div>
                 <div class="warning"></div>
                 <!--   <div class="loading_img"><img src="--><?php //echo base_url('/assets/gif/loading.gif') ?><!--" width="30px"></div>-->

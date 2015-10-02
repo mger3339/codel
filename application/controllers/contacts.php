@@ -4,6 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Contacts extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        if ($this->session->userdata('check') != 1)
+        {
+            redirect('home');
+        }
+    }
+
     public function sendMail()
     {
         $submit = trim($this->input->post('submit'));

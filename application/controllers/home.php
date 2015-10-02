@@ -3,14 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
+    public $user_id;
+    public $first_name;
+    public $last_name;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+        $this->first_name = $this->session->userdata('first_name');
+        $this->last_name = $this->session->userdata('last_name');
+        $this->user_id = $this->session->userdata('user_id');
+        if ($this->session->userdata('check') != 1) {
+            redirect('login');
+        }
+    }
 
     public function index()
     {
-        if ($this->session->userdata('check') == 1)
-        {
-            $first_name = $this->session->userdata('first_name');
-            $last_name = $this->session->userdata('last_name');
-            $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
+            $home['user_data'] = array('first_name' => $this->first_name, 'last_name' => $this->last_name);
             $this->load->view('frontend/header_view', $home);
             $limit = 3;
             if ($this->uri->segment(3) !== null && is_numeric($this->uri->segment(3)))
@@ -44,83 +54,36 @@ class Home extends CI_Controller
             $config['last_tagl_close'] = "</li>";
             $this->pagination->initialize($config);
             $this->load->model('frontend/products_model');
-            $user_id = $this->session->userdata('user_id');
             $home['areas'] = $this->products_model->getAreas();
             $home['categories'] = $this->products_model->getCategories();
-            $home['cart'] = $this->products_model->getCartProductByUserId($user_id);
+            $home['cart'] = $this->products_model->getCartProductByUserId($this->user_id);
             $home['data'] = $this->products_model->getProduct($limit, $offset);
             $this->load->view('frontend/content_view', $home);
             $this->load->view('frontend/footer_view');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
-    }
-
-    public function porducts()
-    {
-        if ($this->session->userdata('check') == 1)
-        {
-            $first_name = $this->session->userdata('first_name');
-            $last_name = $this->session->userdata('last_name');
-            $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
-            $this->load->view('frontend/header_view', $home);
-            $this->load->view('frontend/products_view');
-            $this->load->view('frontend/footer_view');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function about()
     {
-        if ($this->session->userdata('check') == 1)
-        {
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/about_view');
             $this->load->view('frontend/footer_view');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function contacts()
     {
-        if ($this->session->userdata('check') == 1)
-        {
             $first_name = $this->session->userdata('first_name');
             $last_name = $this->session->userdata('last_name');
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/contacts_view');
             $this->load->view('frontend/footer_view');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function productPage($id)
     {
-        if ($this->session->userdata('check') == 1)
-        {
             $this->load->model('frontend/products_model');
             $product['data'] = $this->products_model->getProductPage($id);
             $data = $this->products_model->getProducts();
@@ -153,19 +116,10 @@ class Home extends CI_Controller
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/product_page_view', $product);
             $this->load->view('frontend/footer_view');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function addToCart()
     {
-        if ($this->session->userdata('check') == 1)
-        {
             $id = $this->input->post('id');
             $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
@@ -190,19 +144,10 @@ class Home extends CI_Controller
                 $this->load->model('frontend/products_model');
                 $this->products_model->editCartProduct($id, $count);
             }
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function cartPage()
     {
-        if ($this->session->userdata('check') == 1)
-        {
             $user_id = $this->session->userdata('user_id');
             $this->load->model('frontend/products_model');
             $product['data'] = $this->products_model->getProductCartPage($user_id);
@@ -213,59 +158,35 @@ class Home extends CI_Controller
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/cart_page_view', $product);
             $this->load->view('frontend/footer_view');
-        } else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function editCartCount()
     {
-        if ($this->session->userdata('check') == 1)
+        $responce = 0;
+        $id = $this->input->post('id');
+        $user_id = $this->session->userdata('user_id');
+        $count = $this->input->post('count');
+        $this->load->model('frontend/products_model');
+        $total = $this->products_model->getTotalProduct($id);
+        $result = $total['0']['total'];
+        if ($count >= 0 && $count <= $result)
         {
-            $responce = 0;
-            $id = $this->input->post('id');
-            $user_id = $this->session->userdata('user_id');
-            $count = $this->input->post('count');
             $this->load->model('frontend/products_model');
-            $total = $this->products_model->getTotalProduct($id);
-            $result = $total['0']['total'];
-            if ($count >= 0 && $count <= $result)
-            {
-                $this->load->model('frontend/products_model');
-                $data = $this->products_model->editCartProduct($id, $user_id, $count);
-                $responce = 1;
-            }
-            $data['responce'] = $responce;
-            $data['result'] = $result;
-            echo json_encode($data);
+            $data = $this->products_model->editCartProduct($id, $user_id, $count);
+            $responce = 1;
         }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
+        $data['responce'] = $responce;
+        $data['result'] = $result;
+        echo json_encode($data);
     }
 
     public function deleteCartProduct()
     {
-        if ($this->session->userdata('check') == 1)
-        {
             $id = $this->input->post('id');
             $this->load->model('frontend/products_model');
             $total = $this->products_model->deleteProduct($id);
             $result = 1;
             echo $result;
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function deleteAllCartProduct()
@@ -277,8 +198,6 @@ class Home extends CI_Controller
 
     public function puyPage()
     {
-        if ($this->session->userdata('check') == 1)
-        {
             if($this->input->post('shipping'))
             {
                 $shipping = $this->input->post('shipping');
@@ -309,13 +228,6 @@ class Home extends CI_Controller
                 $this->products_model->addProductBuy($orders);
             endforeach;
             redirect('test/index');
-        }
-        else
-        {
-            $this->load->view('frontend/header_login_view');
-            $this->load->view('frontend/registration_view');
-            $this->load->view('frontend/footer_view');
-        }
     }
 
     public function deleteOrders(){

@@ -46,26 +46,6 @@ $(document).ready(function(){
             $("#product_total").css({"border":"1px solid green"});
             $(".total_error").hide();
         }
-        //if(file == "")
-        //{
-        //    window.result = true;
-        //}
-            /*var file_format = file.split('.').pop();
-             $.ajax({
-             url: "/admin/form_validation/",
-             type: "POST",
-             async: false,
-             data: {file_format: file_format},
-             success: function(responsive){
-             if(responsive == 1){
-             window.result = false;
-             $("#file_div").text("Wrong File format");
-             }
-             else{
-             $("#file_div").hide();
-             }
-             }
-             })*/
         if(window.result == false){
             return false;
         }
