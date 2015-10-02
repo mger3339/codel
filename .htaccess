@@ -1,7 +1,5 @@
 DirectoryIndex index.php
 RewriteEngine on
-RewriteCond %{HTTP_HOST} !^(www|subdomain) [NC]
-RewriteRule ^(.*)$ http://http://shop-dev.16mb.com/$1 [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ ./index.php/$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?/$1 [L]
