@@ -18,9 +18,9 @@ class Migration_coordinates extends CI_Migration{
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ),
-            'country' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '255',
+            'country_id' => array(
+                'type' => 'INT',
+                'constraint' => 11,
             ),
         ));
         $this->dbforge->add_key('id', TRUE);

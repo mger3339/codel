@@ -147,9 +147,16 @@ class Products_model extends CI_Model
         $this->db->insert('orders', $orders);
     }
 
-    public function getCoordinates($area)
+    public function getCountryId($area)
     {
         $this->db->where('country', $area);
+        $data = $this->db->get('areas');
+        return $data->result_array();
+    }
+
+    public function getCoordinates($country_id)
+    {
+        $this->db->where('country_id', $country_id);
         $data = $this->db->get('coordinates');
         return $data->result_array();
     }

@@ -29,6 +29,7 @@ class Slider extends CI_Controller
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_width'] = '1024';
         $config['max_height'] = '768';
+        $config['overwrite'] = true;
         $this->load->library('upload', $config);
         $this->upload->do_upload();
         $arr = $this->upload->data();

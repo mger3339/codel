@@ -104,6 +104,8 @@ class Products extends CI_Controller
                 $country = $this->input->post('country');
                 $config['upload_path'] = './assets/img';
                 $config['allowed_types'] = 'gif|jpg|png';
+                $config['overwrite'] = true;
+                //$config['file_name'] = md5(strtotime('now'));
                 $config['max_width'] = '1024';
                 $config['max_height'] = '768';
                 $this->load->library('upload', $config);

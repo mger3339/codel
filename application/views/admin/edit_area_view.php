@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <label for="country_name">Enter Product name</label>
-                        <input type="text" name="area_name" class="form-control add_input" id="country_edit_name"
+                        <input type="text" name="area_name" disabled class="form-control add_input" id="country_edit_name"
                                placeholder="Country Name">
 
                         <div class="country_name_error"></div>

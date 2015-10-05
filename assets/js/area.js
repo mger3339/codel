@@ -1,8 +1,11 @@
 $(document).ready(function () {
+    submitCount = 0;
+
     $(".edit_button").on("click", function(){
         var id = $(this).attr('data-id');
         var area = $(this).text();
         $(".hidden_id").val(id);
+        $("#country_edit_name").removeAttr('disabled');
         $("#country_edit_name").val(area);
         $.ajax({
             url: './getCoordinates',
@@ -10,14 +13,13 @@ $(document).ready(function () {
             data: {id: id, area: area},
             success: function(result){
                 var data = JSON.parse(result);
+                console.log(data);
                 $("#edit_latitude").val(data[0].latitude);
                 $("#edit_longitude").val(data[0].longitude);
             }
         });
     });
-});
-$(document).ready(function () {
-    submitCount = 0;
+
     $('.add_area_form').on('submit',function(e){
         if(!submitCount){
             e.preventDefault();
@@ -43,15 +45,12 @@ $(document).ready(function () {
                     console.log(response);
                 }
             });
-        }else{
+        } else {
             submitCount = 0;
             return true;
         }
     });
-});
 
-$(document).ready(function () {
-    submitCount = 0;
     $('.edit_area_form').on('submit',function(e){
         if(!submitCount){
             e.preventDefault();

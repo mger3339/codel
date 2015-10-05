@@ -102,7 +102,9 @@ class Home extends CI_Controller
             $home['user_data'] = array('first_name' => $first_name, 'last_name' => $last_name);
 
             $area = $product['data']['0']['country'];
-            $coordinates = $this->products_model->getCoordinates($area);
+            $country = $this->products_model->getCountryId($area);
+            $country_id = $country[0]['id'];
+            $coordinates = $this->products_model->getCoordinates($country_id);
             $latitude = $coordinates['0']['latitude'];
             $longitude = $coordinates['0']['longitude'];
             $this->load->library('googlemaps');

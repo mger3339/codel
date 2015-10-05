@@ -69,7 +69,7 @@ class Login extends CI_Controller
                             'last_name' => $last_name,
                             'email' => $email,
                             'password' => $password,
-                            'role' => 'user'
+                            'role' => 1
                         );
                         $this->load->model('frontend/login_model');
                         $this->login_model->UserRegistration($data);
@@ -82,7 +82,7 @@ class Login extends CI_Controller
                             'email_login' => $email,
                             'password_login' => $password,
                             'check' => TRUE,
-                            'role' => 'user'
+                            'role' => 1
                         );
                         $this->session->set_userdata($session_data);
                         redirect('home');

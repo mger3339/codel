@@ -31,6 +31,8 @@ class Slider_model extends CI_Model
     public function deletePhoto($id)
     {
         $this->db->where('id', $id);
+        //$data = $query = $this->db->get('slider');
+        //return $data->result_array();
         $this->db->delete('slider');
     }
 }

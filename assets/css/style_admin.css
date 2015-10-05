@@ -778,11 +778,11 @@ select {
     margin-bottom: 20px;
 }
 .latitude_input {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
 }
 .longitude_input {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
 }
 .label_latitude {
@@ -815,7 +815,7 @@ select {
     margin-bottom: 10px;
 }
 .edit_button {
-    width: 100px;
+    width: 130px;
 }
 .save_edit_area {
     width: 100px;

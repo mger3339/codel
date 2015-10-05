@@ -23,10 +23,16 @@ class Areas_model extends CI_Model
         return $data->result_array();
     }
 
-    public function saveArea($area, $coordinates)
+    public function saveArea($area)
+    {
+        $this->db->insert('areas', $area);
+        $this->db->where('country', $area['country']);
+        $data = $this->db->get('areas');
+        return $data->result_array();
+    }
+    public function saveCoordinates($coordinates)
     {
         $this->db->insert('coordinates', $coordinates);
-        $this->db->insert('areas', $area);
     }
 
     public function updateArea($area, $area_id)
@@ -41,10 +47,10 @@ class Areas_model extends CI_Model
         $this->db->update('coordinates', $coordinates);
     }
 
-    public function updateCoordinatesById($id, $name)
+    public function updateCoordinatesById($id)
     {
         $this->db->set('country_id', $id);
-        $this->db->where('country', $name);
+        $this->db->where('country_id', $id);
         $this->db->update('coordinates');
     }
 

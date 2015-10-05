@@ -25,6 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             'password' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+            ),
+            'role' => array(
+                'type' => 'TINYINT',
+                'constraint' => 1,
             )
         ));
         $this->dbforge->add_key('id', TRUE);
