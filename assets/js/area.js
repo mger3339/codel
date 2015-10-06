@@ -1,25 +1,6 @@
 $(document).ready(function () {
+    var id = $(".hidden_id").val();
     submitCount = 0;
-
-    $(".edit_button").on("click", function(){
-        var id = $(this).attr('data-id');
-        var area = $(this).text();
-        $(".hidden_id").val(id);
-        $("#country_edit_name").removeAttr('disabled');
-        $("#country_edit_name").val(area);
-        $.ajax({
-            url: './getCoordinates',
-            type: "POST",
-            data: {id: id, area: area},
-            success: function(result){
-                var data = JSON.parse(result);
-                console.log(data);
-                $("#edit_latitude").val(data[0].latitude);
-                $("#edit_longitude").val(data[0].longitude);
-            }
-        });
-    });
-
     $('.add_area_form').on('submit',function(e){
         if(!submitCount){
             e.preventDefault();
@@ -32,6 +13,7 @@ $(document).ready(function () {
                 data: data,
                 dataType:'json',
                 success: function (response) {
+                    console.log(response);
                     submitCount ++;
                     if(response.result){
                         $("#country_name").css({"border": "1px solid #f00"});
@@ -58,7 +40,7 @@ $(document).ready(function () {
 
             var data = $(this).serialize();
             $.ajax({
-                url: './checkArea',
+                url: $(e.target).attr('data-validate'),
                 type: "POST",
                 data: data,
                 dataType:'json',
@@ -70,7 +52,6 @@ $(document).ready(function () {
                         $('.country_name_error').text('The city is already there, choose another');
                     }
                     else{
-                        $(".country_name_error").hide();
                         $('.edit_area_form').submit();
 
                     }

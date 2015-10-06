@@ -20,22 +20,47 @@
 <div id="wrapper">
     <div id="page-wrapper">
         <div id="page-inner">
+            <?php if(!empty($is_saved)){
+                ?>
+                    <div class="alert alert-success alert_add">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Added new Cauntry!</strong>
+                    </div>
+                <?php
+            }?>
+            <?php if(!empty($is_deleted)){
+                ?>
+                <div class="alert alert-danger alert_delete">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Cauntry deleted!</strong>
+                </div>
+            <?php
+            }?>
+            <?php if(!empty($is_changed)){
+                ?>
+                <div class="alert alert-info alert_edit">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Cauntry changed!</strong>
+                </div>
+            <?php
+            }?>
             <div class="button_category">
                 <a href="<?php echo base_url('admin/areas/addArea'); ?>">
                     <button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button>
-                </a>
-                <a href="<?php echo base_url('admin/areas/editArea'); ?>">
-                    <button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button>
-                </a>
-                <a href="<?php echo base_url('admin/areas/deleteArea'); ?>">
-                    <button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button>
                 </a>
             </div>
             <div class="container div_ul">
                 <h2 class="h2_cat">AREAS</h2>
                 <ul class="list-group">
                     <?php foreach ($area as $value) : ?>
-                        <li class="list-group-item list-group-item-success"><?php echo $value['country'] ?></li>
+                        <li data-id="<?php echo $value['id'] ?>" class="list-group-item list-group-item-success"><?php echo $value['country'] ?>
+                            <a href="<?php echo base_url('admin/areas/deleteAreaById/' .$value['id']); ?>">
+                                <button class="btn btn-danger delete_area_button">Delete</button>
+                            </a>
+                            <a href="<?php echo base_url('admin/areas/editArea/' .$value['id']); ?>">
+                                <button class="btn btn-success edit_area_button">Edit</button>
+                            </a>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </div>

@@ -6,58 +6,49 @@ $(document).ready(function () {
         var total = $.trim($("#product_total").val());
         var file = $("#exampleInputFile").val();
         window.result = true;
-        if (name == "")
-        {
+        if (name == "") {
             window.result = false;
             $("#product_name").css({"border": "1px solid #f00"});
             $(".name_error").text("Enter name");
         }
-        else
-        {
+        else {
             $("#product_name").css({"border": "1px solid green"});
             $(".name_error").hide();
         }
 
-        if (desc == "")
-        {
+        if (desc == "") {
             window.result = false;
             $("#textarea").css({"border": "1px solid #f00"});
             $(".desc_error").text("Enter description");
         }
-        else
-        {
+        else {
             $("#textarea").css({"border": "1px solid green"});
             $(".desc_error").hide();
         }
 
-        if (price == "" || $.isNumeric(price) == false)
-        {
+        if (price == "" || $.isNumeric(price) == false) {
             window.result = false;
             $("#product_price").css({"border": "1px solid #f00"});
             $(".price_error").show();
             $(".price_error").text("Enter correct price");
         }
-        else
-        {
+        else {
             $("#product_price").css({"border": "1px solid green"});
             $(".price_error").hide();
         }
 
-        if (total == "" || $.isNumeric(total) == false)
-        {
+        if (total == "" || $.isNumeric(total) == false) {
             window.result = false;
             $("#product_total").css({"border": "1px solid #f00"});
             $(".total_error").show();
             $(".total_error").text("Enter correct total");
         }
-        else
-        {
+        else {
             $("#product_total").css({"border": "1px solid green"});
             $(".total_error").hide();
         }
 
-        if (file == "")
-        {
+        if (file == "") {
             window.result = false;
             $(".file").text("Empty File");
         }

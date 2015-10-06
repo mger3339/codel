@@ -20,12 +20,31 @@
 <div id="wrapper">
     <div id="page-wrapper">
         <div id="page-inner">
+            <?php if(!empty($is_added)){
+                ?>
+                <div class="alert alert-success alert_add">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Added new Product!</strong>
+                </div>
+            <?php
+            }?>
+            <?php if(!empty($is_edited)){
+                ?>
+                <div class="alert alert-info alert_edit">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Product changed!</strong>
+                </div>
+            <?php
+            }?>
+            <div class="alert alert-danger info">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Product deleted</strong>
+            </div>
             <div id="add_button">
                 <a href="<?php echo base_url('index.php/admin/products/addProduct'); ?>">
                     <button class="btn btn-info">ADD PRODUCT</button>
                 </a>
             </div>
-            <div class="info"></div>
             <?php foreach ($data_product as $value) : ?>
                 <?php $id = $value['id']; //print_r($value); ?>
                 <div class="product_<?= $id ?>">
@@ -40,7 +59,7 @@
                         <div class="country_product"><span>COUNTRY: <span><?php echo $value['country']; ?></div>
                         <div class="category_product"><span>CATEGORY: <span><?php echo $value['category_name']; ?></div>
                         <div class="total_product"><span>TOTAL: <span><?php echo $value['total'] . "<br>"; ?></div>
-                        <a href="<?php echo base_url('index.php/admin/products/editProduct/' . $id); ?>">
+                        <a href="<?php echo base_url('admin/products/editProduct/' .$id); ?>">
                             <button class="btn btn-success btn-lg admin_edit_button">EDIT</button>
                         </a>
                         <button class="btn btn-danger btn-lg admin_delete_button" data-toggle="modal"
@@ -57,10 +76,10 @@
                                 <p>Are you sure</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="<?php echo base_url('index.php/admin/products'); ?>">
+                                <a href="<?php echo base_url('admin/products'); ?>">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">NO</button>
                                 </a>
-                                <a href="<?php echo base_url('index.php/admin/products/deleteProduct/' . $id); ?>">
+                                <a href="<?php echo base_url('admin/products/deleteProduct/' . $id); ?>">
                                     <button data-id="<?= $id ?>" type="button" class="btn btn-danger delete"
                                             data-dismiss="modal">YES
                                     </button>

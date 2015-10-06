@@ -30,21 +30,37 @@ class Areas_model extends CI_Model
         $data = $this->db->get('areas');
         return $data->result_array();
     }
+
     public function saveCoordinates($coordinates)
     {
         $this->db->insert('coordinates', $coordinates);
+        if($this->db->affected_rows()>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function updateArea($area, $area_id)
     {
         $this->db->where('id', $area_id);
         $this->db->update('areas', $area);
+        if($this->db->affected_rows()>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function updateCoordinates($coordinates, $area_id)
     {
         $this->db->where('country_id', $area_id);
         $this->db->update('coordinates', $coordinates);
+        if($this->db->affected_rows()>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function updateCoordinatesById($id)
@@ -58,6 +74,11 @@ class Areas_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('areas');
+        if($this->db->affected_rows()>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function deleteCoordinates($id)
@@ -68,14 +89,8 @@ class Areas_model extends CI_Model
 
     public function getCoordinates($id)
     {
-        $this->db->select('
-            coordinates.*,
-            areas.country,
-            ');
-        $this->db->from('coordinates');
-        $this->db->where('coordinates.country_id', $id);
-        $this->db->join('areas', 'coordinates.country_id = areas.id', 'left');
-        $data = $this->db->get();
+        $this->db->where('country_id', $id);
+        $data = $this->db->get('coordinates');
         return $data->result_array();
     }
 

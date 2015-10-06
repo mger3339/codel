@@ -12,17 +12,17 @@
                 <img src="<?php echo base_url('assets/img/administrator.png'); ?>" class="user-image img-responsive"/>
             </li>
             <li>
-                <a href="<?php echo base_url('admin/products/index'); ?>"><i class="fa fa-dashboard fa-3x"></i> PRODUCTS</a>
+                <a href="<?php echo base_url('admin/products'); ?>"><i class="fa fa-dashboard fa-3x"></i> PRODUCTS</a>
             </li>
             <li>
-                <a href="<?php echo base_url('admin/categories/getCategories'); ?>"><i class="fa fa-desktop fa-3x"></i>
+                <a href="<?php echo base_url('admin/areas'); ?>"><i class="fa fa-desktop fa-3x"></i> AREAS</a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('admin/categories'); ?>"><i class="fa fa-desktop fa-3x"></i>
                     CATEGORIES</a>
             </li>
             <li>
-                <a href="<?php echo base_url('admin/areas/getAreas'); ?>"><i class="fa fa-square-o fa-3x"></i> AREAS</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url('admin/slider'); ?>"><i class="fa fa-square-o fa-3x"></i> SLIDER</a>
+                <a href="<?php echo base_url('admin/slider'); ?>"><i class="fa fa-desktop fa-3x"></i> SLIDER</a>
             </li>
         </ul>
     </div>

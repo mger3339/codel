@@ -592,13 +592,7 @@ p {
     padding: 3px;
 }
 .info {
-    margin: 0 auto;
-    font-size: 20px;
-    font-weight: bold;
-    color: red;
-    width: 250px;
-    height: 40px;
-    margin-top: -30px;
+    display: none;
 }
 .add_input {
     width: 50%;
@@ -652,14 +646,12 @@ select {
 .admin_edit_button {
     padding: 0;
     width: 100px;
-    height: 40px;
     margin-top: 10px;
-    margin-left: 650px!important;
 }
+
 .admin_delete_button {
     padding: 0;
     width: 100px;
-    height: 40px;
     margin-top: 10px;
     margin-left: 25px;
 }
@@ -681,11 +673,9 @@ select {
 .category_edit {
     padding: 20px;
     background-color: #96BDE2;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-left: 150px!important;
     text-align: center;
-    width: 50%;
-    float: left;
+    width: 70%;
 }
 .category_delete {
     margin-top: 20px;
@@ -778,11 +768,11 @@ select {
     margin-bottom: 20px;
 }
 .latitude_input {
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
 }
 .longitude_input {
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
 }
 .label_latitude {
@@ -818,6 +808,7 @@ select {
     width: 130px;
 }
 .save_edit_area {
+    margin-top: 20px!important;
     width: 100px;
 }
 .save_add_area {
@@ -839,4 +830,30 @@ select {
 }
 .delete_category_button {
     overflow: hidden;
+}
+
+.edit_area_button {
+    margin-right: 10px;
+    padding: 0;
+    width: 80px!important;
+    height: 25px;
+    float: right;
+}
+.delete_area_button {
+    padding: 0;
+    width: 80px!important;
+    height: 25px;
+    float: right;
+}
+.alert_add {
+    background-color: #C2F1D2;
+}
+.alert_delete {
+    background-color: #FDB9B9;
+}
+.alert_edit {
+    background-color: #83C3FF;
+}
+.alert strong {
+    font-size: 15px;
 }

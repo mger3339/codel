@@ -32,8 +32,7 @@ class Categories_model extends CI_Model
     public function saveCategory($category)
     {
         $this->db->insert('category', $category);
-        if($this->db->affected_rows())
-        {
+        if ($this->db->affected_rows()) {
             return true;
         }
         return false;

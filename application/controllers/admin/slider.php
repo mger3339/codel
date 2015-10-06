@@ -4,6 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Slider extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        if ($this->session->userdata('check') != TRUE) {
+            redirect('admin/login');
+        }
+    }
+
     public function index()
     {
         $this->load->model('admin/slider_model');
@@ -59,11 +67,10 @@ class Slider extends CI_Controller
         $data['images'] = $this->slider_model->getSliderImagesById($id);
         $images = $this->slider_model->getSliderImages();
         $myrow = array();
-        foreach($images as $value) :
+        foreach ($images as $value) :
             array_push($myrow, $value['id']);
         endforeach;
-        if(!in_array($id, $myrow))
-        {
+        if (!in_array($id, $myrow)) {
             redirect('admin/slider/editPhoto');
         }
         $this->load->view('admin/header_view');
@@ -82,8 +89,7 @@ class Slider extends CI_Controller
         $this->upload->do_upload();
         $arr = $this->upload->data();
         $img = $arr['file_name'];
-        if (empty($img))
-        {
+        if (empty($img)) {
             redirect('admin/slider/editSliderImage/' . $id);
         }
         $data = array('img' => $img);

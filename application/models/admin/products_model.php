@@ -23,6 +23,11 @@ class Products_model extends CI_Model
     public function saveProduct($product)
     {
         $this->db->insert('products', $product);
+        if($this->db->affected_rows()>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function deleteProduct($id)
@@ -61,6 +66,11 @@ class Products_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->update('products', $product);
+        if($this->db->affected_rows()>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public function getProductAll()

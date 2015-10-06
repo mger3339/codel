@@ -6,6 +6,7 @@ class Search extends CI_Controller
     public $user_id;
     public $first_name;
     public $last_name;
+
     public function __construct()
     {
         parent::__construct();
@@ -20,35 +21,28 @@ class Search extends CI_Controller
 
     public function index()
     {
-        if($this->input->get())
-        {
+        if ($this->input->get()) {
             $data = $this->input->get();
-            if(empty($data['text']))
-            {
+            if (empty($data['text'])) {
                 $data['text'] = '';
             }
-            if(empty($data['areas']))
-            {
+            if (empty($data['areas'])) {
                 $data['areas'] = '';
             }
-            if(empty($data['category']))
-            {
+            if (empty($data['category'])) {
                 $data['category'] = '';
             }
-            if(empty($data['from']))
-            {
+            if (empty($data['from'])) {
                 $data['from'] = '';
             }
-            if(empty($data['to']))
-            {
+            if (empty($data['to'])) {
                 $data['to'] = '';
             }
             $text = explode(" ", $data['text']);
             $result['responce'] = 0;
             $this->load->model('frontend/search_model');
-            $result['data'] = $this->search_model->search($data,$text);
-            if(empty($result['data']))
-            {
+            $result['data'] = $this->search_model->search($data, $text);
+            if (empty($result['data'])) {
                 $result['responce'] = 1;
             }
             $result['values'] = $data;
@@ -62,12 +56,11 @@ class Search extends CI_Controller
             $this->load->view('frontend/header_view', $home);
             $this->load->view('frontend/search_result_view', $result);
             $this->load->view('frontend/footer_view');
-        }
-        else
-        {
+        } else {
             redirect('home');
         }
     }
+
     public function liveSearch()
     {
         $text = $this->input->post('text');

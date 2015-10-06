@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Migration_areas extends CI_Migration{
 
     public function up(){
-//        $this->dbforge->create_db('store1');
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',

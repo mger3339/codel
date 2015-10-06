@@ -76,7 +76,8 @@ class Products_model extends CI_Model
         $data = $this->db->get('cart');
         return $data->result_array();
     }
-    public function getCartProductByIdUserId($id,$user_id)
+
+    public function getCartProductByIdUserId($id, $user_id)
     {
         $this->db->select('
             products.*,
@@ -130,6 +131,7 @@ class Products_model extends CI_Model
         $this->db->where('product_id', $id);
         $this->db->delete('cart');
     }
+
     public function deleteCartAllProduct($user_id)
     {
         $this->db->where('user_id', $user_id);
@@ -189,6 +191,7 @@ class Products_model extends CI_Model
         $data = $this->db->get('products');
         return $data->result_array();
     }
+
     public function getProductsById($data_id)
     {
         $this->db->where_in('id', $data_id);
@@ -198,7 +201,7 @@ class Products_model extends CI_Model
 
     public function updateTotalProduct($data, $id)
     {
-        $this->db->set('total',$data);
+        $this->db->set('total', $data);
         $this->db->where('id', $id);
         $this->db->update('products');
     }
@@ -220,12 +223,14 @@ class Products_model extends CI_Model
         $data = $this->db->get('category');
         return $data->result_array();
     }
+
     public function getAreasByNotCountry($area)
     {
         $this->db->where_not_in('country', $area);
         $query = $this->db->get('areas');
         return $query->result_array();
     }
+
     public function getCategoriesByNotCategoryName($category)
     {
         $this->db->where_not_in('category_name', $category);

@@ -21,15 +21,13 @@
 <div id="wrapper">
     <div id="page-wrapper">
         <div id="page-inner">
+<!--            <div class="alert alert-success">-->
+<!--                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
+<!--                <strong>Success!</strong> Indicates a successful or positive action.-->
+<!--            </div>-->
             <div class="button_category">
                 <a href="<?php echo base_url('admin/areas/addArea'); ?>">
                     <button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button>
-                </a>
-                <a href="<?php echo base_url('admin/areas/editArea'); ?>">
-                    <button type="button" class="btn btn-success edit_category_button">EDIT COUNTRY</button>
-                </a>
-                <a href="<?php echo base_url('admin/areas/deleteArea'); ?>">
-                    <button type="button" class="btn btn-danger delete_category_button">DELETE COUNTRY</button>
                 </a>
             </div>
             <div class="category">

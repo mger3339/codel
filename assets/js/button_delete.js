@@ -7,7 +7,7 @@ $(document).ready(function () {
             data: {id: id},
             success: function (result) {
                 if (result == 1) {
-                    $('.info').text('Product deleted');
+                    $('.info').show();
                     $(".product_" + id + "").remove();
                 }
             }

@@ -3,6 +3,7 @@ body, html {
     padding: 0;
     background-color: #afd9ee;
 }
+
 #header {
     width: 80%;
     height: 80px;
@@ -11,6 +12,7 @@ body, html {
     background-image: url('../img/bg_header.jpg');
     border-radius: 10px;
 }
+
 .header {
     color: #36A0FF;
     font-size: 27px;
@@ -29,6 +31,7 @@ body, html {
     height: 50px;
     margin-top: 28px;
 }
+
 .user_data {
     color: #F3CFCE;
     font-weight: bold;
@@ -40,10 +43,12 @@ body, html {
     min-height: 50px;
     float: left;
 }
+
 .log_out {
     margin-left: 50px;
     margin-top: -8px;
 }
+
 .menu_list {
     padding-top: 3px;
     float: left;
@@ -52,17 +57,20 @@ body, html {
     width: 100px;
     height: 30px;
 }
+
 .cart {
     margin-top: 5px;
     border-bottom: 2px solid #002a80;
     padding-bottom: 10px;
 }
+
 .cart_div {
     margin-top: 5px;
     border-bottom: 2px solid #002a80;
     padding-bottom: 10px;
     margin-top: 57px;
 }
+
 .count {
     text-align: center;
     border-radius: 15px;
@@ -75,6 +83,7 @@ body, html {
     font-size: 20px;
     color: #0000FF;
 }
+
 .menu_list a {
     color: #000000;
     text-decoration: none;
@@ -82,9 +91,11 @@ body, html {
     font-weight: bold;
     color: #843534;
 }
+
 .menu_list a:hover {
     color: coral;
 }
+
 #content {
     padding-top: 5px;
     border-radius: 10px;
@@ -94,6 +105,7 @@ body, html {
     background-color: #7ab5d3;
     margin: 0 auto;
 }
+
 #content1 {
     overflow: auto;
     padding-top: 5px;
@@ -103,16 +115,19 @@ body, html {
     background-color: #7ab5d3;
     margin: 0 auto;
 }
+
 .contacts_container {
     width: 80%;
     margin: 0 auto;
 }
+
 .contacts {
-    width: 100%!important;
-    margin: 0!important;
-    text-align: center!important;
-    padding: 0!important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+    padding: 0 !important;
 }
+
 .contacts_input {
     margin-top: 10px;
     border: 1px solid #a6a6a6;
@@ -126,6 +141,7 @@ body, html {
     height: 35px;
     padding: 0;
 }
+
 #footer {
     text-align: center;
     background-color: #ce8483;
@@ -136,11 +152,13 @@ body, html {
     margin: 10px auto;
     border-radius: 10px;
 }
+
 .img_slider {
     margin: 0 auto;
     width: 100%;
     height: 100%;
 }
+
 .main_div {
     min-height: 200px;
     width: 100%;
@@ -158,6 +176,7 @@ body, html {
     padding: 0;
     margin-right: 20px;
 }
+
 .add_cart {
     margin-top: 30px;
     width: 120px;
@@ -165,6 +184,7 @@ body, html {
     padding: 0;
     border-radius: 5px;
 }
+
 .auto_img_div {
     overflow: hidden;
     height: 150px;
@@ -172,11 +192,13 @@ body, html {
     margin-left: 25px;
     float: left;
 }
+
 .cart_page_div {
     margin-left: 60px;
     width: 40%;
     float: left;
 }
+
 .div_button {
     margin-top: 10px;
     text-align: center;
@@ -184,9 +206,11 @@ body, html {
     margin-left: 100px;
     float: left;
 }
+
 .desc {
     font-size: 13px;
 }
+
 .title {
     width: 100%;
     text-align: center;
@@ -194,13 +218,16 @@ body, html {
     margin: 0 auto;
     font-weight: bold;
 }
+
 .title a {
-    text-decoration: none!important;
-    color: #003399!important;
+    text-decoration: none !important;
+    color: #003399 !important;
 }
+
 .title a:hover {
-    color: #2b542c!important;
+    color: #2b542c !important;
 }
+
 .price {
     text-align: center;
     width: 20%;
@@ -210,6 +237,7 @@ body, html {
     float: right;
     margin-top: 60px;
 }
+
 .country {
     width: 100%;
     font-size: 16px;
@@ -218,6 +246,7 @@ body, html {
     float: left;
     margin-bottom: 5px;
 }
+
 .category {
     width: 100%;
     font-size: 16px;
@@ -226,6 +255,7 @@ body, html {
     float: left;
     margin-bottom: 5px;
 }
+
 .total {
     width: 100%;
     font-size: 16px;
@@ -233,16 +263,19 @@ body, html {
     font-weight: bold;
     float: left;
 }
+
 .auto_desc button {
     margin-left: 42%;
     width: 100px;
 }
+
 #div_car {
     margin: 10px auto;
     width: 80%;
     height: 500px;
     overflow: hidden;
 }
+
 .about_title {
     color: #002166;
     text-align: center;
@@ -250,14 +283,17 @@ body, html {
     font-weight: bold;
     margin-top: 20px;
 }
+
 .abaut_text {
     margin: 35px;
     font-family: sans-serif;
     font-weight: bold;
 }
+
 .button_view {
     color: #ffffff;
 }
+
 .buy_div {
     border-radius: 10px;
     padding-top: 10px;
@@ -267,12 +303,14 @@ body, html {
     background-color: #8DCEEF;
     overflow: hidden;
 }
+
 .buy_button {
     width: 245px;
     float: right;
     margin-right: 330px;
     margin-top: -5%;
 }
+
 .shipping_div {
     margin: 10px;
     background-color: #009B50;
@@ -281,6 +319,7 @@ body, html {
     min-height: 120px;
     float: left;
 }
+
 .total_sum {
     text-align: center;
     color: red;
@@ -290,6 +329,7 @@ body, html {
     width: 23%;
     float: right;
 }
+
 .shipping {
     text-align: right;
     color: #2b542c;
@@ -305,6 +345,7 @@ body, html {
     width: 100%;
     margin: 0.1px;
 }
+
 .shipping_img {
     overflow: hidden;
     border-radius: 10px;
@@ -312,6 +353,7 @@ body, html {
     height: 25px;
     float: left;
 }
+
 .shipping_name {
     color: #333333;
     font-weight: bold;
@@ -321,6 +363,7 @@ body, html {
     height: 25px;
     float: left;
 }
+
 .shipping_price {
     padding-top: 3px;
     font-weight: bold;
@@ -329,16 +372,19 @@ body, html {
     height: 100%;
     float: left;
 }
+
 .shipping_price_button {
     padding: 0;
     width: 100px;
     height: 25px;
 }
+
 .div_3 {
     margin-top: 30px;
     width: 100%;
     overflow: auto;
 }
+
 .product_page {
     border: 1px solid red;
     background-color: #6FBCE4;
@@ -349,6 +395,7 @@ body, html {
     padding-top: 10px;
     float: left;
 }
+
 .img_div {
     margin: 10px auto;
     overflow: hidden;
@@ -356,6 +403,7 @@ body, html {
     height: 200px;
 
 }
+
 .page_img {
     text-align: center;
     margin-left: 20px;
@@ -363,6 +411,7 @@ body, html {
     min-height: 400px;
     float: left;
 }
+
 .page_desc {
     margin-top: 10px;
     padding: 10px;
@@ -373,12 +422,14 @@ body, html {
     background-color: #B9E7FF;
     float: left;
 }
+
 .product_name {
     width: 100%;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
+
 .product_price {
     margin-top: 50px;
     width: 100%;
@@ -387,6 +438,7 @@ body, html {
     font-size: 16px;
     float: left;
 }
+
 .product_country {
     margin-top: 10px;
     width: 100%;
@@ -395,6 +447,7 @@ body, html {
     font-size: 16px;
     float: left;
 }
+
 .product_category {
     margin-top: 10px;
     float: left;
@@ -403,6 +456,7 @@ body, html {
     font-weight: bold;
     font-size: 16px;
 }
+
 .product_total {
     margin-top: 10px;
     float: left;
@@ -411,10 +465,12 @@ body, html {
     font-weight: bold;
     font-size: 16px;
 }
+
 .pag_product {
     width: 50%;
     margin-left: 40%;
 }
+
 .asd {
     border-radius: 15px;
     width: 30px;
@@ -427,6 +483,7 @@ body, html {
     text-align: center;
     margin-top: -40px;
 }
+
 .cart_1 {
     border-radius: 15px;
     width: 80%;
@@ -435,17 +492,20 @@ body, html {
     margin: 20px auto;
     background-color: #0484B5;
 }
+
 .cart_products {
     min-height: 120px;
     border-bottom: 2px solid royalblue;
     padding-top: 10px;
     width: 100%;
 }
+
 .checkbox {
     float: left;
     margin-left: 5px;
-    width: 30px!important;
+    width: 30px !important;
 }
+
 .cart_img {
     padding-top: 10px;
     width: 80px;
@@ -456,6 +516,7 @@ body, html {
     text-align: center;
     float: left;
 }
+
 .cart_product_name {
     margin-left: 65px;
     width: 300px;
@@ -463,6 +524,7 @@ body, html {
     font-weight: bold;
     color: #002166;
 }
+
 .cart_product_country {
     width: 150px;
     font-size: 14px;
@@ -470,6 +532,7 @@ body, html {
     color: #002166;
     float: left;
 }
+
 .cart_product_category {
     width: 150px;
     font-size: 14px;
@@ -477,6 +540,7 @@ body, html {
     color: #002166;
     float: left;
 }
+
 .cart_product_price {
     margin-left: 30px;
     width: 200px;
@@ -485,6 +549,7 @@ body, html {
     color: #002166;
     float: left;
 }
+
 .total_price {
     font-size: 18px;
     margin-top: 2px;
@@ -493,40 +558,50 @@ body, html {
     width: 200px;
     float: left;
 }
+
 .span_count {
     margin-left: 10px;
     margin-right: 3px;
     font-size: 18px;
     color: #5a0099;
 }
+
 .count_control {
     float: left;
     width: 150px;
     height: 25px;
 }
+
 .max_count {
     width: 245px;
     float: left;
 }
+
 .aaa {
+    margin-top: 1px;
+    margin-right: 5px;
     color: #002166;
     float: left;
     font-weight: bold;
 }
+
 .cart_button_buy {
     margin-left: 10px;
     width: 90px;
     float: left;
 }
+
 .cart_button {
     margin-left: 20px;
     width: 90px;
     float: left;
 }
+
 .modal_content {
     width: 55%;
     margin: 20px auto;
 }
+
 .confirm {
     text-align: center;
     font-size: 16px;
@@ -534,14 +609,17 @@ body, html {
     margin-top: 15px;
     color: #002166;
 }
+
 .pagin {
     margin-left: 450px;
 }
+
 .buy_now {
     margin-left: 40%;
     width: 15%;
     margin-bottom: 10px;
 }
+
 .count_error {
     font-size: 16px;
     font-weight: bold;
@@ -551,11 +629,13 @@ body, html {
     margin-left: 945px;
     margin-top: 8px;
 }
+
 .buy_div_page {
     width: 100%;
     min-height: 500px;
     background-color: #59AD82;
 }
+
 .name_buy_product {
     width: 100%;
     text-align: center;
@@ -564,11 +644,13 @@ body, html {
     color: #843534;
     background-color: #59AD82;
 }
+
 .img_buy_product {
     width: 50%;
     float: left;
     margin-right: 10px;
 }
+
 .desc_buy_div {
     text-align: justify;
     font-size: 13px;
@@ -576,6 +658,7 @@ body, html {
     background-color: #F1EBE0;
     padding: 10px;
 }
+
 .price_buy_div {
     font-weight: bold;
     font-size: 16px;
@@ -584,6 +667,7 @@ body, html {
     margin-top: 10px;
     padding-left: 15px;
 }
+
 .category_buy_div {
     font-weight: bold;
     font-size: 16px;
@@ -591,6 +675,7 @@ body, html {
     float: left;
     margin-top: 10px;
 }
+
 .left_div {
     border-right: 2px solid #255625;
     width: 50%;
@@ -598,12 +683,14 @@ body, html {
     float: left;
     background-color: #59AD82;
 }
+
 .right_div {
     width: 50%;
     min-height: 500px;
     float: right;
     background-color: #59AD82;
 }
+
 .country_map {
     width: 100%;
     text-align: center;
@@ -612,32 +699,38 @@ body, html {
     color: #15252F;
     background-color: #59AD82;
 }
+
 .map {
     width: 400px;
     border: 1px solid #888;
     float: right;
     margin-left: 10px;
 }
+
 .fb-like {
-    width: 300px!important;
+    width: 300px !important;
     margin-top: 10px;
     float: right;
 }
+
 .button_buy_div {
     margin-top: 30px;
     margin-bottom: 10px;
     margin-left: 200px;
 }
+
 .aaa123 {
     width: 100%;
     float: left;
 }
+
 .all_total {
     width: 100%;
     border-top: 2px solid royalblue;
     min-height: 50px;
     float: left;
 }
+
 .total_shipping_sum {
     width: 20%;
     min-height: 25px;
@@ -647,6 +740,7 @@ body, html {
     font-size: 18px;
     font-weight: bold;
 }
+
 .add_cart_button_div {
     width: 100px;
     height: 35px;
@@ -655,24 +749,30 @@ body, html {
     margin-left: 560px;
     margin-bottom: 10px;
 }
+
 .login_form {
-    width: 100%;
+    width: 40%;
     height: 75px;
     text-align: right;
+    margin-left: 60%;
 }
+
 .input_login {
-    width: 150px!important;
+    width: 150px !important;
     height: 20px;
 }
+
 .input_password {
-    width: 130px!important;
+    width: 130px !important;
     height: 20px;
 }
+
 .checkbox_login {
     margin-left: 530px;
-    margin-top: 45px!important;
-    width: 130px!important;
+    margin-top: 45px !important;
+    width: 130px !important;
 }
+
 .button_login {
     margin-top: 23px;
     background-color: #6DA5C7;
@@ -681,66 +781,80 @@ body, html {
     width: 80px;
     height: 22px;
 }
+
 .login_div {
     margin-top: 25px;
     text-align: center;
 }
+
 .password_div {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 25px;
     text-align: center;
 }
+
 .login_form label {
     margin: 0;
     color: #ffffff;
 }
 
-.centered-form{
+.centered-form {
     margin-top: 60px;
 }
-.centered-form .panel{
+
+.centered-form .panel {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
+
 .panel_body {
     background-color: #DFF4FF;
 }
+
 .reg_form_div {
     width: 70%;
     margin: 10px auto;
 }
+
 .reg_title_div {
     text-align: center;
 }
+
 .reg_button {
     margin: 20px auto;
-    width: 200px!important;
+    width: 200px !important;
     margin-bottom: 0;
 }
+
 .input {
     margin-top: 20px;
     border: 1px solid #757575;
 }
+
 .error {
     font-weight: bold;
     color: #ff0000;
-    padding: 0!important;
+    padding: 0 !important;
     width: 350px;
     text-align: center;
     margin: 0 auto;
 }
+
 .input_div {
     margin-bottom: 5px;
 }
+
 #select_all {
     margin-right: 5px;
     margin-left: 10px;
 }
+
 .select_all {
     height: 35px;
     border-bottom: 2px solid royalblue;
 }
+
 .select_error {
     float: right;
     margin-right: 100px;
@@ -749,18 +863,21 @@ body, html {
     color: red;
     font-size: 16px;
 }
+
 .delete_all {
     font-size: 13px;
-    margin-right: 135px;
+    margin-right: 148px;
     width: 100px;
     padding: 0;
     height: 30px;
     float: right;
 }
+
 .checkbox {
     margin-left: 10px;
-    margin-top: 40px!important;
+    margin-top: 40px !important;
 }
+
 .search_div {
     min-height: 50px;
     border-bottom: 2px solid #002a80;
@@ -769,11 +886,14 @@ body, html {
     margin: 0 auto;
     padding-top: 7px;
 }
+
 .price_input {
-    width: 70px!important;
+    width: 70px !important;
 }
+
 .form_search {
 }
+
 .label_price {
     font-weight: bold;
     font-size: 12px;
@@ -782,24 +902,30 @@ body, html {
     margin-right: 5px;
     float: left;
 }
+
 .select_div {
     margin-left: 20px;
     float: left;
 }
+
 .from_div {
     float: left;
 }
+
 .search_input_div {
     float: left;
     margin-left: 100px;
 }
+
 .loading_img {
     margin-left: 20px;
     float: left;
 }
+
 .text_search {
     float: left;
 }
+
 .no_result {
     margin-top: 15px;
     color: #ff0000;
@@ -807,9 +933,11 @@ body, html {
     font-weight: bold;
     text-align: center;
 }
+
 .button_search {
     width: 120px;
 }
+
 .warning {
     font-weight: bold;
     font-size: 20px;
@@ -822,6 +950,7 @@ body, html {
     width: 300px;
     color: red;
 }
+
 .live_search {
     font-size: 12px;
     display: block;
@@ -833,32 +962,41 @@ body, html {
     position: absolute;
     min-height: 30px;
 }
+
 .live_search ul li {
     padding-left: 5px;
     list-style: none;
 }
+
 .live_search ul li:hover {
     cursor: default;
     background-color: #DADADA;
 }
+
 .live_search ul {
     margin-top: 3px;
     overflow: hidden;
     font-weight: bold;
     padding: 0;
 }
+
 .first_name_error {
     color: #ff0000;
 }
+
 .last_name_error {
     color: #ff0000;
 }
+
 .email_error {
     color: #ff0000;
 }
+
 .password_error {
     color: #ff0000;
 }
+
 .password_confirmation_error {
     color: #ff0000;
 }
+
