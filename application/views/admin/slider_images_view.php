@@ -22,16 +22,16 @@
             <a href="<?php echo base_url('admin/slider/addPhoto'); ?>">
                 <button type="button" class="btn btn-primary slider_add_button">Add Image</button>
             </a>
-            <a href="<?php echo base_url('admin/slider/editPhoto'); ?>">
-                <button type="button" class="btn btn-success slider_add_button">Edit Image</button>
-            </a>
-            <a href="<?php echo base_url('admin/slider/deletePhoto'); ?>">
-                <button type="button" class="btn btn-danger slider_add_button">Delete Image</button>
-            </a>
+        </div>
+        <div class="add_button_div">
+                <button type="button" class="btn btn-danger slider_delete_button">Delete</button>
         </div>
         <?php foreach ($images as $images) : ?>
             <div class="all_image_slider">
-                <img src="<?php echo base_url('assets/img_slider/' . $images['img']) ?>" width="100%">
+                <div class="slider_checkbox"><input type="checkbox"></div>
+                <div class="div_img">
+                    <img src="<?= base_url('/assets/img_slider/' .$images['img']); ?>" width="100%">
+                </div>
             </div>
         <?php endforeach; ?>
     </div>

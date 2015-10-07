@@ -15,35 +15,17 @@
                 <li data-target="#myCarousel" data-slide-to="4"></li>
                 <li data-target="#myCarousel" data-slide-to="5"></li>
             </ol>
-            <!-- Wrapper for slides -->
-            <?php $arr = array();?>
-            <?php foreach($product as $img):?>
-            <?php array_push($arr, $img['img']) ?>
-                <?php endforeach; ?>
-<!--                --><?php //print_r($arr); die; ?>
-            <?php $i = 0; ?>
+
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $arr["$i"])?>" alt="Chania">
+                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $product[0]['img'])?>" >
                 </div>
-                <?php ++$i?>
+                <?php foreach($product as $img):?>
                 <div class="item">
-                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $arr["$i"])?>" alt="Chania">
+                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $img['img'])?>" alt="Chania">
                 </div>
-                <?php ++$i?>
-                <div class="item">
-                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $arr["$i"])?>" alt="Chania">
-                </div>
-                <?php ++$i?>
-                <div class="item">
-                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $arr["$i"])?>" alt="Chania">
-                </div>
-                <?php ++$i?>
-                <div class="item">
-                    <img  class="img_slider" src="<?php echo base_url('/assets/img_slider/'. $arr["$i"])?>" alt="Chania">
-                </div>
+                <?php endforeach; ?>
             </div>
-            <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>

@@ -9,7 +9,7 @@
     <script src="<?php echo base_url('assets/js/admin_login.js'); ?>"></script>
 </head>
 <body>
-    <div class="alert alert-success alert_empty">
+    <div class="alert alert-danger alert_empty">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Missed login or password!!!</strong>
     </div>
