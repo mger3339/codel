@@ -6,22 +6,21 @@ class Products extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
         if ($this->session->userdata('check') != TRUE) {
-            redirect('admin/admin');
+            redirect('admin/login');
         }
     }
 
     public function index()
     {
-        if($this->session->userdata('is_added'))
+        if($this->session->flashdata('is_added'))
         {
             $data['is_added'] = true;
-            $this->session->unset_userdata('is_added');
         }
-        if($this->session->userdata('is_edited'))
+        if($this->session->flashdata('is_edited'))
         {
             $data['is_edited'] = true;
-            $this->session->unset_userdata('is_edited');
         }
         $limit = 3;
         if ($this->uri->segment(4) !== null && is_numeric($this->uri->segment(4))) {
@@ -132,15 +131,15 @@ class Products extends CI_Controller
                 if (empty($id)) {
                     $this->load->model('admin/products_model');
                     if($this->products_model->saveProduct($product)){
-                        $this->session->set_userdata('is_added',true);
+                        $this->session->set_flashdata('is_added',true);
                     }
-                    redirect('/admin/products/index');
+                    redirect('/admin/products');
                 } else {
                     $this->load->model('admin/products_model');
                     if($this->products_model->saveEditProduct($product, $id)){
-                        $this->session->set_userdata('is_edited',true);
+                        $this->session->set_flashdata('is_edited',true);
                     }
-                    redirect('/admin/products/index');
+                    redirect('/admin/products');
                 }
             }
         } else {
@@ -169,7 +168,7 @@ class Products extends CI_Controller
             array_push($myrow, $value['id']);
         endforeach;
         if (!in_array($id, $myrow)) {
-            redirect('admin/products/index');
+            redirect('admin/products');
         }
         $edit_product = $this->products_model->getEditProduct($id);
         $arr['edit_product'] = $edit_product;

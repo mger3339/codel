@@ -42,12 +42,20 @@ class Categories_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('category');
+        if ($this->db->affected_rows()) {
+            return true;
+        }
+        return false;
     }
 
     public function updateCategory($category, $category_id)
     {
         $this->db->where('id', $category_id);
         $this->db->update('category', $category);
+            if ($this->db->affected_rows()) {
+                return true;
+            }
+        return false;
     }
 
     public function getCategoryById($id)

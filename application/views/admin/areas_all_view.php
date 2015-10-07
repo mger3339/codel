@@ -45,7 +45,7 @@
             <?php
             }?>
             <div class="button_category">
-                <a href="<?php echo base_url('admin/areas/addArea'); ?>">
+                <a href="<?php echo base_url('add_country'); ?>">
                     <button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button>
                 </a>
             </div>
@@ -57,7 +57,7 @@
                             <a href="<?php echo base_url('admin/areas/deleteAreaById/' .$value['id']); ?>">
                                 <button class="btn btn-danger delete_area_button">Delete</button>
                             </a>
-                            <a href="<?php echo base_url('admin/areas/editArea/' .$value['id']); ?>">
+                            <a href="<?php echo base_url('edit_country/' .$value['id']); ?>">
                                 <button class="btn btn-success edit_area_button">Edit</button>
                             </a>
                         </li>

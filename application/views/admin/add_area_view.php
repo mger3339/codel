@@ -21,17 +21,8 @@
 <div id="wrapper">
     <div id="page-wrapper">
         <div id="page-inner">
-<!--            <div class="alert alert-success">-->
-<!--                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
-<!--                <strong>Success!</strong> Indicates a successful or positive action.-->
-<!--            </div>-->
-            <div class="button_category">
-                <a href="<?php echo base_url('admin/areas/addArea'); ?>">
-                    <button type="button" class="btn btn-primary add_category_button">ADD COUNTRY</button>
-                </a>
-            </div>
             <div class="category">
-                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" class="add_area_form" method="post"
+                <form action="<?php echo base_url('admin/areas/saveArea'); ?>" data-check-url="<?php echo base_url('admin/areas/checkArea'); ?>" class="add_area_form" method="post"
                       enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="country_name">Enter Product name</label>

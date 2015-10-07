@@ -1,10 +1,5 @@
 $(document).ready(function () {
-    $(".edit_button").on("click", function () {
-        var id = $(this).attr('data-id');
-        var area = $(this).text();
-        $(".hidden_id").val(id);
-        $("#edit_category").val(area);
-    });
+    var id = $(".hidden_id").val();
 
     $('#add_category').change(function () {
         $('.country_name_error').empty();
@@ -19,8 +14,9 @@ $(document).ready(function () {
             if (!submitCount) {
                 e.preventDefault();
                 var data = $(this).serialize();
+                var url = $(this).attr('data-check-url');
                 $.ajax({
-                    url: './checkCategory',
+                    url: url,
                     type: "POST",
                     data: data,
                     dataType: 'json',
@@ -60,8 +56,9 @@ $(document).ready(function () {
             if (!submitCount) {
                 e.preventDefault();
                 var data = $(this).serialize();
+                var url = $(this).attr('data-check-url');
                 $.ajax({
-                    url: './checkCategory',
+                    url: url,
                     type: "POST",
                     data: data,
                     dataType: 'json',

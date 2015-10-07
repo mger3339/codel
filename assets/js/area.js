@@ -5,10 +5,10 @@ $(document).ready(function () {
         if(!submitCount){
             e.preventDefault();
             console.log(submitCount);
-
+            var url = $(this).attr('data-check-url');
             var data = $(this).serialize();
             $.ajax({
-                url: './checkArea',
+                url: url,
                 type: "POST",
                 data: data,
                 dataType:'json',
@@ -34,9 +34,10 @@ $(document).ready(function () {
     });
 
     $('.edit_area_form').on('submit',function(e){
-        if(!submitCount){
+        //debugger;
+        if(!submitCount || $(".country_name_error").text()){
+            //debugger;
             e.preventDefault();
-            console.log(submitCount);
 
             var data = $(this).serialize();
             $.ajax({
@@ -47,21 +48,28 @@ $(document).ready(function () {
                 success: function (response) {
                     submitCount ++;
                     if(response.result){
-                        $(".country_name_error").show();
+                        //debugger;
                         $("#country_edit_name").css({"border": "1px solid #f00"});
-                        $('.country_name_error').text('The city is already there, choose another');
+                        $(".country_name_error").show().text('The city is already there, choose another');
                     }
                     else{
+                        //debugger;
+                        $(".country_name_error").empty();
                         $('.edit_area_form').submit();
-
                     }
                 },
                 error: function (response) {
                     console.log(response);
                 }
             });
-        }else{
+        }
+        else{
+            //debugger;
             submitCount = 0;
+            if($(".country_name_error").text()){
+                //debugger;
+                return false;
+            }
             return true;
         }
     });

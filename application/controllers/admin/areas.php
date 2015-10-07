@@ -7,6 +7,7 @@ class Areas extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
         if ($this->session->userdata('check') != TRUE) {
             redirect('admin/login');
         }
@@ -44,20 +45,17 @@ class Areas extends CI_Controller
 
     public function getAreas()
     {
-        if($this->session->userdata('is_saved'))
+        if($this->session->flashdata('is_saved'))
         {
             $arr['is_saved'] = true;
-            $this->session->unset_userdata('is_saved');
         }
-        if($this->session->userdata('is_deleted'))
+        if($this->session->flashdata('is_deleted'))
         {
             $arr['is_deleted'] = true;
-            $this->session->unset_userdata('is_deleted');
         }
-        if($this->session->userdata('is_changed'))
+        if($this->session->flashdata('is_changed'))
         {
             $arr['is_changed'] = true;
-            $this->session->unset_userdata('is_changed');
         }
         $this->load->model('admin/areas_model');
         $area = $this->areas_model->getArea();
@@ -99,9 +97,9 @@ class Areas extends CI_Controller
                         );
                         if($this->areas_model->saveCoordinates($coordinates))
                         {
-                            $this->session->set_userdata('is_saved',true);
+                            $this->session->set_flashdata('is_saved',true);
                         }
-                        redirect('/admin/areas/getAreas');
+                        redirect('/admin/areas');
                     }
 
                 }
@@ -124,7 +122,7 @@ class Areas extends CI_Controller
                 $this->load->model('admin/areas_model');
                 if($this->areas_model->updateCoordinates($coordinates, $area_id) || $this->areas_model->updateArea($area, $area_id))
                 {
-                    $this->session->set_userdata('is_changed',true);
+                    $this->session->set_flashdata('is_changed',true);
                 }
                 redirect('admin/areas');
             }
@@ -147,7 +145,7 @@ class Areas extends CI_Controller
 
         if($this->areas_model->deleteArea($id))
         {
-            $this->session->set_userdata('is_deleted',true);
+            $this->session->set_flashdata('is_deleted',true);
         }
         $this->areas_model->deleteCoordinates($id);
         redirect('admin/areas');

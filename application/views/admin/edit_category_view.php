@@ -21,30 +21,18 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="button_category">
-                <a href="<?php echo base_url('admin/categories/addCategory'); ?>">
+                <a href="<?php echo base_url('add_category'); ?>">
                     <button type="button" class="btn btn-primary add_category_button">ADD CATEGORY</button>
                 </a>
-                <a href="<?php echo base_url('admin/categories/editCategory'); ?>">
-                    <button type="button" class="btn btn-success edit_category_button">EDIT CATEGORY</button>
-                    <a>
-                        <a href="<?php echo base_url('admin/categories/deleteCategory'); ?>">
-                            <button type="button" class="btn btn-danger delete_category_button">DELETE CATEGORY</button>
-                        </a>
-            </div>
-            <div class="edit_category">
-                <?php foreach ($data as $value) : ?>
-                    <button data-id="<?php echo $value['id']; ?>" type="button"
-                            class="btn btn-primary edit_button"><?php echo $value['category_name']; ?></button>
-                <?php endforeach; ?>
             </div>
             <div class="category_edit">
-                <form action="<?php echo base_url('admin/categories/saveCategory'); ?>" method="post"
+                <form action="<?php echo base_url('admin/categories/saveCategory'); ?>" data-check-url="<?php echo base_url('admin/categories/checkCategory'); ?>" method="post"
                       class="edit_category_form" enctype="multipart/form-data">
-                    <input type="hidden" name="hidden_id_category" class="hidden_id" value="">
+                    <input type="hidden" name="hidden_id_category" class="hidden_id" value="<?=$data[0]['id'] ?>">
 
                     <div class="form-group">
                         <label for="edit_category">Enter Product category</label>
-                        <input type="text" name="category_name" value="" class="form-control add_input"
+                        <input type="text" name="category_name" value="<?=$data[0]['category_name'] ?>" class="form-control add_input"
                                id="edit_category" placeholder="Name Product">
 
                         <div class="country_name_error"></div>

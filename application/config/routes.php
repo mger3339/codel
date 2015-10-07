@@ -56,7 +56,13 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['admin/login'] = "admin/admin";
 $route['admin/products'] = "admin/products/index";
+$route['add_product'] = "admin/products/addProduct";
+$route['edit_product/(:num)'] = "admin/products/editProduct/$1";
 $route['admin/categories'] = "admin/categories/getCategories";
 $route['admin/areas'] = "admin/areas/getAreas";
+$route['add_country'] = "admin/areas/addArea";
+$route['add_category'] = "admin/categories/addCategory";
+$route['edit_country/(:num)'] = "admin/areas/editArea/$1";
+$route['edit_category/(:num)'] = "admin/categories/editCategory/$1";
 
 /* Frontend routes */

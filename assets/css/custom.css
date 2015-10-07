@@ -644,15 +644,18 @@ select {
     width: 100px;
 }
 .admin_edit_button {
+    height: 30px;
+    margin-right: 10px;
     padding: 0;
-    width: 100px;
-    margin-top: 10px;
+    width: 110px;
+    margin-top: 20px;
 }
 .admin_delete_button {
+    height: 30px;
+    margin-right: 70px;
     padding: 0;
-    width: 100px;
-    margin-top: 10px;
-    margin-left: 25px;
+    width: 110px;
+    margin-top: 20px;
 }
 .div_product {
     min-height: 220px;
@@ -829,4 +832,10 @@ select {
 }
 .delete_category_button {
     overflow: hidden;
+}
+.modeal_yes {
+    width: 70px;
+}
+.modal_no {
+    width: 70px;
 }

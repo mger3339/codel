@@ -41,7 +41,7 @@
                 <strong>Product deleted</strong>
             </div>
             <div id="add_button">
-                <a href="<?php echo base_url('index.php/admin/products/addProduct'); ?>">
+                <a href="<?php echo base_url('add_product'); ?>">
                     <button class="btn btn-info">ADD PRODUCT</button>
                 </a>
             </div>
@@ -59,13 +59,13 @@
                         <div class="country_product"><span>COUNTRY: <span><?php echo $value['country']; ?></div>
                         <div class="category_product"><span>CATEGORY: <span><?php echo $value['category_name']; ?></div>
                         <div class="total_product"><span>TOTAL: <span><?php echo $value['total'] . "<br>"; ?></div>
-                        <a href="<?php echo base_url('admin/products/editProduct/' .$id); ?>">
-                            <button class="btn btn-success btn-lg admin_edit_button">EDIT</button>
-                        </a>
-                        <button class="btn btn-danger btn-lg admin_delete_button" data-toggle="modal"
-                                data-target="#myModal<?= $id ?>">DELETE
-                        </button>
                     </div>
+                    <a href="<?php echo base_url('edit_product/' .$id); ?>">
+                        <button class="btn btn-success btn-lg admin_edit_button">EDIT</button>
+                    </a>
+                    <button class="btn btn-danger btn-lg admin_delete_button" data-toggle="modal"
+                            data-target="#myModal<?= $id ?>">DELETE
+                    </button>
                     <hr>
                 </div>
                 <div class="modal fade" id="myModal<?= $id ?>" tabindex="-1" role="dialog"
@@ -73,16 +73,16 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <p>Are you sure</p>
+                                <p>Are you sure?</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="<?php echo base_url('admin/products'); ?>">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">NO</button>
-                                </a>
                                 <a href="<?php echo base_url('admin/products/deleteProduct/' . $id); ?>">
-                                    <button data-id="<?= $id ?>" type="button" class="btn btn-danger delete"
+                                    <button data-id="<?= $id ?>" type="button" class="btn btn-danger delete modeal_yes"
                                             data-dismiss="modal">YES
                                     </button>
+                                </a>
+                                <a href="<?php echo base_url('admin/products'); ?>">
+                                    <button type="button" class="btn btn-success modal_no" data-dismiss="modal">NO</button>
                                 </a>
                             </div>
                         </div>
